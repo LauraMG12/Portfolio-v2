@@ -15,29 +15,12 @@ import HomePage from "./components/HomePage.vue";
 </template>
 
 <style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  box-sizing: border-box;
-}
-
-#app {
-  position: relative;
-  overflow-x: hidden;
-}
+@import "@/styles/main.scss";
 
 #navigation {
   width: 100vw;
   position: fixed;
-  z-index: 10;
+  z-index: $navigation-index;
 }
 
 #content {
@@ -45,7 +28,7 @@ body {
   grid-template-columns: repeat(12, auto);
   column-gap: 15px;
   grid-template-rows: repeat(4, 100vh);
-  row-gap: 6.5rem;
+  row-gap: $sections-gap;
   margin: 0 auto 0 auto;
   max-width: 1065px;
 }

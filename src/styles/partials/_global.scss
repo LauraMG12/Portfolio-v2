@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+#app {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* TYPOGRAPHIES */
+h1 {
+  color: $black;
+  font-family: $font-primary;
+  font-size: $font-size-h1;
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  color: $grey;
+  font-family: $font-primary;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-normal;
+}
+
+p {
+  font-family: $font-primary;
+  font-size: $font-size-p;
+  font-weight: $font-weight-normal;
+}
+
+/* DEFAULTS */
+button {
+  border: none;
+  background: none;
+}

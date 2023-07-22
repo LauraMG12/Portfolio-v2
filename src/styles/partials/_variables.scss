@@ -1,0 +1,47 @@
+/* COLORS */
+$black: #000;
+$grey-dark: #3f3f3f;
+$grey: #666;
+$grey-medium: #bababa;
+$grey-light: #ebebeb;
+$white: #fff;
+$white-gradient: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  $white 100%
+);
+
+$blue-dark: #1d8cf0;
+$blue-light: #90eeee;
+$blue-gradient-90: linear-gradient(90deg, $blue-dark 0%, $blue-light 100%);
+
+$purple: #7927c9;
+$pink: #fd1c8e;
+$pink-gradient-90: linear-gradient(90deg, $purple 0%, $pink 100%);
+
+$orange: #fd4f4b;
+$yellow: #f9c628;
+$orange-gradient-90: linear-gradient(90deg, $orange 0%, $yellow 100%);
+
+/* FONT */
+$font-primary: Inter, sans-serif;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+$font-size-h1: 5.625rem;
+$font-size-h2: 2.5rem;
+$font-size-p: 1rem;
+$font-size-button: 1.25rem;
+
+/* SPACING */
+
+$sections-gap: 6.5rem;
+
+$navigation-height: 65px;
+
+/* Z-INDEX */
+
+$navigation-index: 10;
+
+/* BREACKPOINTS */

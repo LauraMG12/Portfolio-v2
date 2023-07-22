@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import SvgIcon from "./shared/SvgIcon.vue";
-import { IconTypes } from "./shared/SvgIconHelper";
+
+import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
+import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 
 const sections = ref([
   { id: 0, title: "Projects" },
@@ -16,9 +17,9 @@ const sections = ref([
   <nav class="navigation">
     <SvgIcon :name="IconTypes.Logo" class="logo" />
     <div class="navigation-items">
-      <span v-for="section in sections" :key="section.id">
+      <p v-for="section in sections" :key="section.id" class="item">
         {{ section.title }}
-      </span>
+      </p>
     </div>
   </nav>
 </template>
@@ -26,7 +27,7 @@ const sections = ref([
 <style scoped lang="scss">
 .navigation {
   margin: 0 50px;
-  height: 65px;
+  height: $navigation-height;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -40,16 +41,11 @@ const sections = ref([
     width: 500px;
     display: flex;
     justify-content: space-between;
-    & span {
-      color: #666;
-      font-family: Inter, sans-serif;
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+    & .item {
+      color: $grey;
       &:hover {
         cursor: pointer;
-        color: #000;
+        color: $black;
       }
     }
   }
