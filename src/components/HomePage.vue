@@ -1,23 +1,57 @@
 <script setup lang="ts">
+import { computed, ref } from "vue";
 import AppButton from "./shared/AppButton/AppButton.vue";
+import { GradientType } from "./shared/AppButton/AppButtonHelper";
 import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
+
+interface AppHighlights {
+  text: string;
+  color: GradientType;
+}
+const highlights: AppHighlights[] = [
+  { text: "Passionate", color: "blue" },
+  { text: "Creative", color: "pink" },
+  { text: "Methodical", color: "orange" },
+];
+const homeContent = ref<HTMLDivElement | null>(null);
+const homeContentHeight = computed(
+  () => `${homeContent.value?.clientHeight}px`
+);
+const highlightsIndex = ref<number>(0);
+setInterval(() => {
+  if (highlightsIndex.value < highlights.length - 1) {
+    highlightsIndex.value++;
+  } else {
+    highlightsIndex.value = 0;
+  }
+}, 2500);
 </script>
 
 <template>
   <section id="homePage">
     <div class="background" />
-    <div class="home-content">
+    <div class="home-content" ref="homeContent">
       <h1>Laura Mañogil González</h1>
-      <h2>
-        <span class="blue-highlight">Passionate</span>&nbsp;front end developer
-      </h2>
+      <div class="subtitle">
+        <div
+          class="subtitle-highlight"
+          :class="[`${highlights[highlightsIndex].color}-highlight`]"
+        >
+          <h2>{{ highlights[highlightsIndex].text }}</h2>
+        </div>
+        <div><h2>front-end developer</h2></div>
+      </div>
       <div class="buttons-container">
         <AppButton
           type="dark"
           text="LinkedIn"
           :icon-name="IconTypes.LinkedIn"
         />
-        <AppButton type="white" text="Contact" />
+        <AppButton
+          type="white"
+          text="Contact"
+          :gradient-color="highlights[highlightsIndex].color"
+        />
       </div>
     </div>
     <div class="transition" />
@@ -45,32 +79,42 @@ import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30vh;
+    margin-top: calc(50vh - (v-bind(homeContentHeight) / 2));
     gap: 50px;
-    .blue-highlight {
-      background: $blue-gradient-90;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: $font-weight-bold;
-    }
-    .pink-highlight {
-      background: $pink-gradient-90;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: $font-weight-bold;
-    }
-    .orange-highlight {
-      background: $orange-gradient-90;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: $font-weight-bold;
+    & .subtitle {
+      display: flex;
+      flex-direction: row;
+      & .subtitle-highlight {
+        min-width: 220px;
+        margin-right: 15px;
+        text-align: end;
+        & h2 {
+          font-weight: $font-weight-bold;
+        }
+        &.blue-highlight {
+          background: $blue-gradient-90;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        &.pink-highlight {
+          background: $pink-gradient-90;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        &.orange-highlight {
+          background: $orange-gradient-90;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
     }
     .buttons-container {
       display: flex;
       gap: 36px;
+      margin-top: 50px;
     }
   }
   .transition {

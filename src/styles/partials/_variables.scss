@@ -29,7 +29,7 @@ $font-primary: Inter, sans-serif;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
-$font-size-h1: 5.625rem;
+$font-size-h1: 5rem;
 $font-size-h2: 2.5rem;
 $font-size-p: 1rem;
 $font-size-button: 1.25rem;
@@ -43,5 +43,9 @@ $navigation-height: 65px;
 /* Z-INDEX */
 
 $navigation-index: 10;
+
+/* TRANSITIONS */
+
+$basic-transition-025: all 0.25s ease;;
 
 /* BREACKPOINTS */
