@@ -14,14 +14,32 @@ $white-gradient: linear-gradient(
 $blue-dark: #1d8cf0;
 $blue-light: #90eeee;
 $blue-gradient-90: linear-gradient(90deg, $blue-dark 0%, $blue-light 100%);
+$blue-gradient-180: linear-gradient(180deg, $blue-dark 0%, $blue-light 100%);
+$blue-gradient-opacity-180: linear-gradient(
+  180deg,
+  rgba(0, 124, 240, 0.15) 0%,
+  rgba(0, 223, 216, 0.15) 100%
+);
 
 $purple: #7927c9;
 $pink: #fd1c8e;
 $pink-gradient-90: linear-gradient(90deg, $purple 0%, $pink 100%);
+$pink-gradient-180: linear-gradient(180deg, $purple 0%, $pink 100%);
+$pink-gradient-opacity-180: linear-gradient(
+  180deg,
+  rgba(121, 40, 202, 0.1) 0%,
+  rgba(255, 0, 128, 0.1) 100%
+);
 
 $orange: #fd4f4b;
 $yellow: #f9c628;
 $orange-gradient-90: linear-gradient(90deg, $orange 0%, $yellow 100%);
+$orange-gradient-180: linear-gradient(180deg, $orange 0%, $yellow 100%);
+$orange-gradient-opacity-180: linear-gradient(
+  180deg,
+  rgba(255, 77, 77, 0.1) 0%,
+  rgba(249, 203, 40, 0.1) 100%
+);
 
 /* FONT */
 $font-primary: Inter, sans-serif;
@@ -46,6 +64,6 @@ $navigation-index: 10;
 
 /* TRANSITIONS */
 
-$basic-transition-025: all 0.25s ease;;
+$basic-transition-025: all 0.25s ease;
 
 /* BREACKPOINTS */

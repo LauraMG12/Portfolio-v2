@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import AppButton from "./shared/AppButton/AppButton.vue";
+import DarkButton from "./shared/AppButtons/DarkButton.vue";
+import LightButton from "./shared/AppButtons/LightButton.vue";
 import { GradientType } from "./shared/AppButton/AppButtonHelper";
 import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 
@@ -37,18 +38,15 @@ setInterval(() => {
           class="subtitle-highlight"
           :class="[`${highlights[highlightsIndex].color}-highlight`]"
         >
-          <h2>{{ highlights[highlightsIndex].text }}</h2>
+          <h2>
+            {{ highlights[highlightsIndex].text }}
+          </h2>
         </div>
         <div><h2>front-end developer</h2></div>
       </div>
       <div class="buttons-container">
-        <AppButton
-          type="dark"
-          text="LinkedIn"
-          :icon-name="IconTypes.LinkedIn"
-        />
-        <AppButton
-          type="white"
+        <DarkButton text="LinkedIn" :icon-name="IconTypes.LinkedIn" />
+        <LightButton
           text="Contact"
           :gradient-color="highlights[highlightsIndex].color"
         />
@@ -86,7 +84,7 @@ setInterval(() => {
       flex-direction: row;
       & .subtitle-highlight {
         min-width: 220px;
-        margin-right: 15px;
+        margin-right: 0.95rem;
         text-align: end;
         & h2 {
           font-weight: $font-weight-bold;
