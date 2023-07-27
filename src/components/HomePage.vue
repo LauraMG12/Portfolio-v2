@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { GradientType } from "./shared/AppButton/AppButtonHelper";
+import { GradientType } from "./shared/AppButtons/LightButton.vue";
 import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 
 interface AppHighlights {
@@ -82,10 +82,12 @@ setInterval(() => {
     & .subtitle {
       display: flex;
       flex-direction: row;
+
       & .subtitle-highlight {
         min-width: 220px;
         margin-right: 0.95rem;
         text-align: end;
+
         & h2 {
           font-weight: $font-weight-bold;
         }

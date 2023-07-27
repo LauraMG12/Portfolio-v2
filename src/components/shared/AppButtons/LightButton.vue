@@ -67,10 +67,10 @@ const props = defineProps<AppButtonProps>();
       border-radius: 10px;
       justify-content: center;
       align-items: center;
-      transition: $basic-transition-025;
       background-color: $white;
       color: $black;
       z-index: 2;
+
       &:hover {
         cursor: pointer;
       }

@@ -25,9 +25,12 @@ const props = defineProps<AppButtonProps>();
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  transition: $basic-transition-025;
   background-color: black;
   color: $white;
+  -webkit-transition: $basic-transition-025;
+  -moz-transition: $basic-transition-025;
+  -o-transition: $basic-transition-025;
+  transition: $basic-transition-025;
   &:hover {
     cursor: pointer;
     background-color: $grey-dark;
