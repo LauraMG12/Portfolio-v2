@@ -1,6 +1,7 @@
 export enum IconTypes {
   Logo = "logo",
   LinkedIn = "linkedin",
+  Menu = "navigation-menu",
 }
 
 export interface SvgIconDefaultSettings {
@@ -18,12 +19,16 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   Required<SvgIconDefaultSettings>
 > = {
   logo: {
-    width: 80,
-    height: 50,
+    width: 70,
+    height: 45,
   },
   linkedin: {
     width: 25,
     height: 25,
+  },
+  "navigation-menu": {
+    width: 35,
+    height: 35,
   },
 };
 

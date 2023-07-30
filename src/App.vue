@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
+import ProjectsSection from "./components/ProjectsSection.vue";
 
 import { onMounted, ref } from "vue";
 
@@ -23,6 +24,7 @@ function updateScroll() {
 
   <main id="content">
     <HomePage />
+    <ProjectsSection />
   </main>
   <footer></footer>
 </template>
@@ -34,7 +36,6 @@ function updateScroll() {
   width: 100vw;
   position: fixed;
   z-index: $navigation-index;
-  transition: $basic-transition-025;
   &.blur-navigation {
     backdrop-filter: blur(35px);
     box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
@@ -43,11 +44,16 @@ function updateScroll() {
 
 #content {
   display: grid;
-  grid-template-columns: repeat(12, auto);
+  grid-template-columns: repeat(12, minmax(25px, 75px));
   column-gap: 15px;
-  grid-template-rows: repeat(4, 100vh);
+  grid-template-rows: 100vh repeat(4, 1fr);
   row-gap: $sections-gap;
   margin: 0 auto 0 auto;
   max-width: 1065px;
+  @media screen and (max-width: $breackpoint-small) {
+    margin: 0 15px 0 15px;
+    column-gap: 5px;
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 </style>

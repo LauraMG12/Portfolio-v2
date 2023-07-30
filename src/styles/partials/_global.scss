@@ -21,15 +21,26 @@ body {
 h1 {
   color: $black;
   font-family: $font-primary;
-  font-size: $font-size-h1;
+  font-size: $font-size-h1-desktop-adaptable;
   font-weight: $font-weight-bold;
+  @media screen and (max-width: $breackpoint-small) {
+    font-size: $font-size-h1-mobile-adaptable;
+  }
 }
 
 h2 {
   color: $grey;
   font-family: $font-primary;
-  font-size: $font-size-h2;
+  font-size: $font-size-h2-desktop-adaptable;
   font-weight: $font-weight-normal;
+  @media screen and (max-width: $breackpoint-small) {
+    font-size: $font-size-h2-mobile-adaptable;
+  }
+  &.section-title {
+    color: $grey-dark;
+    font-size: $font-size-h2-section-title;
+    font-weight: $font-weight-bold;
+  }
 }
 
 p {
@@ -38,7 +49,33 @@ p {
   font-weight: $font-weight-normal;
 }
 
-/* DEFAULTS */
+/* BUTTONS */
 button {
   border: none;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  height: 45px;
+  width: 185px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: $breackpoint-medium) {
+    height: 40px;
+  }
+  @media screen and (max-width: $breackpoint-small) {
+    width: 100%;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.button-text {
+  font-size: $font-size-button;
+  font-weight: $font-weight-bold;
+  @media screen and (max-width: $breackpoint-medium) {
+    font-size: $font-size-button-mobile;
+  }
 }

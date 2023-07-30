@@ -42,7 +42,7 @@ setInterval(() => {
             {{ highlights[highlightsIndex].text }}
           </h2>
         </div>
-        <div><h2>front-end developer</h2></div>
+        <h2>front-end developer</h2>
       </div>
       <div class="buttons-container">
         <DarkButton text="LinkedIn" :icon-name="IconTypes.LinkedIn" />
@@ -66,7 +66,7 @@ setInterval(() => {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url("../assets/homeBackground.jpg"), $grey-light 50%;
+    background: url("../assets/home-background.jpg"), $grey-light 50%;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-position: top;
@@ -79,14 +79,30 @@ setInterval(() => {
     align-items: center;
     margin-top: calc(50vh - (v-bind(homeContentHeight) / 2));
     gap: 50px;
+    @media screen and (max-width: $breackpoint-small) {
+      gap: 35px;
+    }
     & .subtitle {
       display: flex;
       flex-direction: row;
 
+      width: 100%;
+      justify-content: center;
+
+      @media screen and (max-width: $breackpoint-small) {
+        flex-direction: column;
+        align-items: center;
+      }
+
       & .subtitle-highlight {
-        min-width: 220px;
+        width: 23vmax;
         margin-right: 0.95rem;
         text-align: end;
+        @media screen and (max-width: $breackpoint-small) {
+          margin-right: 0.55rem;
+          width: 37vmin;
+          text-align: center;
+        }
 
         & h2 {
           font-weight: $font-weight-bold;
@@ -115,6 +131,12 @@ setInterval(() => {
       display: flex;
       gap: 36px;
       margin-top: 50px;
+      @media screen and (max-width: $breackpoint-small) {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 65px;
+      }
     }
   }
   .transition {

@@ -37,6 +37,10 @@ const props = defineProps<AppButtonProps>();
     border-radius: 16.25rem;
     filter: blur(17.5px);
     position: absolute;
+
+    @media screen and (max-width: $breackpoint-small) {
+      width: 100vw;
+    }
     &.blue-background {
       background: $blue-gradient-opacity-180;
     }
@@ -50,30 +54,18 @@ const props = defineProps<AppButtonProps>();
   .button-container {
     position: relative;
     border-radius: 10px;
+    @media screen and (max-width: $breackpoint-small) {
+      width: 100%;
+    }
     &:hover {
       .gradient {
         z-index: 3;
       }
     }
-    .button-text {
-      font-size: $font-size-button;
-      font-weight: $font-weight-bold;
-    }
     .button {
-      position: relative;
-      display: flex;
-      height: 45px;
-      width: 185px;
-      border-radius: 10px;
-      justify-content: center;
-      align-items: center;
       background-color: $white;
       color: $black;
       z-index: 2;
-
-      &:hover {
-        cursor: pointer;
-      }
 
       & .button-text {
         color: $black;
@@ -91,6 +83,12 @@ const props = defineProps<AppButtonProps>();
       align-items: center;
       color: $white;
       z-index: 1;
+      @media screen and (max-width: $breackpoint-medium) {
+        height: 42px;
+      }
+      @media screen and (max-width: $breackpoint-small) {
+        width: calc(100% + 2px);
+      }
       &.blue-gradient {
         background-image: $blue-gradient-180;
       }
