@@ -26,6 +26,9 @@ h1 {
   @media screen and (max-width: $breackpoint-small) {
     font-size: $font-size-h1-mobile-adaptable;
   }
+  @media screen and (min-width: $breackpoint-large) {
+    font-size: $font-size-h1;
+  }
 }
 
 h2 {
@@ -35,6 +38,9 @@ h2 {
   font-weight: $font-weight-normal;
   @media screen and (max-width: $breackpoint-small) {
     font-size: $font-size-h2-mobile-adaptable;
+  }
+  @media screen and (min-width: $breackpoint-large) {
+    font-size: $font-size-h2;
   }
   &.section-title {
     color: $grey-dark;

@@ -79,6 +79,7 @@ setInterval(() => {
     align-items: center;
     margin-top: calc(50vh - (v-bind(homeContentHeight) / 2));
     gap: 50px;
+    white-space: nowrap;
     @media screen and (max-width: $breackpoint-small) {
       gap: 35px;
     }
@@ -95,13 +96,16 @@ setInterval(() => {
       }
 
       & .subtitle-highlight {
-        width: 23vmax;
+        width: 220px;
         margin-right: 0.95rem;
         text-align: end;
         @media screen and (max-width: $breackpoint-small) {
           margin-right: 0.55rem;
           width: 37vmin;
           text-align: center;
+        }
+        @media screen and (max-width: $breackpoint-large) {
+          width: 23vmax;
         }
 
         & h2 {
