@@ -39,7 +39,8 @@ const props = defineProps<AppButtonProps>();
     position: absolute;
 
     @media screen and (max-width: $breackpoint-small) {
-      width: 100vw;
+      width: 75vmin;
+      min-width: 260px;
     }
     &.blue-background {
       background: $blue-gradient-opacity-180;

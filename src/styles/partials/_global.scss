@@ -82,7 +82,8 @@ button {
     height: 40px;
   }
   @media screen and (max-width: $breackpoint-small) {
-    width: 100%;
+    width: 55vmin;
+    min-width: 185px;
   }
   &:hover {
     cursor: pointer;

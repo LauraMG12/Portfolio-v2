@@ -24,6 +24,7 @@ setInterval(() => {
 <template>
   <section id="homePage">
     <div class="background" />
+    <!-- TODO: Adjust home content title and subtitle to fit and be adjusted by the grid container -->
     <div class="home-content" ref="homeContent">
       <h1>Laura Mañogil González</h1>
       <div class="subtitle">
@@ -133,6 +134,7 @@ setInterval(() => {
         flex-direction: column;
         gap: 20px;
         margin-top: 65px;
+        align-items: center;
       }
     }
   }
