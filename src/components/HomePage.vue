@@ -1,19 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { highlights } from "../content/Home";
+
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { GradientType } from "./shared/AppButtons/LightButton.vue";
+
 import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 
-interface AppHighlights {
-  text: string;
-  color: GradientType;
-}
-const highlights: AppHighlights[] = [
-  { text: "Passionate", color: "blue" },
-  { text: "Creative", color: "pink" },
-  { text: "Methodical", color: "orange" },
-];
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
   () => `${homeContent.value?.clientHeight}px`
@@ -145,7 +138,7 @@ setInterval(() => {
   }
   .transition {
     position: absolute;
-    top: calc(100vh - 7rem);
+    top: calc(100vh - 7rem + 1px);
     left: 0;
     height: 7rem;
     width: 100vw;

@@ -1,7 +1,9 @@
 export enum IconTypes {
-  Logo = "logo",
+  GitHub = "github",
   LinkedIn = "linkedin",
+  Logo = "logo",
   Menu = "navigation-menu",
+  Redirect = "redirect",
 }
 
 export interface SvgIconDefaultSettings {
@@ -29,6 +31,14 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   "navigation-menu": {
     width: 35,
     height: 35,
+  },
+  github: {
+    width: 25,
+    height: 25,
+  },
+  redirect: {
+    width: 25,
+    height: 25,
   },
 };
 

@@ -34,4 +34,8 @@ function getImgPath(iconName: IconTypes) {
   />
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+img:hover {
+  cursor: pointer;
+}
+</style>

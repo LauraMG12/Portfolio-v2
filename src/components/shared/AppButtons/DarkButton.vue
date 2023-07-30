@@ -9,6 +9,7 @@ import { isSmallDevice } from "../../../state/AppState";
 interface AppButtonProps {
   text: string;
   iconName: IconTypes;
+  simple?: boolean;
 }
 const props = defineProps<AppButtonProps>();
 
@@ -18,14 +19,16 @@ const mobileIconSize = computed(() =>
 </script>
 
 <template>
-  <button class="button">
+  <button class="button" :class="{ simple: props.simple }">
     <SvgIcon
       class="button-icon"
-      v-if="props.iconName"
+      v-if="props.iconName && !props.simple"
       :name="props.iconName"
       :size="mobileIconSize"
     />
-    <p class="button-text">{{ props.text }}</p>
+    <p class="button-text" :class="{ simple: props.simple }">
+      {{ props.text }}
+    </p>
   </button>
 </template>
 
@@ -33,7 +36,12 @@ const mobileIconSize = computed(() =>
 .button {
   background-color: black;
   color: $white;
-  &:hover {
+  &.simple {
+    background-color: transparent;
+    color: $black;
+    text-decoration: underline;
+  }
+  &:hover:not(.simple) {
     background-color: $grey-dark;
   }
   & .button-icon {

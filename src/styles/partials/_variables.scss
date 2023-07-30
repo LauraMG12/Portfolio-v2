@@ -10,6 +10,7 @@ $white-gradient: linear-gradient(
   rgba(255, 255, 255, 0) 0%,
   $white 100%
 );
+$dark-overlay: rgba(0, 0, 0, 0.75);
 
 $blue-dark: #1d8cf0;
 $blue-light: #90eeee;
@@ -57,7 +58,8 @@ $font-size-h2-mobile-adaptable: 6vmin;
 
 $font-size-h2-section-title: 3.5rem;
 
-$font-size-p: 1rem;
+$font-size-p-desktop: 1.25rem;
+$font-size-p-mobile: 1rem;
 
 $font-size-button: 1.25rem;
 $font-size-button-mobile: 1rem;

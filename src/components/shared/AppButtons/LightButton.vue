@@ -1,5 +1,5 @@
 <script setup lang="ts">
-export type GradientType = "blue" | "pink" | "orange";
+import { GradientType } from "../../../state/AppState";
 
 interface AppButtonProps {
   text: string;

@@ -1,25 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
+
+import { sections } from "../content/Navigation";
 
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 
 import { isSmallDevice } from "../state/AppState";
-
-interface SectionsInfo {
-  id: number;
-  title: string;
-  isSelected: boolean;
-}
-
-// TODO: extract to a content folder in s section.json file
-const sections = ref<SectionsInfo[]>([
-  { id: 0, title: "Projects", isSelected: false },
-  { id: 1, title: "Technologies", isSelected: false },
-  { id: 2, title: "Experience", isSelected: false },
-  { id: 3, title: "About", isSelected: false },
-  { id: 4, title: "Contact", isSelected: false },
-]);
 
 const mobileIconSize = computed(() =>
   isSmallDevice.value ? { width: 55, height: 35 } : undefined
@@ -28,9 +15,9 @@ const mobileIconSize = computed(() =>
 
 <template>
   <nav class="navigation">
-    <SvgIcon :name="IconTypes.Logo" class="icon" :size="mobileIconSize" />
+    <SvgIcon :name="IconTypes.Logo" :size="mobileIconSize" />
     <div v-if="isSmallDevice">
-      <SvgIcon :name="IconTypes.Menu" class="icon" />
+      <SvgIcon :name="IconTypes.Menu" />
     </div>
     <div v-else class="navigation-items">
       <div
@@ -57,10 +44,6 @@ const mobileIconSize = computed(() =>
   justify-content: space-between;
   @media screen and (max-width: $breackpoint-small) {
     margin: 0 15px;
-  }
-
-  & .icon:hover {
-    cursor: pointer;
   }
 
   & .navigation-items {
