@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import AppProject from "./shared/AppProject/AppProject.vue";
+
+import { projects } from "../content/Projects";
 </script>
 
 <template>
   <section id="projectsSection">
     <h2 class="section-title">Projects</h2>
     <div class="projects-container">
-      <AppProject color="blue" />
-      <AppProject color="pink" />
-      <AppProject color="orange" />
+      <AppProject
+        v-for="project in projects"
+        :key="project.id"
+        :color="project.color"
+        :information="project.info"
+      />
     </div>
   </section>
 </template>

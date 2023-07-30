@@ -8,7 +8,7 @@ import { isSmallDevice } from "../../../state/AppState";
 
 interface AppButtonProps {
   text: string;
-  iconName: IconTypes;
+  iconName?: IconTypes;
   simple?: boolean;
 }
 const props = defineProps<AppButtonProps>();

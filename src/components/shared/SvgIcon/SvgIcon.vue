@@ -13,12 +13,12 @@ interface SvgIconProps {
 
 const props = defineProps<SvgIconProps>();
 
-const iconPath = getImgPath(props.name) ?? null;
+const iconPath = getSvgPath(props.name) ?? null;
 const settings = computed(() =>
   transformSvgPropsFormat(props.name, props.size)
 );
 
-function getImgPath(iconName: IconTypes) {
+function getSvgPath(iconName: IconTypes) {
   return require(`@/assets/${iconName}.svg`);
 }
 </script>
