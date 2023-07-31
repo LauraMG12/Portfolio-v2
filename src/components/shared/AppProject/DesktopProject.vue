@@ -7,11 +7,11 @@ import { IconTypes } from "../SvgIcon/SvgIconHelper";
 import { ProjectInfo } from "../../../content/Projects";
 import { GradientType } from "../../../state/AppState";
 
-interface AppProjectProps {
+interface DesktopProjectProps {
   color: GradientType;
   information: ProjectInfo;
 }
-const props = defineProps<AppProjectProps>();
+const props = defineProps<DesktopProjectProps>();
 
 const projectImage = getImgPath(props.information.image) ?? null;
 

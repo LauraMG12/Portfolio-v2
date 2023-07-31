@@ -63,6 +63,9 @@ p {
   font-size: $font-size-p-desktop;
   font-weight: $font-weight-normal;
   line-height: 145%;
+  @media screen and (max-width: $breackpoint-medium) {
+    font-size: $font-size-p-mobile;
+  }
 }
 
 /* BUTTONS */

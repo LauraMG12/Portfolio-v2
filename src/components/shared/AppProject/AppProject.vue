@@ -13,7 +13,7 @@ const props = defineProps<AppProjectProps>();
 </script>
 
 <template>
-  <MobileProject v-if="isSmallDevice" />
+  <MobileProject v-if="isSmallDevice" :information="props.information" />
   <DesktopProject
     v-else
     :color="props.color"

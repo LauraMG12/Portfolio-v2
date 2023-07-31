@@ -1,4 +1,5 @@
 export enum IconTypes {
+  Arrow = "arrow",
   CSS = "css",
   GitHub = "github",
   HTML = "html",
@@ -22,6 +23,10 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   IconTypes,
   Required<SvgIconDefaultSettings>
 > = {
+  arrow: {
+    width: 15,
+    height: 10,
+  },
   css: {
     width: 20,
     height: 20,
