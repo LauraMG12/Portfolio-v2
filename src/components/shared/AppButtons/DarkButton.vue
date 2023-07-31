@@ -19,6 +19,7 @@ const mobileIconSize = computed(() =>
 </script>
 
 <template>
+  <!--TODO: extract simple button into its own component-->
   <button class="button" :class="{ simple: props.simple }">
     <SvgIcon
       class="button-icon"

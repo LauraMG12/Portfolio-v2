@@ -11,8 +11,8 @@ interface AppProjectProps {
 }
 const props = defineProps<AppProjectProps>();
 </script>
-
 <template>
+  <!--TODO: impove responsiveness-->
   <MobileProject v-if="isSmallDevice" :information="props.information" />
   <DesktopProject
     v-else

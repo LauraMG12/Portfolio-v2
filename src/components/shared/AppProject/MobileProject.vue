@@ -58,6 +58,7 @@ function getImgPath(imageName: string) {
     position: relative;
     width: 100%;
     aspect-ratio: auto;
+    max-height: 450px;
     border-radius: 20px;
     overflow: hidden;
     & .image {

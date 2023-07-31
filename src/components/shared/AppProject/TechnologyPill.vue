@@ -11,7 +11,7 @@ interface TechnologyPillProps {
 const props = defineProps<TechnologyPillProps>();
 
 const iconSize = computed(() =>
-  isSmallDevice ? { width: 35, height: 35 } : undefined
+  isSmallDevice.value ? { width: 30, height: 30 } : undefined
 );
 </script>
 

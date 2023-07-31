@@ -45,17 +45,29 @@ h2 {
   &.section-title {
     text-align: center;
     color: $grey-dark;
-    font-size: $font-size-h2-section-title;
+    font-size: $font-size-h2-section-title-desktop;
     font-weight: $font-weight-bold;
     margin-bottom: 8rem;
+    @media screen and (max-width: $breackpoint-medium) {
+      font-size: $font-size-h2-section-title-medium;
+    }
+    @media screen and (max-width: $breackpoint-small) {
+      font-size: $font-size-h2-section-title-mobile;
+    }
   }
 }
 
 h3 {
   color: $black;
   font-family: $font-primary;
-  font-size: $font-size-h2;
+  font-size: $font-size-h3-desktop;
   font-weight: $font-weight-normal;
+  @media screen and (max-width: $breackpoint-medium) {
+    font-size: $font-size-h3-medium;
+  }
+  @media screen and (max-width: $breackpoint-small) {
+    font-size: $font-size-h3-mobile;
+  }
 }
 
 p {
@@ -72,7 +84,7 @@ p {
 button {
   border: none;
 }
-
+// TODO: impove responsiveness -> change button class name for responsiveness to avoid affect all buttons
 .button {
   position: relative;
   display: flex;
