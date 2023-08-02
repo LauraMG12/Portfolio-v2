@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import TechnologyPill from "./TechnologyPill.vue";
+import AppPill from "../AppPill.vue";
 import DarkButton from "../AppButtons/DarkButton.vue";
+import SimpleButton from "../AppButtons/SimpleButton.vue";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
 import { IconTypes } from "../SvgIcon/SvgIconHelper";
@@ -22,11 +23,11 @@ function getImgPath(imageName: string) {
   <div class="project-container">
     <h3 class="project-title">{{ information.title }}</h3>
     <div class="project-technologies">
-      <TechnologyPill
+      <AppPill
         v-for="technology in information.technologies"
         :key="technology.name"
-        :name="technology.name"
         :iconName="technology.iconName"
+        color="light"
       />
     </div>
     <div class="project-image">
@@ -34,13 +35,13 @@ function getImgPath(imageName: string) {
         <p class="project-description">
           {{ information.description }}
         </p>
-        <SvgIcon :name="IconTypes.Arrow" />
+        <SvgIcon :name="IconTypes.Arrow" class="white-icon" />
       </div>
       <img class="image" :src="projectImage" />
     </div>
     <div class="project-buttons-container">
       <DarkButton text="Code" :iconName="IconTypes.GitHub" />
-      <DarkButton text="View project" :simple="true" />
+      <SimpleButton text="View project" />
     </div>
   </div>
 </template>

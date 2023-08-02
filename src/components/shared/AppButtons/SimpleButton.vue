@@ -20,7 +20,7 @@ const mobileIconSize = computed(() =>
 <template>
   <button class="button">
     <SvgIcon
-      class="button-icon white-icon"
+      class="button-icon"
       v-if="props.iconName"
       :name="props.iconName"
       :size="mobileIconSize"
@@ -33,18 +33,19 @@ const mobileIconSize = computed(() =>
 
 <style scoped lang="scss">
 .button {
-  background-color: black;
-  color: $white;
-  padding: 10px 25px;
+  background-color: transparent;
+  color: $black;
+  text-decoration: underline;
+  width: fit-content;
 
-  &:hover {
-    background-color: $grey-dark;
-  }
   & .button-icon {
     margin-right: 25px;
     @media screen and (max-width: $breackpoint-medium) {
       margin-right: 20px;
     }
+  }
+  & .button-text {
+    font-size: $font-size-p-mobile;
   }
 }
 </style>

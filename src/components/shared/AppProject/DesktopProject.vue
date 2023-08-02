@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import TechnologyPill from "./TechnologyPill.vue";
+import AppPill from "../AppPill.vue";
 import DarkButton from "../AppButtons/DarkButton.vue";
+import SimpleButton from "../AppButtons/SimpleButton.vue";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
 import { IconTypes } from "../SvgIcon/SvgIconHelper";
@@ -25,18 +26,23 @@ function getImgPath(imageName: string) {
     <div class="project-header">
       <h3 class="project-title">{{ information.title }}</h3>
       <div class="project-technologies">
-        <TechnologyPill
+        <AppPill
           v-for="technology in information.technologies"
           :key="technology.name"
           :name="technology.name"
           :iconName="technology.iconName"
+          color="dark"
         />
       </div>
     </div>
     <div class="project-content">
       <div class="project-image">
         <div class="overlay">
-          <SvgIcon :name="IconTypes.GitHub" :size="{ height: 55, width: 55 }" />
+          <SvgIcon
+            :name="IconTypes.GitHub"
+            :size="{ height: 55, width: 55 }"
+            class="white-icon"
+          />
           <SvgIcon
             :name="IconTypes.Redirect"
             :size="{ height: 50, width: 50 }"
@@ -50,7 +56,7 @@ function getImgPath(imageName: string) {
         </p>
         <div class="project-buttons-container">
           <DarkButton text="Code" :iconName="IconTypes.GitHub" />
-          <DarkButton text="View project" :simple="true" />
+          <SimpleButton text="View project" />
         </div>
       </div>
     </div>
@@ -113,13 +119,14 @@ function getImgPath(imageName: string) {
     }
     & .project-aside {
       width: 40%;
-      padding: 30px;
+      padding: 0 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       & .project-buttons-container {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
       }
     }
   }

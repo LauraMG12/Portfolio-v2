@@ -39,7 +39,11 @@ setInterval(() => {
         <h2>front-end developer</h2>
       </div>
       <div class="buttons-container">
-        <DarkButton text="LinkedIn" :icon-name="IconTypes.LinkedIn" />
+        <DarkButton
+          text="LinkedIn"
+          :icon-name="IconTypes.LinkedIn"
+          class="home-button"
+        />
         <LightButton
           text="Contact"
           :gradient-color="highlights[highlightsIndex].color"

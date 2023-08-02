@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { IconTypes } from "../SvgIcon/SvgIconHelper";
-import SvgIcon from "../SvgIcon/SvgIcon.vue";
+import { IconTypes } from "./SvgIcon/SvgIconHelper";
+import SvgIcon from "./SvgIcon/SvgIcon.vue";
 import { isSmallDevice } from "@/state/AppState";
 import { computed } from "vue";
 
-interface TechnologyPillProps {
-  name: string;
-  iconName: IconTypes;
+interface AppPillProps {
+  name?: string;
+  iconName?: IconTypes;
+  color: "dark" | "light";
 }
-const props = defineProps<TechnologyPillProps>();
-
+const props = defineProps<AppPillProps>();
 const iconSize = computed(() =>
   isSmallDevice.value ? { width: 30, height: 30 } : undefined
 );
 </script>
 
 <template>
-  <div class="pill-container">
-    <SvgIcon :name="props.iconName" :size="iconSize" />
-    <p v-if="!isSmallDevice" class="pill-text">{{ props.name }}</p>
+  <div class="pill-container" :class="[props.color]">
+    <SvgIcon v-if="props.iconName" :name="props.iconName" :size="iconSize" />
+    <p v-if="props.name" class="pill-text">{{ props.name }}</p>
   </div>
 </template>
 
@@ -26,18 +26,23 @@ const iconSize = computed(() =>
 .pill-container {
   padding: 5px 10px;
   border-radius: 20px;
-  background-color: $grey-dark;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   height: fit-content;
   @media screen and (max-width: $breackpoint-medium) {
-    background-color: $grey-light;
     padding: 5px 15px;
   }
-  .pill-text {
+  &.dark {
+    background-color: $grey-dark;
     color: $white;
+  }
+  &.light {
+    background-color: $grey-light;
+    color: $black;
+  }
+  .pill-text {
     font-size: $font-size-p-mobile;
   }
 }

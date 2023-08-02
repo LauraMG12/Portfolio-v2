@@ -47,7 +47,7 @@ h2 {
     color: $grey-dark;
     font-size: $font-size-h2-section-title-desktop;
     font-weight: $font-weight-bold;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     @media screen and (max-width: $breackpoint-medium) {
       font-size: $font-size-h2-section-title-medium;
     }
@@ -84,22 +84,17 @@ p {
 button {
   border: none;
 }
-// TODO: impove responsiveness -> change button class name for responsiveness to avoid affect all buttons
 .button {
   position: relative;
   display: flex;
   height: 45px;
-  width: 185px;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   @media screen and (max-width: $breackpoint-medium) {
     height: 40px;
   }
-  @media screen and (max-width: $breackpoint-small) {
-    width: 55vmin;
-    min-width: 185px;
-  }
+  
   &:hover {
     cursor: pointer;
   }
@@ -110,4 +105,12 @@ button {
   @media screen and (max-width: $breackpoint-medium) {
     font-size: $font-size-button-mobile;
   }
+}
+.home-button{
+  width: 185px;
+}
+
+//TODO: improve icon color with prop value
+.white-icon{
+  filter: invert(100%) sepia(65%) saturate(843%) hue-rotate(169deg) brightness(114%) contrast(101%);
 }

@@ -15,7 +15,7 @@ const props = defineProps<AppButtonProps>();
       :class="[`${props.gradientColor}-background`]"
     />
     <button class="button-container">
-      <div class="button">
+      <div class="button home-button">
         <p class="button-text">{{ props.text }}</p>
       </div>
       <div class="gradient" :class="[`${props.gradientColor}-gradient`]">
@@ -25,7 +25,7 @@ const props = defineProps<AppButtonProps>();
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .button-wrapper {
   position: relative;
   .background-gradient {
@@ -67,6 +67,7 @@ const props = defineProps<AppButtonProps>();
       background-color: $white;
       color: $black;
       z-index: 2;
+      width: 185px;
 
       & .button-text {
         color: $black;

@@ -2,6 +2,7 @@
 import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
+import AboutSection from "./components/AboutSection.vue";
 
 import { onMounted, ref } from "vue";
 
@@ -25,6 +26,7 @@ function updateScroll() {
   <main id="content">
     <HomePage />
     <ProjectsSection />
+    <AboutSection />
   </main>
   <footer></footer>
 </template>
@@ -46,7 +48,7 @@ function updateScroll() {
   display: grid;
   grid-template-columns: repeat(12, minmax(25px, 75px));
   column-gap: 15px;
-  grid-template-rows: 100vh repeat(4, 1fr);
+  grid-template-rows: 100vh repeat(3, 1fr);
   row-gap: $sections-gap;
   margin: 0 auto 0 auto;
   max-width: 1065px;
