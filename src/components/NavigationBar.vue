@@ -52,6 +52,7 @@ const mobileIconSize = computed(() =>
     & .item-container {
       padding: 5px 10px;
       border-radius: 20px;
+      gap: 45px;
       &:hover {
         cursor: pointer;
       }
@@ -60,6 +61,7 @@ const mobileIconSize = computed(() =>
       }
       & .item {
         color: $grey;
+        font-size: $font-size-p-mobile;
         &.selected {
           color: $black;
         }

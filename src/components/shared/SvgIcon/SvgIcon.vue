@@ -36,6 +36,13 @@ const iconPath = computed(() => {
       :viewBox="settings.viewBox"
       :style="settings.style"
       :class="props.name"
+      class="icon"
     />
   </Suspense>
 </template>
+
+<style scoped lang="scss">
+.icon {
+  cursor: pointer;
+}
+</style>

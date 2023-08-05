@@ -71,13 +71,30 @@ h3 {
   }
 }
 
-p {
+h4 {
+  color: $grey-dark;
+  font-family: $font-primary;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-h4-desktop;
+  @media screen and (max-width: $breackpoint-small) {
+    font-size: $font-size-h4-mobile;
+  }
+}
+
+p:not(.footer-contact) {
   font-family: $font-primary;
   font-size: $font-size-p-desktop;
   font-weight: $font-weight-normal;
   line-height: 145%;
   @media screen and (max-width: $breackpoint-medium) {
     font-size: $font-size-p-mobile;
+  }
+}
+p.footer-contact {
+  font-size: $font-size-small;
+  font-family: $font-primary;
+  @media screen and (max-width: $breackpoint-small) {
+    $font-size: $font-size-smallest;
   }
 }
 
@@ -109,10 +126,4 @@ button {
 }
 .home-button {
   width: 185px;
-}
-
-//TODO: improve icon color with prop value
-.white-icon {
-  filter: invert(100%) sepia(65%) saturate(843%) hue-rotate(169deg)
-    brightness(114%) contrast(101%);
 }

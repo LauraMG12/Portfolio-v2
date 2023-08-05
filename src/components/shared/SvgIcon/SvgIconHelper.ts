@@ -1,12 +1,16 @@
 const ICON_TYPE = [
   "arrow",
+  "bubble",
   "css",
+  "dashed",
   "download",
   "github",
   "html",
   "linkedin",
   "logo",
+  "mail",
   "navigation",
+  "plane",
   "redirect",
 ] as const;
 
@@ -14,13 +18,17 @@ export type IconType = (typeof ICON_TYPE)[number];
 
 export const ICON_TYPE_MAP: Record<IconType, string> = {
   arrow: "Arrow",
+  bubble: "Bubble",
   css: "Css",
+  dashed: "DashedArrow",
   download: "Download",
   github: "Github",
   html: "Html",
   linkedin: "Linkedin",
   logo: "Logo",
+  mail: "Mail",
   navigation: "Navigation",
+  plane: "PaperPlane",
   redirect: "Redirect",
 };
 
@@ -75,11 +83,23 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     width: 15,
     height: 10,
   },
+  bubble: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 270,
+    height: 270,
+  },
   css: {
     color: "currentColor",
     colorProperty: "fill",
     width: 20,
     height: 20,
+  },
+  dashed: {
+    color: "currentColor",
+    colorProperty: "stroke",
+    width: 205,
+    height: 150,
   },
   download: {
     color: "currentColor",
@@ -111,11 +131,23 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     width: 70,
     height: 45,
   },
+  mail: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 30,
+    height: 30,
+  },
   navigation: {
     color: "currentColor",
     colorProperty: "stroke",
     width: 35,
     height: 35,
+  },
+  plane: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 25,
+    height: 25,
   },
   redirect: {
     color: "currentColor",

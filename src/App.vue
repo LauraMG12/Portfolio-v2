@@ -3,7 +3,8 @@ import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 import AboutSection from "./components/AboutSection.vue";
-import Footer from "./components/Footer.vue";
+import ContactSection from "./components/ContactSection.vue";
+import FooterSection from "./components/Footer.vue";
 
 import { onMounted, ref } from "vue";
 
@@ -28,9 +29,10 @@ function updateScroll() {
     <HomePage />
     <ProjectsSection />
     <AboutSection />
+    <ContactSection />
   </main>
   <footer>
-    <Footer />
+    <FooterSection />
   </footer>
 </template>
 
@@ -42,7 +44,7 @@ function updateScroll() {
   position: fixed;
   z-index: $navigation-index;
   &.blur-navigation {
-    backdrop-filter: blur(35px);
+    background-color: $white;
     box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
   }
 }
@@ -51,10 +53,11 @@ function updateScroll() {
   display: grid;
   grid-template-columns: repeat(12, minmax(25px, 75px));
   column-gap: 15px;
-  grid-template-rows: 100vh repeat(3, 1fr);
+  grid-template-rows: 100vh 1fr auto auto;
   row-gap: $sections-gap;
   margin: 0 auto 0 auto;
   max-width: 1065px;
+  padding-bottom: 8rem;
   @media screen and (max-width: $breackpoint-large) {
     margin: 0 100px 0 100px;
   }

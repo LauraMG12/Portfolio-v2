@@ -10,19 +10,19 @@ const mobileIconSize = computed(() =>
 </script>
 
 <template>
-  <div class="footer-container">
+  <div id="footer">
     <SvgIcon name="logo" :size="mobileIconSize" />
     <p class="name">Laura Mañogil González</p>
     <div class="contact">
-      <p>LinkedIn</p>
-      <p>laura.lmg12@gmail.com</p>
-      <p>GitHub</p>
+      <p class="footer-contact">LinkedIn</p>
+      <p class="footer-contact">laura.lmg12@gmail.com</p>
+      <p class="footer-contact">GitHub</p>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.footer-container {
+#footer {
   width: 100vw;
   height: 15rem;
   background-color: $grey-light;
@@ -40,6 +40,15 @@ const mobileIconSize = computed(() =>
     display: flex;
     width: 60%;
     justify-content: space-around;
+
+    & > * {
+      cursor: pointer;
+    }
+    @media screen and (max-width: $breackpoint-small) {
+      $font-size: $font-size-smallest;
+      width: 100%;
+      padding: 0 15px;
+    }
   }
 }
 </style>

@@ -4,10 +4,10 @@ import AppPill from "./shared/AppPill.vue";
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 
 // TODO: extract (duplicated)
-const aboutImage = getImgPath("home-background");
+const aboutImage = getImgPath("about");
 
 function getImgPath(imageName: string) {
-  return require(`@/assets/${imageName}.jpg`);
+  return require(`@/assets/${imageName}.jpeg`);
 }
 </script>
 
@@ -18,7 +18,7 @@ function getImgPath(imageName: string) {
       <h3>Laura Mañogil González</h3>
       <div class="about-subheader">
         <AppPill
-          name="Front-end Developer"
+          name="Front-end developer"
           color="light"
           class="frontend-pill"
         />
@@ -67,12 +67,15 @@ function getImgPath(imageName: string) {
       & .frontend-pill {
         height: 25px;
         margin: 0 45px;
-        @media screen and (max-width: $breackpoint-medium) {
-          margin-left: 0;
+        @media screen and (max-width: $breackpoint-small) {
+          margin: 0 15px 0 0;
         }
       }
       & :deep(.linkedin) {
         margin-right: 30px;
+        @media screen and (max-width: $breackpoint-small) {
+          margin: 0 10px 0 0;
+        }
       }
     }
   }
@@ -92,10 +95,16 @@ function getImgPath(imageName: string) {
       margin-right: 50px;
       @media screen and (max-width: $breackpoint-medium) {
         margin-right: 0;
+        margin-bottom: 15px;
+        width: 60%;
+      }
+      @media screen and (max-width: $breackpoint-small) {
+        width: 100%;
       }
       & .image {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
     }
     & .content {
@@ -107,6 +116,8 @@ function getImgPath(imageName: string) {
       @media screen and (max-width: $breackpoint-medium) {
         align-items: center;
         text-align: center;
+        gap: 25px;
+        width: 100%;
       }
     }
   }

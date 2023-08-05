@@ -71,6 +71,7 @@ const props = defineProps<AppButtonProps>();
 
       & .button-text {
         color: $black;
+        font-weight: 700;
       }
     }
     .gradient {
@@ -105,6 +106,7 @@ const props = defineProps<AppButtonProps>();
       }
       & .button-text {
         color: $white;
+        font-weight: 700;
       }
     }
   }

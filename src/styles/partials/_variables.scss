@@ -33,6 +33,11 @@ $blue-gradient-opacity-145: linear-gradient(
   rgba(0, 124, 240, 0.1) 0%,
   rgba(0, 223, 216, 0.1) 100%
 );
+$blue-gradient-opacity-90: linear-gradient(
+  90deg,
+  rgba(1, 125, 239, 0.3) 0%,
+  rgba(144, 238, 238, 0.3) 100%
+);
 
 $purple: #7927c9;
 $pink: #fd1c8e;
@@ -86,13 +91,17 @@ $font-size-h3-desktop: 2.5rem;
 $font-size-h3-medium: 2rem;
 $font-size-h3-mobile: 1.5rem;
 
-
+$font-size-h4-desktop: 2rem;
+$font-size-h4-mobile: 1.5rem;
 
 $font-size-p-desktop: 1.25rem;
 $font-size-p-mobile: 1rem;
 
 $font-size-button: 1.25rem;
 $font-size-button-mobile: 1rem;
+
+$font-size-small: 1rem;
+$font-size-smallest: 0.75rem;
 
 /* SPACING */
 
