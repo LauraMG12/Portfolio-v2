@@ -3,6 +3,7 @@ import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
 import AboutSection from "./components/AboutSection.vue";
+import Footer from "./components/Footer.vue";
 
 import { onMounted, ref } from "vue";
 
@@ -28,7 +29,9 @@ function updateScroll() {
     <ProjectsSection />
     <AboutSection />
   </main>
-  <footer></footer>
+  <footer>
+    <Footer />
+  </footer>
 </template>
 
 <style lang="scss">

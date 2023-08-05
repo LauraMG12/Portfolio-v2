@@ -47,9 +47,10 @@ h2 {
     color: $grey-dark;
     font-size: $font-size-h2-section-title-desktop;
     font-weight: $font-weight-bold;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     @media screen and (max-width: $breackpoint-medium) {
       font-size: $font-size-h2-section-title-medium;
+      margin-bottom: 2.5rem;
     }
     @media screen and (max-width: $breackpoint-small) {
       font-size: $font-size-h2-section-title-mobile;

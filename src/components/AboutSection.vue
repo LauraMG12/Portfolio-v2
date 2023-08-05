@@ -37,8 +37,7 @@ function getImgPath(imageName: string) {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
           consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          labore et dolore magna aliqua.
         </p>
         <DarkButton text="Download CV" icon-name="download" />
       </div>
@@ -56,17 +55,34 @@ function getImgPath(imageName: string) {
     display: flex;
     align-items: baseline;
     margin-bottom: 35px;
+    @media screen and (max-width: $breackpoint-medium) {
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 15px;
+      align-items: center;
+    }
     & .about-subheader {
       display: flex;
+
       & .frontend-pill {
         height: 25px;
-        margin-left: 45px;
+        margin: 0 45px;
+        @media screen and (max-width: $breackpoint-medium) {
+          margin-left: 0;
+        }
+      }
+      & :deep(.linkedin) {
+        margin-right: 30px;
       }
     }
   }
   .about-content {
     display: flex;
     width: 100%;
+    @media screen and (max-width: $breackpoint-medium) {
+      flex-direction: column;
+      align-items: center;
+    }
     & .image-container {
       position: relative;
       width: 40%;
@@ -74,6 +90,9 @@ function getImgPath(imageName: string) {
       border-radius: 20px;
       overflow: hidden;
       margin-right: 50px;
+      @media screen and (max-width: $breackpoint-medium) {
+        margin-right: 0;
+      }
       & .image {
         width: 100%;
         height: 100%;
@@ -84,6 +103,11 @@ function getImgPath(imageName: string) {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 50px;
+      @media screen and (max-width: $breackpoint-medium) {
+        align-items: center;
+        text-align: center;
+      }
     }
   }
 }
