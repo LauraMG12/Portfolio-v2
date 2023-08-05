@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 import AppPill from "./shared/AppPill.vue";
+import DarkButton from "./shared/AppButtons/DarkButton.vue";
+
+// TODO: extract (duplicated)
+const aboutImage = getImgPath("home-background");
+
+function getImgPath(imageName: string) {
+  return require(`@/assets/${imageName}.jpg`);
+}
 </script>
 
 <template>
@@ -9,9 +16,32 @@ import AppPill from "./shared/AppPill.vue";
     <h2 class="section-title">About</h2>
     <div class="about-header">
       <h3>Laura Mañogil González</h3>
-      <AppPill name="Front-end Developer" color="light" class="frontend-pill" />
-      <SvgIcon :name="IconTypes.LinkedIn" />
-      <SvgIcon :name="IconTypes.GitHub" />
+      <div class="about-subheader">
+        <AppPill
+          name="Front-end Developer"
+          color="light"
+          class="frontend-pill"
+        />
+        <SvgIcon name="linkedin" />
+        <SvgIcon name="github" />
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="image-container">
+        <img class="image" :src="aboutImage" />
+      </div>
+      <div class="content">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <DarkButton text="Download CV" icon-name="download" />
+      </div>
     </div>
   </section>
 </template>
@@ -25,9 +55,35 @@ import AppPill from "./shared/AppPill.vue";
   .about-header {
     display: flex;
     align-items: baseline;
-    gap: 45px;
-    & .frontend-pill {
-      height: 25px;
+    margin-bottom: 35px;
+    & .about-subheader {
+      display: flex;
+      & .frontend-pill {
+        height: 25px;
+        margin-left: 45px;
+      }
+    }
+  }
+  .about-content {
+    display: flex;
+    width: 100%;
+    & .image-container {
+      position: relative;
+      width: 40%;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-right: 50px;
+      & .image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    & .content {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
   }
 }

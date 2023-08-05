@@ -1,5 +1,5 @@
 import { GradientType } from "../state/AppState";
-import { IconTypes } from "../components/shared/SvgIcon/SvgIconHelper";
+import { IconType } from "../components/shared/SvgIcon/SvgIconHelper";
 
 interface ProjectOverview {
   id: number;
@@ -16,7 +16,7 @@ export interface ProjectInfo {
 
 interface Technology {
   name: string;
-  iconName: IconTypes;
+  iconName: IconType;
 }
 
 export const projects: ProjectOverview[] = [
@@ -26,8 +26,8 @@ export const projects: ProjectOverview[] = [
     info: {
       title: "Project title",
       technologies: [
-        { name: "HTML", iconName: IconTypes.HTML },
-        { name: "CSS3", iconName: IconTypes.CSS },
+        { name: "HTML", iconName: "html" },
+        { name: "CSS3", iconName: "css" },
       ],
       image: "home-background",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -42,8 +42,8 @@ export const projects: ProjectOverview[] = [
     info: {
       title: "Project title",
       technologies: [
-        { name: "HTML", iconName: IconTypes.HTML },
-        { name: "CSS3", iconName: IconTypes.CSS },
+        { name: "HTML", iconName: "html" },
+        { name: "CSS3", iconName: "css" },
       ],
       image: "home-background",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -58,8 +58,8 @@ export const projects: ProjectOverview[] = [
     info: {
       title: "Project title",
       technologies: [
-        { name: "HTML", iconName: IconTypes.HTML },
-        { name: "CSS3", iconName: IconTypes.CSS },
+        { name: "HTML", iconName: "html" },
+        { name: "CSS3", iconName: "css" },
       ],
       image: "home-background",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

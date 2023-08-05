@@ -2,13 +2,13 @@
 import { computed } from "vue";
 
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
-import { IconTypes } from "../SvgIcon/SvgIconHelper";
+import { IconType } from "../SvgIcon/SvgIconHelper";
 
 import { isSmallDevice } from "../../../state/AppState";
 
 interface AppButtonProps {
   text: string;
-  iconName?: IconTypes;
+  iconName?: IconType;
 }
 const props = defineProps<AppButtonProps>();
 
@@ -20,7 +20,6 @@ const mobileIconSize = computed(() =>
 <template>
   <button class="button">
     <SvgIcon
-      class="button-icon white-icon"
       v-if="props.iconName"
       :name="props.iconName"
       :size="mobileIconSize"
@@ -36,15 +35,11 @@ const mobileIconSize = computed(() =>
   background-color: black;
   color: $white;
   padding: 10px 25px;
+  width: fit-content;
+  gap: 20px;
 
   &:hover {
     background-color: $grey-dark;
-  }
-  & .button-icon {
-    margin-right: 25px;
-    @media screen and (max-width: $breackpoint-medium) {
-      margin-right: 20px;
-    }
   }
 }
 </style>

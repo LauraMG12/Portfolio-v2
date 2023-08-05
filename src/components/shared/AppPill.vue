@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { IconTypes } from "./SvgIcon/SvgIconHelper";
+import { IconType } from "./SvgIcon/SvgIconHelper";
 import SvgIcon from "./SvgIcon/SvgIcon.vue";
 import { isSmallDevice } from "@/state/AppState";
 import { computed } from "vue";
 
 interface AppPillProps {
   name?: string;
-  iconName?: IconTypes;
+  iconName?: IconType;
   color: "dark" | "light";
 }
 const props = defineProps<AppPillProps>();
 const iconSize = computed(() =>
-  isSmallDevice.value ? { width: 30, height: 30 } : undefined
+  isSmallDevice.value ? { width: 10, height: 10 } : undefined
 );
 </script>
 

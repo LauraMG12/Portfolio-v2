@@ -4,7 +4,6 @@ import { computed } from "vue";
 import { sections } from "../content/Navigation";
 
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
-import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
 
 import { isSmallDevice } from "../state/AppState";
 
@@ -15,9 +14,9 @@ const mobileIconSize = computed(() =>
 
 <template>
   <nav class="navigation">
-    <SvgIcon :name="IconTypes.Logo" :size="mobileIconSize" />
+    <SvgIcon name="logo" :size="mobileIconSize" />
     <div v-if="isSmallDevice">
-      <SvgIcon :name="IconTypes.Menu" />
+      <SvgIcon name="navigation" />
     </div>
     <div v-else class="navigation-items">
       <div

@@ -5,8 +5,6 @@ import { highlights } from "../content/Home";
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
 
-import { IconTypes } from "./shared/SvgIcon/SvgIconHelper";
-
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
   () => `${homeContent.value?.clientHeight}px`
@@ -39,11 +37,7 @@ setInterval(() => {
         <h2>front-end developer</h2>
       </div>
       <div class="buttons-container">
-        <DarkButton
-          text="LinkedIn"
-          :icon-name="IconTypes.LinkedIn"
-          class="home-button"
-        />
+        <DarkButton text="LinkedIn" icon-name="linkedin" class="home-button" />
         <LightButton
           text="Contact"
           :gradient-color="highlights[highlightsIndex].color"

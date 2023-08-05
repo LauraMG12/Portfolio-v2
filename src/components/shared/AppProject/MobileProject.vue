@@ -4,7 +4,6 @@ import DarkButton from "../AppButtons/DarkButton.vue";
 import SimpleButton from "../AppButtons/SimpleButton.vue";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
-import { IconTypes } from "../SvgIcon/SvgIconHelper";
 import { ProjectInfo } from "../../../content/Projects";
 
 interface MobileProjectProps {
@@ -35,12 +34,12 @@ function getImgPath(imageName: string) {
         <p class="project-description">
           {{ information.description }}
         </p>
-        <SvgIcon :name="IconTypes.Arrow" class="white-icon" />
+        <SvgIcon name="arrow" />
       </div>
       <img class="image" :src="projectImage" />
     </div>
     <div class="project-buttons-container">
-      <DarkButton text="Code" :iconName="IconTypes.GitHub" />
+      <DarkButton text="Code" iconName="github" />
       <SimpleButton text="View project" />
     </div>
   </div>

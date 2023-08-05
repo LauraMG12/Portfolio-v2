@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, defineAsyncComponent } from "vue";
 import {
-  IconTypes,
-  SvgIconDefaultSettings,
+  IconColor,
+  IconType,
+  SvgIconSize,
   transformSvgPropsFormat,
+  SvgIconTranslate,
+  ICON_TYPE_MAP,
 } from "./SvgIconHelper";
 
 interface SvgIconProps {
-  name: IconTypes;
-  size?: SvgIconDefaultSettings;
+  name: IconType;
+  color?: IconColor;
+  size?: SvgIconSize;
+  translate?: SvgIconTranslate;
 }
 
 const props = defineProps<SvgIconProps>();
 
-const iconPath = getSvgPath(props.name) ?? null;
 const settings = computed(() =>
-  transformSvgPropsFormat(props.name, props.size)
+  transformSvgPropsFormat(props.name, props.color, props.size)
 );
-
-function getSvgPath(iconName: IconTypes) {
-  return require(`@/assets/${iconName}.svg`);
-}
+const iconPath = computed(() => {
+  const name = ICON_TYPE_MAP[props.name];
+  return defineAsyncComponent(() => import(`./icons/${name}.vue`));
+});
 </script>
 
 <template>
-  <img
-    v-if="iconPath"
-    :src="iconPath"
-    :style="{
-      width: settings.width,
-      height: settings.height,
-    }"
-  />
+  <Suspense>
+    <component
+      :is="iconPath"
+      :width="settings.width"
+      :height="settings.height"
+      :viewBox="settings.viewBox"
+      :style="settings.style"
+      :class="props.name"
+    />
+  </Suspense>
 </template>
-
-<style scoped lang="scss">
-img:hover {
-  cursor: pointer;
-}
-</style>

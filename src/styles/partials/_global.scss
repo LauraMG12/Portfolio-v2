@@ -94,7 +94,7 @@ button {
   @media screen and (max-width: $breackpoint-medium) {
     height: 40px;
   }
-  
+
   &:hover {
     cursor: pointer;
   }
@@ -106,11 +106,12 @@ button {
     font-size: $font-size-button-mobile;
   }
 }
-.home-button{
+.home-button {
   width: 185px;
 }
 
 //TODO: improve icon color with prop value
-.white-icon{
-  filter: invert(100%) sepia(65%) saturate(843%) hue-rotate(169deg) brightness(114%) contrast(101%);
+.white-icon {
+  filter: invert(100%) sepia(65%) saturate(843%) hue-rotate(169deg)
+    brightness(114%) contrast(101%);
 }

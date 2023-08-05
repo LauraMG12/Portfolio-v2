@@ -4,7 +4,6 @@ import DarkButton from "../AppButtons/DarkButton.vue";
 import SimpleButton from "../AppButtons/SimpleButton.vue";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
-import { IconTypes } from "../SvgIcon/SvgIconHelper";
 import { ProjectInfo } from "../../../content/Projects";
 import { GradientType } from "../../../state/AppState";
 
@@ -39,14 +38,11 @@ function getImgPath(imageName: string) {
       <div class="project-image">
         <div class="overlay">
           <SvgIcon
-            :name="IconTypes.GitHub"
+            name="github"
             :size="{ height: 55, width: 55 }"
-            class="white-icon"
+            color="white"
           />
-          <SvgIcon
-            :name="IconTypes.Redirect"
-            :size="{ height: 50, width: 50 }"
-          />
+          <SvgIcon name="redirect" :size="{ height: 50, width: 50 }" />
         </div>
         <img class="image" :src="projectImage" />
       </div>
@@ -55,7 +51,7 @@ function getImgPath(imageName: string) {
           {{ information.description }}
         </p>
         <div class="project-buttons-container">
-          <DarkButton text="Code" :iconName="IconTypes.GitHub" />
+          <DarkButton text="Code" iconName="github" />
           <SimpleButton text="View project" />
         </div>
       </div>
