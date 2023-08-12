@@ -46,9 +46,6 @@ function getImgPath(imageName: string) {
 </template>
 <style scoped lang="scss">
 #aboutSection {
-  grid-column: 1/-1;
-  grid-row: 3/4;
-
   display: flex;
   flex-direction: column;
   .about-header {
@@ -67,6 +64,10 @@ function getImgPath(imageName: string) {
       & .frontend-pill {
         height: 25px;
         margin: 0 45px;
+
+        @media screen and (max-width: $breackpoint-medium) {
+          margin: 0 45px 0 0;
+        }
         @media screen and (max-width: $breackpoint-small) {
           margin: 0 15px 0 0;
         }

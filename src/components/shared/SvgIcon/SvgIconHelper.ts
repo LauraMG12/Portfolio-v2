@@ -80,8 +80,8 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   arrow: {
     color: "currentColor",
     colorProperty: "fill",
-    width: 15,
-    height: 10,
+    width: 20,
+    height: 15,
   },
   bubble: {
     color: "currentColor",

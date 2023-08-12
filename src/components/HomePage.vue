@@ -50,8 +50,7 @@ setInterval(() => {
 
 <style scoped lang="scss">
 #homePage {
-  grid-column: 1/-1;
-  grid-row: 1/2;
+  height: 100vh;
   .background {
     position: absolute;
     top: 0;
@@ -88,16 +87,20 @@ setInterval(() => {
       }
 
       & .subtitle-highlight {
-        width: 220px;
+        width: 20%;
         margin-right: 0.95rem;
         text-align: end;
-        @media screen and (max-width: $breackpoint-small) {
-          margin-right: 0.55rem;
-          width: 37vmin;
-          text-align: center;
-        }
         @media screen and (max-width: $breackpoint-large) {
-          width: 23vmax;
+          width: 25%;
+          margin-right: 0.55rem;
+        }
+        @media screen and (max-width: $breackpoint-medium) {
+          width: 30%;
+        }
+        @media screen and (max-width: $breackpoint-small) {
+          margin: 0;
+          width: 80%;
+          text-align: center;
         }
 
         & h2 {

@@ -45,8 +45,6 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 
 <style scoped lang="scss">
 #contactSection {
-  grid-column: 1/-1;
-  grid-row: 4/5;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -92,6 +90,7 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
         margin-top: 30px;
         gap: 20px;
         width: fit-content;
+        align-items: center;
         &:hover {
           cursor: pointer;
           & .email .underline {
@@ -104,12 +103,17 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
         & .email {
           width: fit-content;
           position: relative;
+          & p {
+            @media screen and (max-width: $breackpoint-small) {
+              font-size: $font-size-small;
+            }
+          }
           & .underline {
             width: 105%;
-            height: 6px;
+            height: 7px;
             background: $blue-gradient-opacity-90;
             position: absolute;
-            bottom: 3px;
+            bottom: 0;
             right: 0;
           }
         }
@@ -137,11 +141,14 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
       margin-left: 10px;
     }
     & input,
-    textarea {
+    & textarea {
       border: 2px solid $grey-light;
       border-radius: 10px;
       padding: 10px 20px;
       font-family: $font-primary;
+      &:focus {
+        border: 2px solid $grey-dark;
+      }
     }
   }
 }

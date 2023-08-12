@@ -41,13 +41,12 @@ const mobileIconSize = computed(() =>
     width: 60%;
     justify-content: space-around;
 
-    & > * {
-      cursor: pointer;
-    }
     @media screen and (max-width: $breackpoint-small) {
-      $font-size: $font-size-smallest;
       width: 100%;
       padding: 0 15px;
+    }
+    & > p {
+      cursor: pointer;
     }
   }
 }

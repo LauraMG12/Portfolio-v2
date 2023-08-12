@@ -50,11 +50,9 @@ function updateScroll() {
 }
 
 #content {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(25px, 75px));
-  column-gap: 15px;
-  grid-template-rows: 100vh 1fr auto auto;
-  row-gap: $sections-gap;
+  display: flex;
+  flex-direction: column;
+  gap: $sections-gap;
   margin: 0 auto 0 auto;
   max-width: 1065px;
   padding-bottom: 8rem;
@@ -66,8 +64,6 @@ function updateScroll() {
   }
   @media screen and (max-width: $breackpoint-small) {
     margin: 0 15px 0 15px;
-    column-gap: 5px;
-    grid-template-columns: repeat(6, 1fr);
   }
 }
 </style>

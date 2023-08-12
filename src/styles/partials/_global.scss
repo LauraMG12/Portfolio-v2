@@ -81,7 +81,7 @@ h4 {
   }
 }
 
-p:not(.footer-contact) {
+p {
   font-family: $font-primary;
   font-size: $font-size-p-desktop;
   font-weight: $font-weight-normal;
@@ -89,12 +89,8 @@ p:not(.footer-contact) {
   @media screen and (max-width: $breackpoint-medium) {
     font-size: $font-size-p-mobile;
   }
-}
-p.footer-contact {
-  font-size: $font-size-small;
-  font-family: $font-primary;
   @media screen and (max-width: $breackpoint-small) {
-    $font-size: $font-size-smallest;
+    font-size: $font-size-smallest;
   }
 }
 

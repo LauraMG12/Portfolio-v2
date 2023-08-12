@@ -19,9 +19,6 @@ import { projects } from "../content/Projects";
 </template>
 <style scoped lang="scss">
 #projectsSection {
-  grid-column: 1/-1;
-  grid-row: 2/3;
-
   display: flex;
   flex-direction: column;
   & .projects-container {

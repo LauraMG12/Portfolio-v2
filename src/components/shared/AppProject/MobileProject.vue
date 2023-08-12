@@ -34,7 +34,7 @@ function getImgPath(imageName: string) {
         <p class="project-description">
           {{ information.description }}
         </p>
-        <SvgIcon name="arrow" />
+        <SvgIcon name="arrow" color="white" />
       </div>
       <img class="image" :src="projectImage" />
     </div>
@@ -76,7 +76,7 @@ function getImgPath(imageName: string) {
       flex-direction: column;
       justify-content: end;
       align-items: center;
-      padding: 45px 20px 20px 20px;
+      padding: 10% 15px 15px 15px;
       gap: 15px;
       & .project-description {
         color: $white;
