@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 import AppPill from "../AppPill.vue";
 import DarkButton from "../AppButtons/DarkButton.vue";
 import SimpleButton from "../AppButtons/SimpleButton.vue";
@@ -11,10 +13,16 @@ interface MobileProjectProps {
 }
 const props = defineProps<MobileProjectProps>();
 
+const isOverlayExpanded = ref<boolean>(false);
+
 const projectImage = getImgPath(props.information.image) ?? null;
 
 function getImgPath(imageName: string) {
   return require(`@/assets/${imageName}.jpg`);
+}
+
+function toggleOverlayStatys(): void {
+  isOverlayExpanded.value = !isOverlayExpanded.value;
 }
 </script>
 
@@ -30,11 +38,13 @@ function getImgPath(imageName: string) {
       />
     </div>
     <div class="project-image">
-      <div class="overlay">
+      <div class="overlay" :class="{ 'full-overlay': isOverlayExpanded }">
         <p class="project-description">
           {{ information.description }}
         </p>
-        <SvgIcon name="arrow" color="white" />
+        <div class="icon-container" @click="toggleOverlayStatys">
+          <SvgIcon name="arrow" color="white" />
+        </div>
       </div>
       <img class="image" :src="projectImage" />
     </div>
@@ -76,8 +86,22 @@ function getImgPath(imageName: string) {
       flex-direction: column;
       justify-content: end;
       align-items: center;
-      padding: 10% 15px 15px 15px;
-      gap: 15px;
+      padding: 10% 15px 10px 15px;
+      gap: 10px;
+      &.full-overlay {
+        height: 125%;
+        & .project-description {
+          display: inline;
+          position: absolute;
+          width: calc(100% - 30px);
+          top: calc(62.5% - 10px);
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        & .icon-container {
+          transform: rotate(180deg);
+        }
+      }
       & .project-description {
         color: $white;
         overflow: hidden;
@@ -85,6 +109,13 @@ function getImgPath(imageName: string) {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+      }
+      & .icon-container {
+        margin: 5px 0;
+        width: 100%;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
       }
     }
   }
