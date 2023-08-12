@@ -13,3 +13,7 @@ window.addEventListener(
 );
 
 /* NAVIGATION */
+export const isMobileNavigationOpened = ref<boolean>(false);
+export function toggleNavigationState(): void {
+  isMobileNavigationOpened.value = !isMobileNavigationOpened.value;
+}

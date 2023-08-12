@@ -7,6 +7,11 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 
 import { isSmallDevice } from "../state/AppState";
 
+import {
+  isMobileNavigationOpened,
+  toggleNavigationState,
+} from "@/state/AppState";
+
 const mobileIconSize = computed(() =>
   isSmallDevice.value ? { width: 55, height: 35 } : undefined
 );
@@ -15,9 +20,11 @@ const mobileIconSize = computed(() =>
 <template>
   <nav class="navigation">
     <SvgIcon name="logo" :size="mobileIconSize" />
-    <div v-if="isSmallDevice">
-      <SvgIcon name="navigation" />
+    <div v-if="isSmallDevice" @click="toggleNavigationState()">
+      <!-- TODO: on close, keep scroll position -->
+      <SvgIcon :name="isMobileNavigationOpened ? 'close' : 'navigation'" />
     </div>
+    <!-- TODO: on section selected, scroll to section -->
     <div v-else class="navigation-items">
       <div
         v-for="section in sections"
@@ -31,6 +38,25 @@ const mobileIconSize = computed(() =>
       </div>
     </div>
   </nav>
+  <div
+    v-if="isMobileNavigationOpened && isSmallDevice"
+    class="mobile-navigation"
+  >
+    <div
+      v-for="section in sections"
+      :key="section.id"
+      class="item-container"
+      :class="{ selected: section.isSelected }"
+    >
+      <p
+        class="item"
+        @click="isMobileNavigationOpened = false"
+        :class="{ selected: section.isSelected }"
+      >
+        {{ section.title }}
+      </p>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -46,7 +72,7 @@ const mobileIconSize = computed(() =>
   }
 
   & .navigation-items {
-    width: 500px;
+    width: 450px;
     display: flex;
     justify-content: space-between;
     & .item-container {
@@ -68,6 +94,36 @@ const mobileIconSize = computed(() =>
         &:hover {
           color: $black;
         }
+      }
+    }
+  }
+}
+.mobile-navigation {
+  width: 100vw;
+  height: calc(100vh - $navigation-height);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+
+  padding: 0 50px;
+  @media screen and (max-width: $breackpoint-small) {
+    padding: 0 20px;
+  }
+
+  & .item-container {
+    padding: 15px 0;
+    width: 100%;
+    border-bottom: 1px solid $grey-light;
+    &:first-child {
+      margin-top: 30px;
+    }
+    & .item {
+      color: $grey;
+      font-size: $font-size-p-mobile;
+      &:hover {
+        cursor: pointer;
+        color: $black;
       }
     }
   }

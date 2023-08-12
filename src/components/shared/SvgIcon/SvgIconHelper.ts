@@ -1,6 +1,7 @@
 const ICON_TYPE = [
   "arrow",
   "bubble",
+  "close",
   "css",
   "dashed",
   "download",
@@ -19,6 +20,7 @@ export type IconType = (typeof ICON_TYPE)[number];
 export const ICON_TYPE_MAP: Record<IconType, string> = {
   arrow: "Arrow",
   bubble: "Bubble",
+  close: "Close",
   css: "Css",
   dashed: "DashedArrow",
   download: "Download",
@@ -89,6 +91,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     width: 270,
     height: 270,
   },
+  close: {
+    color: "currentColor",
+    colorProperty: "stroke",
+    width: 25,
+    height: 20,
+  },
   css: {
     color: "currentColor",
     colorProperty: "fill",
@@ -140,8 +148,8 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   navigation: {
     color: "currentColor",
     colorProperty: "stroke",
-    width: 35,
-    height: 35,
+    width: 25,
+    height: 20,
   },
   plane: {
     color: "currentColor",
