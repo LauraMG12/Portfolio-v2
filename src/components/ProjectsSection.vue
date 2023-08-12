@@ -6,10 +6,10 @@ import { projects } from "../content/Projects";
 
 <template>
   <section id="projectsSection">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">{{ projects.sectionTitle }}</h2>
     <div class="projects-container">
       <AppProject
-        v-for="project in projects"
+        v-for="project in projects.projects"
         :key="project.id"
         :color="project.color"
         :information="project.info"

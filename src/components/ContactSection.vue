@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { isSmallDevice } from "@/state/AppState";
+
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
+
+import { contact } from "../content/Contact";
 </script>
 
 <template>
@@ -10,35 +13,35 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
       <SvgIcon v-if="!isSmallDevice" name="bubble" />
       <div class="info">
         <div class="info-title">
-          <h3 class="contact-title">Ready to work together?</h3>
+          <h3 class="contact-title">{{ contact.contactQuestion }}</h3>
           <SvgIcon v-if="!isSmallDevice" name="dashed" />
         </div>
-        <h4>Let's get in touch</h4>
+        <h4>{{ contact.contactMessage }}</h4>
         <div class="email-container">
           <SvgIcon name="mail" />
           <div class="email">
-            <p>laura.lmg12@gmail.com</p>
+            <p>{{ contact.professionalEmail }}</p>
             <div class="underline" />
           </div>
         </div>
       </div>
     </div>
     <div class="contact-form">
-      <label for="email">Email</label>
+      <label for="email">{{ contact.email }}</label>
       <input
         type="text"
         id="email"
         name="email"
         placeholder="Write your email"
       />
-      <label for="message">Message</label>
+      <label for="message">{{ contact.message }}</label>
       <textarea
         name="message"
         rows="10"
         cols="auto"
         placeholder="Write your message"
       />
-      <DarkButton text="Send message" icon-name="plane" />
+      <DarkButton :text="contact.sendMessage" icon-name="plane" />
     </div>
   </div>
 </template>

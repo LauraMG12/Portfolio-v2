@@ -3,8 +3,10 @@ import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 import AppPill from "./shared/AppPill.vue";
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 
+import { about } from "../content/About";
+
 // TODO: extract (duplicated)
-const aboutImage = getImgPath("about");
+const aboutImage = getImgPath(about.imageName);
 
 function getImgPath(imageName: string) {
   return require(`@/assets/${imageName}.jpeg`);
@@ -13,15 +15,11 @@ function getImgPath(imageName: string) {
 
 <template>
   <section id="aboutSection">
-    <h2 class="section-title">About</h2>
+    <h2 class="section-title">{{ about.sectionTitle }}</h2>
     <div class="about-header">
-      <h3>Laura Mañogil González</h3>
+      <h3>{{ about.name }}</h3>
       <div class="about-subheader">
-        <AppPill
-          name="Front-end developer"
-          color="light"
-          class="frontend-pill"
-        />
+        <AppPill :name="about.position" color="light" class="frontend-pill" />
         <SvgIcon name="linkedin" />
         <SvgIcon name="github" />
       </div>
@@ -32,12 +30,7 @@ function getImgPath(imageName: string) {
       </div>
       <div class="content">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua.
+          {{ about.about }}
         </p>
         <DarkButton text="Download CV" icon-name="download" />
       </div>

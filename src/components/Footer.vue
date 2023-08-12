@@ -4,6 +4,8 @@ import { isSmallDevice } from "@/state/AppState";
 
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 
+import { footer } from "../content/Footer";
+
 const mobileIconSize = computed(() =>
   isSmallDevice.value ? { width: 55, height: 35 } : undefined
 );
@@ -12,11 +14,11 @@ const mobileIconSize = computed(() =>
 <template>
   <div id="footer">
     <SvgIcon name="logo" :size="mobileIconSize" />
-    <p class="name">Laura Mañogil González</p>
+    <p class="name">{{ footer.name }}</p>
     <div class="contact">
-      <p class="footer-contact">LinkedIn</p>
-      <p class="footer-contact">laura.lmg12@gmail.com</p>
-      <p class="footer-contact">GitHub</p>
+      <p class="footer-contact">{{ footer.linkedIn }}</p>
+      <p class="footer-contact">{{ footer.professionalEmail }}</p>
+      <p class="footer-contact">{{ footer.gitHub }}</p>
     </div>
   </div>
 </template>

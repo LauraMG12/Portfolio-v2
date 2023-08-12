@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { highlights } from "../content/Home";
+import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
@@ -22,9 +22,8 @@ setInterval(() => {
 <template>
   <section id="homePage">
     <div class="background" />
-    <!-- TODO: Adjust home content title and subtitle to fit and be adjusted by the grid container -->
     <div class="home-content" ref="homeContent">
-      <h1>Laura Mañogil González</h1>
+      <h1>{{ home.name }}</h1>
       <div class="subtitle">
         <div
           class="subtitle-highlight"
@@ -34,12 +33,16 @@ setInterval(() => {
             {{ highlights[highlightsIndex].text }}
           </h2>
         </div>
-        <h2>front-end developer</h2>
+        <h2>{{ home.position }}</h2>
       </div>
       <div class="buttons-container">
-        <DarkButton text="LinkedIn" icon-name="linkedin" class="home-button" />
+        <DarkButton
+          :text="home.linkedIn"
+          icon-name="linkedin"
+          class="home-button"
+        />
         <LightButton
-          text="Contact"
+          :text="home.contact"
           :gradient-color="highlights[highlightsIndex].color"
         />
       </div>
