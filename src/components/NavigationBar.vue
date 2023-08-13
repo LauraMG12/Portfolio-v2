@@ -15,6 +15,15 @@ import {
 const mobileIconSize = computed(() =>
   isSmallDevice.value ? { width: 55, height: 35 } : undefined
 );
+
+function scrollToSection(targetId: string): void {
+  const section = document.getElementById(targetId);
+  const top = section?.offsetTop;
+  if (top) {
+    const scrollTo = top - 100;
+    window.scroll({ top: scrollTo, left: 0, behavior: "smooth" });
+  }
+}
 </script>
 
 <template>
@@ -24,13 +33,13 @@ const mobileIconSize = computed(() =>
       <!-- TODO: on close, keep scroll position -->
       <SvgIcon :name="isMobileNavigationOpened ? 'close' : 'navigation'" />
     </div>
-    <!-- TODO: on section selected, scroll to section -->
     <div v-else class="navigation-items">
       <div
         v-for="section in sections"
         :key="section.id"
         class="item-container"
         :class="{ selected: section.isSelected }"
+        @click="scrollToSection(section.goTo)"
       >
         <p class="item" :class="{ selected: section.isSelected }">
           {{ section.title }}
@@ -46,7 +55,7 @@ const mobileIconSize = computed(() =>
       v-for="section in sections"
       :key="section.id"
       class="item-container"
-      :class="{ selected: section.isSelected }"
+      @click="scrollToSection(section.goTo)"
     >
       <p
         class="item"
@@ -123,6 +132,9 @@ const mobileIconSize = computed(() =>
       font-size: $font-size-p-mobile;
       &:hover {
         cursor: pointer;
+        color: $black;
+      }
+      &.selected {
         color: $black;
       }
     }

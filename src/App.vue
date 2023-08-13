@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
@@ -12,47 +12,50 @@ import { isMobileNavigationOpened, isSmallDevice } from "@/state/AppState";
 import TechnologiesSection from "./components/TechnologiesSection.vue";
 
 const isScrollPositionOnTop = ref<boolean>(true);
+const body = document.body;
 onMounted(() => {
   window.addEventListener("scroll", updateScroll);
 });
 function updateScroll() {
   isScrollPositionOnTop.value = window.scrollY === 0;
 }
+watch(isMobileNavigationOpened, () => {
+  if (isMobileNavigationOpened.value) {
+    body.style.overflowY = "hidden";
+  } else {
+    body.style.overflowY = "auto";
+  }
+});
 </script>
 
-<template>
-  <div ref="app" :class="{ fixed: isMobileNavigationOpened }">
-    <header
-      id="navigation"
-      :class="{
-        'blur-navigation': !isScrollPositionOnTop,
-        white: isMobileNavigationOpened && isSmallDevice,
-      }"
-    >
-      <NavigationBar />
-    </header>
+<template ref="app">
+  <header
+    id="navigation"
+    :class="{
+      'blur-navigation':
+        !isScrollPositionOnTop && !(isMobileNavigationOpened && isSmallDevice),
+      white: isMobileNavigationOpened && isSmallDevice,
+    }"
+  >
+    <NavigationBar />
+  </header>
 
-    <main id="content">
-      <HomePage />
-      <ProjectsSection />
-      <TechnologiesSection />
-      <AboutSection />
-      <ContactSection />
-    </main>
-    <footer>
-      <FooterSection />
-    </footer>
-  </div>
+  <main id="content">
+    <HomePage />
+    <ProjectsSection />
+    <TechnologiesSection />
+    <AboutSection />
+    <ContactSection />
+  </main>
+  <footer>
+    <FooterSection />
+  </footer>
 </template>
 
 <style lang="scss">
 @import "@/styles/main.scss";
 
 #app {
-  .fixed {
-    position: fixed;
-  }
-
   #navigation {
     width: 100vw;
     position: fixed;
