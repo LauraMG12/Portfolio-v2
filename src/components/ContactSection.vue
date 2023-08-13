@@ -98,6 +98,10 @@ import { contact } from "../content/Contact";
           cursor: pointer;
           & .email .underline {
             height: 100%;
+            border-radius: 10px;
+            width: 110%;
+            position: absolute;
+            right: -5%;
           }
         }
         @media screen and (max-width: $breackpoint-medium) {
@@ -112,6 +116,7 @@ import { contact } from "../content/Contact";
             }
           }
           & .underline {
+            transition: $basic-transition-025;
             width: 105%;
             height: 7px;
             background: $blue-gradient-opacity-90;

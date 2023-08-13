@@ -9,6 +9,7 @@ import ContactSection from "./components/ContactSection.vue";
 import FooterSection from "./components/Footer.vue";
 
 import { isMobileNavigationOpened, isSmallDevice } from "@/state/AppState";
+import TechnologiesSection from "./components/TechnologiesSection.vue";
 
 const isScrollPositionOnTop = ref<boolean>(true);
 onMounted(() => {
@@ -34,6 +35,7 @@ function updateScroll() {
     <main id="content">
       <HomePage />
       <ProjectsSection />
+      <TechnologiesSection />
       <AboutSection />
       <ContactSection />
     </main>
