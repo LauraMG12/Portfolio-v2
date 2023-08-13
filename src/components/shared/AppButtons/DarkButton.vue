@@ -37,6 +37,7 @@ const mobileIconSize = computed(() =>
   padding: 10px 25px;
   width: fit-content;
   gap: 20px;
+  transition: $basic-transition-025;
 
   &:hover {
     background-color: $grey-dark;

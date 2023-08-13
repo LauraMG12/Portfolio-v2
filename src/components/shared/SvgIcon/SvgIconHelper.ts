@@ -112,8 +112,8 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   download: {
     color: "currentColor",
     colorProperty: "stroke",
-    width: 13,
-    height: 20,
+    width: 25,
+    height: 25,
   },
   html: {
     color: "currentColor",

@@ -1,17 +1,15 @@
 <template>
-  <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    stroke-width="1.5"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M0 0h24v24H0z" stroke="none" />
     <path
-      d="M20 32.5 51 2m0 0v12m0-12H39.5"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-    />
-    <path
-      d="M20 2.5H2v49h49.5v-19"
-      stroke="currentColor"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6M11 13l9-9M15 4h5v5"
     />
   </svg>
 </template>

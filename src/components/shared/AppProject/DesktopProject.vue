@@ -39,10 +39,14 @@ function getImgPath(imageName: string) {
         <div class="overlay">
           <SvgIcon
             name="github"
-            :size="{ height: 55, width: 55 }"
+            :size="{ height: 45, width: 45 }"
             color="white"
           />
-          <SvgIcon name="redirect" :size="{ height: 50, width: 50 }" />
+          <SvgIcon
+            name="redirect"
+            :size="{ height: 50, width: 50 }"
+            color="white"
+          />
         </div>
         <img class="image" :src="projectImage" />
       </div>
@@ -95,6 +99,7 @@ function getImgPath(imageName: string) {
       &:hover {
         .overlay {
           display: flex;
+          color: white;
         }
       }
 

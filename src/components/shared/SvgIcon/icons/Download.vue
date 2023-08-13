@@ -1,23 +1,13 @@
 <template>
   <svg
-    width="53"
-    height="53"
-    viewBox="0 0 53 53"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    stroke-width="2"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   >
-    <path
-      d="M20 32.5L51 2M51 2V14M51 2H39.5"
-      stroke="black"
-      stroke-width="3"
-      stroke-linecap="round"
-    />
-    <path
-      d="M20 2.5H2V27V51.5H51.5V32.5"
-      stroke="black"
-      stroke-width="3"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M7 11l5 5 5-5M12 4v12" />
   </svg>
 </template>
