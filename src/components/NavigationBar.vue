@@ -19,16 +19,21 @@ const mobileIconSize = computed(() =>
 function scrollToSection(targetId: string): void {
   const section = document.getElementById(targetId);
   const top = section?.offsetTop;
-  if (top) {
+  console.log(top);
+  if (top && top != 0) {
     const scrollTo = top - 100;
     window.scroll({ top: scrollTo, left: 0, behavior: "smooth" });
+  } else {
+    window.scroll({ top: top, left: 0, behavior: "smooth" });
   }
 }
 </script>
 
 <template>
   <nav class="navigation">
-    <SvgIcon name="logo" :size="mobileIconSize" />
+    <div @click="scrollToSection('homePage')">
+      <SvgIcon name="logo" :size="mobileIconSize" />
+    </div>
     <div v-if="isSmallDevice" @click="toggleNavigationState()">
       <!-- TODO: on close, keep scroll position -->
       <SvgIcon :name="isMobileNavigationOpened ? 'close' : 'navigation'" />
