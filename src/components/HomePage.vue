@@ -25,13 +25,18 @@ setInterval(() => {
     <div class="home-content" ref="homeContent">
       <h1>{{ home.name }}</h1>
       <div class="subtitle">
-        <div
-          class="subtitle-highlight"
-          :class="[`${highlights[highlightsIndex].color}-highlight`]"
-        >
-          <h2>
-            {{ highlights[highlightsIndex].text }}
-          </h2>
+        <div class="subtitle-highlight">
+          <Transition name="highlight">
+            <div
+              :key="highlightsIndex"
+              class="hightlight"
+              :class="[`${highlights[highlightsIndex].color}-highlight`]"
+            >
+              <h2>
+                {{ highlights[highlightsIndex].text }}
+              </h2>
+            </div>
+          </Transition>
         </div>
         <h2>{{ home.position }}</h2>
       </div>
@@ -92,7 +97,7 @@ setInterval(() => {
       & .subtitle-highlight {
         width: 20%;
         margin-right: 0.95rem;
-        text-align: end;
+        position: relative;
         @media screen and (max-width: $breackpoint-large) {
           width: 25%;
           margin-right: 0.55rem;
@@ -105,27 +110,31 @@ setInterval(() => {
           width: 80%;
           text-align: center;
         }
+        & .hightlight {
+          position: absolute;
+          right: 0;
+          &.blue-highlight {
+            background: $blue-gradient-90;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &.pink-highlight {
+            background: $pink-gradient-90;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &.orange-highlight {
+            background: $orange-gradient-90;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
 
         & h2 {
           font-weight: $font-weight-bold;
-        }
-        &.blue-highlight {
-          background: $blue-gradient-90;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        &.pink-highlight {
-          background: $pink-gradient-90;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        &.orange-highlight {
-          background: $orange-gradient-90;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
         }
       }
     }
@@ -149,6 +158,42 @@ setInterval(() => {
     height: 7rem;
     width: 100vw;
     background: $white-gradient;
+  }
+}
+.highlight {
+  &-enter-active {
+    animation: animate-in 0.5s;
+  }
+  &-leave-active {
+    animation: animate-out 0.5s;
+  }
+  @keyframes animate-in {
+    0% {
+      transform: scale(0.7);
+      transform: translateY(50px);
+      position: absolute;
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      transform: translateY(0);
+      position: absolute;
+      opacity: 1;
+    }
+  }
+  @keyframes animate-out {
+    0% {
+      transform: scale(1);
+      position: absolute;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(0.7);
+      position: absolute;
+      opacity: 0;
+    }
   }
 }
 </style>
