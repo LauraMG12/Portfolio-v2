@@ -17,13 +17,17 @@ import { contact } from "../content/Contact";
           <SvgIcon v-if="!isSmallDevice" name="dashed" />
         </div>
         <h4>{{ contact.contactMessage }}</h4>
-        <div class="email-container">
+        <a
+          unselectable="on"
+          :href="`mailto:${contact.professionalEmail}`"
+          class="email-container"
+        >
           <SvgIcon name="mail" />
           <div class="email">
             <p>{{ contact.professionalEmail }}</p>
             <div class="underline" />
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <div class="contact-form">
@@ -96,12 +100,14 @@ import { contact } from "../content/Contact";
         align-items: center;
         &:hover {
           cursor: pointer;
-          & .email .underline {
-            height: 100%;
-            border-radius: 10px;
-            width: 110%;
-            position: absolute;
-            right: -5%;
+          @media (hover: hover) {
+            & .email .underline {
+              height: 100%;
+              border-radius: 10px;
+              width: 110%;
+              position: absolute;
+              right: -5%;
+            }
           }
         }
         @media screen and (max-width: $breackpoint-medium) {
@@ -150,6 +156,7 @@ import { contact } from "../content/Contact";
     }
     & input,
     & textarea {
+      resize: none;
       border: 2px solid $grey-light;
       border-radius: 10px;
       padding: 10px 20px;

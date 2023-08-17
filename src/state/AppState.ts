@@ -19,3 +19,15 @@ export const isMobileNavigationOpened = ref<boolean>(false);
 export function toggleNavigationState(): void {
   isMobileNavigationOpened.value = !isMobileNavigationOpened.value;
 }
+
+export function scrollToSection(targetId: string): void {
+  const section = document.getElementById(targetId);
+  const top = section?.offsetTop;
+  console.log(top);
+  if (top && top != 0) {
+    const scrollTo = top - 100;
+    window.scroll({ top: scrollTo, left: 0, behavior: "smooth" });
+  } else {
+    window.scroll({ top: top, left: 0, behavior: "smooth" });
+  }
+}

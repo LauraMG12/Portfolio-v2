@@ -5,7 +5,7 @@ import { sections } from "../content/Navigation";
 
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 
-import { isSmallDevice } from "../state/AppState";
+import { isSmallDevice, scrollToSection } from "../state/AppState";
 
 import {
   isMobileNavigationOpened,
@@ -15,18 +15,6 @@ import {
 const mobileIconSize = computed(() =>
   isSmallDevice.value ? { width: 55, height: 35 } : undefined
 );
-
-function scrollToSection(targetId: string): void {
-  const section = document.getElementById(targetId);
-  const top = section?.offsetTop;
-  console.log(top);
-  if (top && top != 0) {
-    const scrollTo = top - 100;
-    window.scroll({ top: scrollTo, left: 0, behavior: "smooth" });
-  } else {
-    window.scroll({ top: top, left: 0, behavior: "smooth" });
-  }
-}
 </script>
 
 <template>
@@ -106,7 +94,9 @@ function scrollToSection(targetId: string): void {
           color: $black;
         }
         &:hover {
-          color: $black;
+          @media (hover: hover) {
+            color: $black;
+          }
         }
       }
     }
@@ -137,7 +127,9 @@ function scrollToSection(targetId: string): void {
       font-size: $font-size-p-mobile;
       &:hover {
         cursor: pointer;
-        color: $black;
+        @media (hover: hover) {
+          color: $black;
+        }
       }
       &.selected {
         color: $black;

@@ -97,9 +97,11 @@ function getImgPath(imageName: string) {
       border-radius: 20px;
       overflow: hidden;
       &:hover {
-        .overlay {
-          display: flex;
-          color: white;
+        @media (hover: hover) {
+          .overlay {
+            display: flex;
+            color: white;
+          }
         }
       }
 

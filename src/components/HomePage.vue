@@ -4,7 +4,7 @@ import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { isMobileDevice } from "@/state/AppState";
+import { isMobileDevice, scrollToSection } from "@/state/AppState";
 
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
@@ -44,13 +44,15 @@ if (!isMobileDevice.value) {
       </div>
       <div class="buttons-container">
         <DarkButton
-          :text="home.linkedIn"
+          :text="home.linkedIn.text"
+          :href="home.linkedIn.href"
           icon-name="linkedin"
           class="home-button"
         />
         <LightButton
-          :text="home.contact"
+          :text="home.contact.text"
           :gradient-color="highlights[highlightsIndex].color"
+          @click="scrollToSection(home.contact.goTo)"
         />
       </div>
     </div>

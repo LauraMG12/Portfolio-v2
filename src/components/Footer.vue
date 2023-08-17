@@ -16,9 +16,31 @@ const mobileIconSize = computed(() =>
     <SvgIcon name="logo" :size="mobileIconSize" />
     <p class="name">{{ footer.name }}</p>
     <div class="contact">
-      <p class="footer-contact">{{ footer.linkedIn }}</p>
-      <p class="footer-contact">{{ footer.professionalEmail }}</p>
-      <p class="footer-contact">{{ footer.gitHub }}</p>
+      <p class="footer-contact">
+        <a
+          unselectable="on"
+          href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
+          target="_blank"
+          >{{ footer.linkedIn }}</a
+        >
+      </p>
+      <p class="footer-contact">
+        <a
+          unselectable="on"
+          :href="`mailto:${footer.professionalEmail}`"
+          class="footer-contact"
+          >{{ footer.professionalEmail }}</a
+        >
+      </p>
+      <p class="footer-contact">
+        <a
+          unselectable="on"
+          href="https://github.com/LauraMG12"
+          target="_blank"
+          class="footer-contact"
+          >{{ footer.gitHub }}</a
+        >
+      </p>
     </div>
   </div>
 </template>

@@ -58,9 +58,11 @@ const props = defineProps<AppButtonProps>();
     @media screen and (max-width: $breackpoint-small) {
       width: 100%;
     }
-    &:hover {
-      .gradient {
-        z-index: 3;
+    @media (hover: hover) {
+      &:hover {
+        .gradient {
+          z-index: 3;
+        }
       }
     }
     .button {

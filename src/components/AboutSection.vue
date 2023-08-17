@@ -20,8 +20,19 @@ function getImgPath(imageName: string) {
       <h3>{{ about.name }}</h3>
       <div class="about-subheader">
         <AppPill :name="about.position" color="light" class="frontend-pill" />
-        <SvgIcon name="linkedin" />
-        <SvgIcon name="github" />
+        <a
+          unselectable="on"
+          href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
+          target="_blank"
+          ><SvgIcon name="linkedin"
+        /></a>
+        <a
+          unselectable="on"
+          href="https://github.com/LauraMG12"
+          target="_blank"
+        >
+          <SvgIcon name="github" />
+        </a>
       </div>
     </div>
     <div class="about-content">
