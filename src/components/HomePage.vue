@@ -4,19 +4,21 @@ import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
+import { isMobileDevice } from "@/state/AppState";
 
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
   () => `${homeContent.value?.clientHeight}px`
 );
 const highlightsIndex = ref<number>(0);
-setInterval(() => {
-  if (highlightsIndex.value < highlights.length - 1) {
-    highlightsIndex.value++;
-  } else {
-    highlightsIndex.value = 0;
-  }
-}, 2500);
+
+if (!isMobileDevice.value) {
+  setInterval(() => {
+    highlightsIndex.value < highlights.length - 1
+      ? highlightsIndex.value++
+      : (highlightsIndex.value = 0);
+  }, 2500);
+}
 </script>
 
 <template>
@@ -98,6 +100,7 @@ setInterval(() => {
         width: 20%;
         margin-right: 0.95rem;
         position: relative;
+        overflow: hidden;
         @media screen and (max-width: $breackpoint-large) {
           width: 25%;
           margin-right: 0.55rem;
@@ -113,6 +116,9 @@ setInterval(() => {
         & .hightlight {
           position: absolute;
           right: 0;
+          @media screen and (max-width: $breackpoint-small) {
+            position: relative;
+          }
           &.blue-highlight {
             background: $blue-gradient-90;
             background-clip: text;
@@ -162,38 +168,28 @@ setInterval(() => {
 }
 .highlight {
   &-enter-active {
-    animation: animate-in 0.5s;
+    animation: animate-in 1.5s;
   }
-  &-leave-active {
-    animation: animate-out 0.5s;
-  }
-  @keyframes animate-in {
-    0% {
-      transform: scale(0.7);
-      transform: translateY(50px);
-      position: absolute;
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1);
-      transform: translateY(0);
-      position: absolute;
-      opacity: 1;
-    }
-  }
-  @keyframes animate-out {
-    0% {
-      transform: scale(1);
-      position: absolute;
-      transform: translateY(0);
-      opacity: 1;
-    }
 
-    100% {
-      transform: scale(0.7);
-      position: absolute;
-      opacity: 0;
-    }
+  &-leave-active {
+    animation: animate-out 1.5s;
+  }
+}
+@keyframes animate-in {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes animate-out {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-120%);
   }
 }
 </style>
