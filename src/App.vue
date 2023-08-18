@@ -34,7 +34,6 @@ watch(isMobileNavigationOpened, () => {
     :class="{
       'blur-navigation':
         !isScrollPositionOnTop && !(isMobileNavigationOpened && isSmallDevice),
-      white: isMobileNavigationOpened && isSmallDevice,
     }"
   >
     <NavigationBar />
@@ -60,12 +59,10 @@ watch(isMobileNavigationOpened, () => {
     width: 100vw;
     position: fixed;
     z-index: $navigation-index;
+    transition: $basic-transition-025;
     &.blur-navigation {
       background-color: $white;
       box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
-    }
-    &.white {
-      background-color: $white;
     }
   }
 

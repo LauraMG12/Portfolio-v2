@@ -23,7 +23,6 @@ const mobileIconSize = computed(() =>
       <SvgIcon name="logo" :size="mobileIconSize" />
     </div>
     <div v-if="isSmallDevice" @click="toggleNavigationState()">
-      <!-- TODO: on close, keep scroll position -->
       <SvgIcon :name="isMobileNavigationOpened ? 'close' : 'navigation'" />
     </div>
     <div v-else class="navigation-items">
@@ -40,32 +39,36 @@ const mobileIconSize = computed(() =>
       </div>
     </div>
   </nav>
-  <div
-    v-if="isMobileNavigationOpened && isSmallDevice"
-    class="mobile-navigation"
-  >
+  <Transition name="slide-down">
     <div
-      v-for="section in sections"
-      :key="section.id"
-      class="item-container"
-      @click="scrollToSection(section.goTo)"
+      v-if="isMobileNavigationOpened && isSmallDevice"
+      class="mobile-navigation"
     >
-      <p
-        class="item"
-        @click="isMobileNavigationOpened = false"
-        :class="{ selected: section.isSelected }"
+      <div
+        v-for="section in sections"
+        :key="section.id"
+        class="item-container"
+        @click="scrollToSection(section.goTo)"
       >
-        {{ section.title }}
-      </p>
+        <p
+          class="item"
+          @click="isMobileNavigationOpened = false"
+          :class="{ selected: section.isSelected }"
+        >
+          {{ section.title }}
+        </p>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style scoped lang="scss">
 .navigation {
   margin: 0 50px;
   height: $navigation-height;
+  position: relative;
   display: flex;
+  z-index: $navigation-index;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -104,13 +107,14 @@ const mobileIconSize = computed(() =>
 }
 .mobile-navigation {
   width: 100vw;
-  height: calc(100vh - $navigation-height);
+  height: 100vh;
   position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
   background-color: $white;
 
-  padding: 0 50px;
+  padding: $navigation-height 50px 0 50px;
   @media screen and (max-width: $breackpoint-small) {
     padding: 0 20px;
   }
@@ -136,5 +140,17 @@ const mobileIconSize = computed(() =>
       }
     }
   }
+}
+.slide-down-enter-from,
+.slide-down-leave-to {
+  transform: translateY(-100%);
+}
+.slide-down-enter-to,
+.slide-down-leave-from {
+  transform: translateY(0);
+}
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: transform 0.3s linear;
 }
 </style>

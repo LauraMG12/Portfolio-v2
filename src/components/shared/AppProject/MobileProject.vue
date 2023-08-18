@@ -81,10 +81,13 @@ function toggleOverlayStatus(): void {
       width: 100%;
       position: absolute;
       display: flex;
-      bottom: 10px;
+      bottom: 8px;
       left: 0;
       justify-content: center;
-      transition: transform 0.5s ease;
+      transition: $transform-transition-05;
+      @media screen and (max-width: $breackpoint-small) {
+        bottom: 5px;
+      }
     }
     & .overlay {
       position: absolute;
@@ -94,7 +97,7 @@ function toggleOverlayStatus(): void {
       width: 100%;
       display: flex;
       height: 135%;
-      transition: transform 0.5s ease;
+      transition: $transform-transition-05;
       &.full-overlay {
         transform: translateY(-60%);
         & .project-description {
@@ -106,7 +109,7 @@ function toggleOverlayStatus(): void {
         }
       }
       & .project-description {
-        transition: all 0.5s ease;
+        transition: $basic-transition-05;
         width: calc(100% - 50px);
         position: absolute;
         top: 25%;
@@ -117,6 +120,9 @@ function toggleOverlayStatus(): void {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        @media screen and (max-width: $breackpoint-small) {
+          top: 20%;
+        }
       }
     }
   }
