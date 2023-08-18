@@ -42,9 +42,9 @@ function toggleOverlayStatus(): void {
         <p class="project-description">
           {{ information.description }}
         </p>
-        <div class="icon-container">
-          <SvgIcon name="arrow" color="white" />
-        </div>
+      </div>
+      <div class="icon-container">
+        <SvgIcon name="arrow" color="white" />
       </div>
       <img class="image" :src="projectImage" />
     </div>
@@ -76,46 +76,47 @@ function toggleOverlayStatus(): void {
       width: 100%;
       height: 100%;
     }
+    & .icon-container {
+      margin: 5px 0;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      bottom: 10px;
+      left: 0;
+      justify-content: center;
+      transition: transform 0.5s ease;
+    }
     & .overlay {
       position: absolute;
       background: $dark-gradient;
-      bottom: 0;
+      top: 50%;
       left: 0;
       width: 100%;
-      height: fit-content;
       display: flex;
-      flex-direction: column;
-      justify-content: end;
-      align-items: center;
-      padding: 10% 15px 10px 15px;
-      gap: 10px;
+      height: 135%;
+      transition: transform 0.5s ease;
       &.full-overlay {
-        height: 125%;
+        transform: translateY(-60%);
         & .project-description {
-          display: inline;
-          position: absolute;
-          width: calc(100% - 30px);
           top: calc(62.5% - 10px);
-          left: 50%;
-          transform: translate(-50%, -50%);
+          display: inline;
         }
-        & .icon-container {
-          transform: rotate(180deg);
+        & ~ .icon-container {
+          transform: rotate(540deg);
         }
       }
       & .project-description {
+        transition: all 0.5s ease;
+        width: calc(100% - 50px);
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         color: $white;
         overflow: hidden;
-        width: 100%;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
-      }
-      & .icon-container {
-        margin: 5px 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
       }
     }
   }

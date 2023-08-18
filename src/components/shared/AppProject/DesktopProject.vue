@@ -99,8 +99,7 @@ function getImgPath(imageName: string) {
       &:hover {
         @media (hover: hover) {
           .overlay {
-            display: flex;
-            color: white;
+            opacity: 1;
           }
         }
       }
@@ -114,10 +113,13 @@ function getImgPath(imageName: string) {
         background: $dark-overlay;
         width: 100%;
         height: 100%;
-        display: none;
+        display: flex;
+        opacity: 0;
         justify-content: center;
         align-items: center;
         gap: 70px;
+        color: white;
+        transition: $opacity-transition-02;
       }
     }
     & .project-aside {

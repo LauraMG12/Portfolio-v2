@@ -18,9 +18,16 @@ const props = defineProps<AppButtonProps>();
       <div class="button home-button">
         <p class="button-text">{{ props.text }}</p>
       </div>
-      <div class="gradient" :class="[`${props.gradientColor}-gradient`]">
+      <div
+        class="gradient gradient-background"
+        :class="[`${props.gradientColor}-gradient`]"
+      >
         <p class="button-text">{{ props.text }}</p>
       </div>
+      <div
+        class="gradient gradient-border"
+        :class="[`${props.gradientColor}-gradient`]"
+      ></div>
     </button>
   </div>
 </template>
@@ -60,8 +67,8 @@ const props = defineProps<AppButtonProps>();
     }
     @media (hover: hover) {
       &:hover {
-        .gradient {
-          z-index: 3;
+        .gradient.gradient-background {
+          opacity: 1;
         }
       }
     }
@@ -93,6 +100,13 @@ const props = defineProps<AppButtonProps>();
       }
       @media screen and (max-width: $breackpoint-small) {
         width: calc(100% + 2px);
+      }
+
+      &.gradient-background {
+        transition: $opacity-transition-02;
+        --webkit-transition: $opacity-transition-02;
+        opacity: 0;
+        z-index: 3;
       }
       &.blue-gradient {
         background-image: $blue-gradient-180;
