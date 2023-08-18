@@ -4,7 +4,7 @@ import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { isMobileDevice, scrollToSection } from "@/state/AppState";
+import { /*isMobileDevice,*/ scrollToSection } from "@/state/AppState";
 
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
@@ -12,13 +12,13 @@ const homeContentHeight = computed(
 );
 const highlightsIndex = ref<number>(0);
 
-if (!isMobileDevice.value) {
-  setInterval(() => {
-    highlightsIndex.value < highlights.length - 1
-      ? highlightsIndex.value++
-      : (highlightsIndex.value = 0);
-  }, 2500);
-}
+// if (!isMobileDevice.value) {
+//   setInterval(() => {
+//     highlightsIndex.value < highlights.length - 1
+//       ? highlightsIndex.value++
+//       : (highlightsIndex.value = 0);
+//   }, 2500);
+// }
 </script>
 
 <template>

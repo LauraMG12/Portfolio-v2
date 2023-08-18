@@ -70,7 +70,7 @@ const mobileIconSize = computed(() =>
   align-items: center;
   justify-content: space-between;
   @media screen and (max-width: $breackpoint-small) {
-    margin: 0 15px;
+    margin: 0 25px 0 15px;
   }
 
   & .navigation-items {

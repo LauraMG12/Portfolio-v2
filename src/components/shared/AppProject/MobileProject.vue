@@ -37,12 +37,8 @@ function toggleOverlayStatus(): void {
         color="light"
       />
     </div>
-    <div class="project-image">
-      <div
-        class="overlay"
-        :class="{ 'full-overlay': isOverlayExpanded }"
-        @click="toggleOverlayStatus"
-      >
+    <div class="project-image" @click="toggleOverlayStatus">
+      <div class="overlay" :class="{ 'full-overlay': isOverlayExpanded }">
         <p class="project-description">
           {{ information.description }}
         </p>
@@ -75,6 +71,7 @@ function toggleOverlayStatus(): void {
     max-height: 450px;
     border-radius: 20px;
     overflow: hidden;
+    cursor: pointer;
     & .image {
       width: 100%;
       height: 100%;
@@ -118,7 +115,6 @@ function toggleOverlayStatus(): void {
         margin: 5px 0;
         width: 100%;
         display: flex;
-        cursor: pointer;
         justify-content: center;
       }
     }
