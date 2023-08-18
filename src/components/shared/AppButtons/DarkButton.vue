@@ -41,10 +41,14 @@ const mobileIconSize = computed(() =>
 .button {
   background-color: black;
   color: $white;
-  padding: 10px 25px;
+  padding: 10px 20px;
   width: fit-content;
   gap: 20px;
   transition: $basic-transition-025;
+  @media screen and (max-width: $breackpoint-medium) {
+    padding: 5px 15px;
+    gap: 15px;
+  }
 
   &:hover {
     @media (hover: hover) {

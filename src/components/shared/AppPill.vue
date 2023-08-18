@@ -11,7 +11,7 @@ interface AppPillProps {
 }
 const props = defineProps<AppPillProps>();
 const iconSize = computed(() =>
-  isSmallDevice.value ? { width: 10, height: 10 } : undefined
+  isSmallDevice.value ? { width: 18, height: 18 } : undefined
 );
 </script>
 

@@ -21,7 +21,7 @@ function getImgPath(imageName: string) {
   return require(`@/assets/${imageName}.jpg`);
 }
 
-function toggleOverlayStatys(): void {
+function toggleOverlayStatus(): void {
   isOverlayExpanded.value = !isOverlayExpanded.value;
 }
 </script>
@@ -38,11 +38,15 @@ function toggleOverlayStatys(): void {
       />
     </div>
     <div class="project-image">
-      <div class="overlay" :class="{ 'full-overlay': isOverlayExpanded }">
+      <div
+        class="overlay"
+        :class="{ 'full-overlay': isOverlayExpanded }"
+        @click="toggleOverlayStatus"
+      >
         <p class="project-description">
           {{ information.description }}
         </p>
-        <div class="icon-container" @click="toggleOverlayStatys">
+        <div class="icon-container">
           <SvgIcon name="arrow" color="white" />
         </div>
       </div>

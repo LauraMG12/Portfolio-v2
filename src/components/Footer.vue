@@ -62,12 +62,12 @@ const mobileIconSize = computed(() =>
   .contact {
     margin-top: 20px;
     display: flex;
-    width: 60%;
+    width: 70%;
     justify-content: space-around;
 
     @media screen and (max-width: $breackpoint-small) {
       width: 100%;
-      padding: 0 15px;
+      padding: 0 5px;
     }
     & > p {
       cursor: pointer;
