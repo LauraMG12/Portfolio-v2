@@ -13,5 +13,5 @@ export const contact: ContactInfo = {
   professionalEmail: "laura.lmg12@gmail.com",
   email: "Email",
   message: "Message",
-  sendMessage: "Send message",
+  sendMessage: "Send",
 };

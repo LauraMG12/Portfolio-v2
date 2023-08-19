@@ -22,10 +22,10 @@ import { contact } from "../content/Contact";
           :href="`mailto:${contact.professionalEmail}`"
           class="email-container"
         >
+          <div class="blue-overlay" />
           <SvgIcon name="mail" />
           <div class="email">
             <p>{{ contact.professionalEmail }}</p>
-            <div class="underline" />
           </div>
         </a>
       </div>
@@ -95,23 +95,33 @@ import { contact } from "../content/Contact";
       & .email-container {
         display: flex;
         margin-top: 30px;
-        gap: 20px;
+        gap: 10px;
         width: fit-content;
         align-items: center;
+        position: relative;
         &:hover {
           cursor: pointer;
           @media (hover: hover) {
-            & .email .underline {
-              height: 100%;
-              border-radius: 10px;
-              width: 110%;
-              position: absolute;
-              right: -5%;
+            & .blue-overlay {
+              width: 105%;
             }
           }
         }
         @media screen and (max-width: $breackpoint-medium) {
           margin-top: 20px;
+        }
+        & .blue-overlay {
+          position: absolute;
+          top: -2.5px;
+          left: -2.5px;
+          width: 35px;
+          height: 35px;
+          border-radius: 30px;
+          background: $blue-gradient-opacity-90;
+          transition: $basic-transition-025;
+          @media screen and (max-width: $breackpoint-medium) {
+            width: 105%;
+          }
         }
         & .email {
           width: fit-content;
@@ -120,15 +130,6 @@ import { contact } from "../content/Contact";
             @media screen and (max-width: $breackpoint-small) {
               font-size: $font-size-small;
             }
-          }
-          & .underline {
-            transition: $basic-transition-025;
-            width: 105%;
-            height: 7px;
-            background: $blue-gradient-opacity-90;
-            position: absolute;
-            bottom: 0;
-            right: 0;
           }
         }
       }
