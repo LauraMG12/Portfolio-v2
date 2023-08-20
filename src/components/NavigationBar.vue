@@ -4,6 +4,7 @@ import { computed } from "vue";
 import { sections } from "../content/Navigation";
 
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
+import MobileNavigationIcon from "./shared/SvgIcon/MobileNavigationIcon.vue";
 
 import { isSmallDevice, scrollToSection } from "../state/AppState";
 
@@ -22,9 +23,10 @@ const mobileIconSize = computed(() =>
     <div @click="scrollToSection('homePage')">
       <SvgIcon name="logo" :size="mobileIconSize" />
     </div>
-    <div v-if="isSmallDevice" @click="toggleNavigationState()">
-      <SvgIcon :name="isMobileNavigationOpened ? 'close' : 'navigation'" />
-    </div>
+    <MobileNavigationIcon
+      v-if="isSmallDevice"
+      @click="toggleNavigationState()"
+    />
     <div v-else class="navigation-items">
       <div
         v-for="section in sections"
@@ -44,20 +46,18 @@ const mobileIconSize = computed(() =>
       v-if="isMobileNavigationOpened && isSmallDevice"
       class="mobile-navigation"
     >
-      <div
-        v-for="section in sections"
-        :key="section.id"
-        class="item-container"
-        @click="scrollToSection(section.goTo)"
-      >
-        <p
-          class="item"
-          @click="isMobileNavigationOpened = false"
-          :class="{ selected: section.isSelected }"
+      <TransitionGroup name="slide-right">
+        <div
+          v-for="section in sections"
+          :key="section.id"
+          class="item-container"
+          @click="scrollToSection(section.goTo)"
         >
-          {{ section.title }}
-        </p>
-      </div>
+          <p class="item" :class="{ selected: section.isSelected }">
+            {{ section.title }}
+          </p>
+        </div>
+      </TransitionGroup>
     </div>
   </Transition>
 </template>
@@ -116,11 +116,11 @@ const mobileIconSize = computed(() =>
 
   padding: $navigation-height 50px 0 50px;
   @media screen and (max-width: $breackpoint-small) {
-    padding: 0 20px;
+    padding: $navigation-height 20px 0 20px;
   }
 
   & .item-container {
-    padding: 15px 0;
+    padding: 15px 0 15px 5px;
     width: 100%;
     border-bottom: 1px solid $grey-light;
     &:first-child {
@@ -141,16 +141,32 @@ const mobileIconSize = computed(() =>
     }
   }
 }
-.slide-down-enter-from,
-.slide-down-leave-to {
-  transform: translateY(-100%);
+.slide-down {
+  &-enter-from,
+  &-leave-to {
+    transform: translateY(-100%);
+  }
+  &-enter-to,
+  &-leave-from {
+    transform: translateY(0);
+  }
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.3s linear;
+  }
 }
-.slide-down-enter-to,
-.slide-down-leave-from {
-  transform: translateY(0);
-}
-.slide-down-enter-active,
-.slide-down-leave-active {
-  transition: transform 0.3s linear;
+.slide-right {
+  &-enter-from,
+  &-leave-to {
+    transform: translateX(-100%);
+  }
+  &-enter-to,
+  &-leave-from {
+    transform: translateX(0);
+  }
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.3s linear;
+  }
 }
 </style>
