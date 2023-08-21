@@ -177,12 +177,9 @@ if (!isMobileDevice.value) {
   &-leave-from {
     opacity: 1;
   }
-  &-enter-active {
-    transition: opacity 0.25s ease-in 0.2s;
-  }
-
+  &-enter-active,
   &-leave-active {
-    transition: opacity 0.25s ease-in;
+    transition: opacity 0.2s ease-in;
   }
 }
 </style>
