@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 export type GradientType = "blue" | "pink" | "orange";
 

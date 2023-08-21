@@ -86,6 +86,7 @@ import { contact } from "../content/Contact";
           font-weight: 700;
         }
         &:deep(.dashed) {
+          cursor: default;
           position: absolute;
           top: 30%;
           right: 0;

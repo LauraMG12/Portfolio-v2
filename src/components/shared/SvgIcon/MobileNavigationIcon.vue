@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { isMobileNavigationOpened } from "@/state/AppState";
+import { ref } from "vue";
+const elementLoaded = ref<boolean>(false);
 </script>
 
 <template>
   <div
     class="icon-container"
     :class="{
-      'burger-menu': !isMobileNavigationOpened,
       cross: isMobileNavigationOpened,
+      'burger-menu': elementLoaded && !isMobileNavigationOpened,
     }"
+    @click.once="elementLoaded = true"
   >
     <span></span>
     <span></span>
@@ -29,8 +32,6 @@ span {
   height: 2px;
   border-radius: 1px;
   background: $grey-dark;
-  transition: all 0.3s;
-  --webkit-transition: all 0.3s;
 }
 
 span + span {

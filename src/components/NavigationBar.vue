@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 
 import { sections } from "../content/Navigation";
 
@@ -16,16 +16,23 @@ import {
 const mobileIconSize = computed(() =>
   isSmallDevice.value ? { width: 55, height: 35 } : undefined
 );
+
+watch(isSmallDevice, () => {
+  if (!isSmallDevice.value) {
+    isMobileNavigationOpened.value = false;
+  }
+});
 </script>
 
 <template>
   <nav class="navigation">
-    <div @click="scrollToSection('homePage')">
+    <div @click="scrollToSection('homePage')" class="header">
       <SvgIcon name="logo" :size="mobileIconSize" />
     </div>
     <MobileNavigationIcon
       v-if="isSmallDevice"
       @click="toggleNavigationState()"
+      class="header"
     />
     <div v-else class="navigation-items">
       <div
@@ -40,13 +47,11 @@ const mobileIconSize = computed(() =>
         </p>
       </div>
     </div>
-  </nav>
-  <Transition name="slide-down">
-    <div
-      v-if="isMobileNavigationOpened && isSmallDevice"
-      class="mobile-navigation"
-    >
-      <TransitionGroup name="slide-right">
+    <Transition name="slide-down">
+      <nav
+        v-if="isMobileNavigationOpened && isSmallDevice"
+        class="mobile-navigation"
+      >
         <div
           v-for="section in sections"
           :key="section.id"
@@ -57,9 +62,9 @@ const mobileIconSize = computed(() =>
             {{ section.title }}
           </p>
         </div>
-      </TransitionGroup>
-    </div>
-  </Transition>
+      </nav>
+    </Transition>
+  </nav>
 </template>
 
 <style scoped lang="scss">
@@ -75,7 +80,9 @@ const mobileIconSize = computed(() =>
   @media screen and (max-width: $breackpoint-small) {
     margin: 0 25px 0 15px;
   }
-
+  & .header {
+    z-index: 12;
+  }
   & .navigation-items {
     width: 450px;
     display: flex;
@@ -110,6 +117,7 @@ const mobileIconSize = computed(() =>
   height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   background-color: $white;
@@ -149,21 +157,6 @@ const mobileIconSize = computed(() =>
   &-enter-to,
   &-leave-from {
     transform: translateY(0);
-  }
-  &-enter-active,
-  &-leave-active {
-    transition: all 0.3s linear;
-    --webkit-transition: all 0.3s linear;
-  }
-}
-.slide-right {
-  &-enter-from,
-  &-leave-to {
-    transform: translateX(-100%);
-  }
-  &-enter-to,
-  &-leave-from {
-    transform: translateX(0);
   }
   &-enter-active,
   &-leave-active {
