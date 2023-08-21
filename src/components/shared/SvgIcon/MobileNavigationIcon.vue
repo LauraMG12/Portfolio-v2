@@ -68,7 +68,7 @@ span + span {
   }
   50% {
     top: 8px;
-    transform: rotate(0);
+    transform: rotate(0) scale(0.4);
   }
   100% {
     top: 8px;
@@ -83,7 +83,7 @@ span + span {
   }
   50% {
     top: 8px;
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(0.4);
   }
   100% {
     top: 0;
@@ -98,7 +98,7 @@ span + span {
   }
   50% {
     bottom: 8px;
-    transform: rotate(0);
+    transform: rotate(0) scale(0.4);
   }
   100% {
     bottom: 8px;
@@ -113,7 +113,7 @@ span + span {
   }
   50% {
     bottom: 8px;
-    transform: rotate(0);
+    transform: rotate(0) scale(0.4);
   }
   100% {
     bottom: 0;
