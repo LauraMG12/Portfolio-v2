@@ -45,6 +45,7 @@ const mobileIconSize = computed(() =>
   width: fit-content;
   gap: 20px;
   transition: $basic-transition-025;
+  --webkit-transition: $basic-transition-025;
   @media screen and (max-width: $breackpoint-medium) {
     padding: 5px 15px;
     gap: 15px;

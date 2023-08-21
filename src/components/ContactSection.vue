@@ -119,6 +119,7 @@ import { contact } from "../content/Contact";
           border-radius: 30px;
           background: $blue-gradient-opacity-90;
           transition: $basic-transition-025;
+          --webkit-transition: $basic-transition-025;
           @media screen and (max-width: $breackpoint-medium) {
             width: 105%;
           }

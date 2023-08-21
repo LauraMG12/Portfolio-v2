@@ -30,6 +30,7 @@ span {
   border-radius: 1px;
   background: $grey-dark;
   transition: all 0.3s;
+  --webkit-transition: all 0.3s;
 }
 
 span + span {

@@ -120,6 +120,7 @@ function getImgPath(imageName: string) {
         gap: 70px;
         color: white;
         transition: $opacity-transition-02;
+        --webkit-transition: $opacity-transition-02;
       }
     }
     & .project-aside {

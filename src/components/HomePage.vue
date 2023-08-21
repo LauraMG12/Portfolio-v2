@@ -169,29 +169,20 @@ if (!isMobileDevice.value) {
   }
 }
 .highlight {
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+  }
+  &-enter-to,
+  &-leave-from {
+    opacity: 1;
+  }
   &-enter-active {
-    animation: animate-in 1.5s;
+    transition: opacity 0.25s ease-in 0.2s;
   }
 
   &-leave-active {
-    animation: animate-out 1.5s;
-  }
-}
-@keyframes animate-in {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes animate-out {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-120%);
+    transition: opacity 0.25s ease-in;
   }
 }
 </style>

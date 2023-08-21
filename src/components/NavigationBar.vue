@@ -153,6 +153,7 @@ const mobileIconSize = computed(() =>
   &-enter-active,
   &-leave-active {
     transition: all 0.3s linear;
+    --webkit-transition: all 0.3s linear;
   }
 }
 .slide-right {
@@ -167,6 +168,7 @@ const mobileIconSize = computed(() =>
   &-enter-active,
   &-leave-active {
     transition: all 0.3s linear;
+    --webkit-transition: all 0.3s linear;
   }
 }
 </style>

@@ -25,9 +25,17 @@ const props = defineProps<AppButtonProps>();
         <p class="button-text">{{ props.text }}</p>
       </div>
       <div
-        class="gradient gradient-border"
-        :class="[`${props.gradientColor}-gradient`]"
-      ></div>
+        class="gradient gradient-border blue-gradient"
+        :style="{ opacity: props.gradientColor === 'blue' ? 1 : 0 }"
+      />
+      <div
+        class="gradient gradient-border pink-gradient"
+        :style="{ opacity: props.gradientColor === 'pink' ? 1 : 0 }"
+      />
+      <div
+        class="gradient gradient-border orange-gradient"
+        :style="{ opacity: props.gradientColor === 'orange' ? 1 : 0 }"
+      />
     </button>
   </div>
 </template>
@@ -44,19 +52,20 @@ const props = defineProps<AppButtonProps>();
     border-radius: 16.25rem;
     filter: blur(17.5px);
     position: absolute;
-
+    transition: background-color 0.25s ease-in;
+    --webkit-transition: background-color 0.25s ease-in;
     @media screen and (max-width: $breackpoint-small) {
       width: 75vmin;
       min-width: 260px;
     }
     &.blue-background {
-      background: $blue-gradient-opacity-180;
+      background-color: $blue-dark-01;
     }
     &.pink-background {
-      background: $pink-gradient-opacity-180;
+      background-color: $pink-01;
     }
     &.orange-background {
-      background: $orange-gradient-opacity-180;
+      background: $orange-01;
     }
   }
   .button-container {
@@ -103,10 +112,14 @@ const props = defineProps<AppButtonProps>();
       }
 
       &.gradient-background {
-        transition: $opacity-transition-02;
-        --webkit-transition: $opacity-transition-02;
+        transition: opacity 0.25s ease-in;
+        --webkit-transition: opacity 0.25s ease-in;
         opacity: 0;
         z-index: 3;
+      }
+      &.gradient-border {
+        transition: opacity 0.25s ease-in;
+        --webkit-transition: opacity 0.25s ease-in;
       }
       &.blue-gradient {
         background-image: $blue-gradient-180;

@@ -85,6 +85,7 @@ function toggleOverlayStatus(): void {
       left: 0;
       justify-content: center;
       transition: $transform-transition-05;
+      --webkit-transition: $transform-transition-05;
       @media screen and (max-width: $breackpoint-small) {
         bottom: 5px;
       }
@@ -98,6 +99,7 @@ function toggleOverlayStatus(): void {
       display: flex;
       height: 135%;
       transition: $transform-transition-05;
+      --webkit-transition: $transform-transition-05;
       &.full-overlay {
         transform: translateY(-60%);
         & .project-description {
@@ -110,6 +112,7 @@ function toggleOverlayStatus(): void {
       }
       & .project-description {
         transition: $basic-transition-05;
+        --webkit-transition: $basic-transition-05;
         width: calc(100% - 50px);
         position: absolute;
         top: 25%;
