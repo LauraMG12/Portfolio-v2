@@ -49,7 +49,7 @@ const props = defineProps<AppButtonProps>();
     transition: background-color 0.25s ease-in;
     --webkit-transition: background-color 0.25s ease-in;
     @media screen and (max-width: $breackpoint-small) {
-      width: 75vmin;
+      width: 55vmin;
       min-width: 260px;
     }
     &.blue-background {

@@ -4,7 +4,7 @@ import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { isMobileDevice, scrollToSection } from "@/state/AppState";
+import { scrollToSection } from "@/state/AppState";
 
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
@@ -12,13 +12,11 @@ const homeContentHeight = computed(
 );
 const highlightsIndex = ref<number>(0);
 
-if (!isMobileDevice.value) {
-  setInterval(() => {
-    highlightsIndex.value < highlights.length - 1
-      ? highlightsIndex.value++
-      : (highlightsIndex.value = 0);
-  }, 2500);
-}
+setInterval(() => {
+  highlightsIndex.value < highlights.length - 1
+    ? highlightsIndex.value++
+    : (highlightsIndex.value = 0);
+}, 2500);
 </script>
 
 <template>
@@ -112,15 +110,12 @@ if (!isMobileDevice.value) {
         }
         @media screen and (max-width: $breackpoint-small) {
           margin: 0;
-          width: 80%;
-          text-align: center;
+          width: 35%;
+          height: $font-size-h2-section-title-mobile;
         }
         & .hightlight {
           position: absolute;
           right: 0;
-          @media screen and (max-width: $breackpoint-small) {
-            position: relative;
-          }
           &.blue-highlight {
             background: $blue-gradient-90;
             background-clip: text;
@@ -172,10 +167,12 @@ if (!isMobileDevice.value) {
   &-enter-from,
   &-leave-to {
     opacity: 0;
+    position: absolute;
   }
   &-enter-to,
   &-leave-from {
     opacity: 1;
+    position: absolute;
   }
   &-enter-active,
   &-leave-active {
