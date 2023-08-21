@@ -102,16 +102,13 @@ setInterval(() => {
         position: relative;
         overflow: hidden;
         @media screen and (max-width: $breackpoint-large) {
-          width: 25%;
+          width: 19vmax;
           margin-right: 0.55rem;
-        }
-        @media screen and (max-width: $breackpoint-medium) {
-          width: 30%;
         }
         @media screen and (max-width: $breackpoint-small) {
           margin: 0;
-          width: 35%;
-          height: $font-size-h2-section-title-mobile;
+          width: 32vmin;
+          height: 7vmin;
         }
         & .hightlight {
           position: absolute;
