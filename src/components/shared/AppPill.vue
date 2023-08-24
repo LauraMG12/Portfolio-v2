@@ -7,6 +7,7 @@ import { computed } from "vue";
 interface AppPillProps {
   name?: string;
   iconName?: IconType;
+  shouldHideText?: boolean;
   color: "dark" | "light";
 }
 const props = defineProps<AppPillProps>();
@@ -18,7 +19,9 @@ const iconSize = computed(() =>
 <template>
   <div class="pill-container" :class="[props.color]">
     <SvgIcon v-if="props.iconName" :name="props.iconName" :size="iconSize" />
-    <p v-if="props.name" class="pill-text">{{ props.name }}</p>
+    <p v-if="props.name && !props.shouldHideText" class="pill-text">
+      {{ props.name }}
+    </p>
   </div>
 </template>
 
