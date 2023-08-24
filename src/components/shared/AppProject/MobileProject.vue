@@ -46,7 +46,7 @@ function toggleOverlayStatus(): void {
       <div class="icon-container">
         <SvgIcon name="arrow" color="white" />
       </div>
-      <img class="image" :src="projectImage" />
+      <img alt="project image" class="image" :src="projectImage" />
     </div>
     <div class="project-buttons-container">
       <DarkButton text="Code" iconName="github" />

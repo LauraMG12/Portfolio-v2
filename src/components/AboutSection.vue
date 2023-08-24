@@ -37,7 +37,7 @@ function getImgPath(imageName: string) {
     </div>
     <div class="about-content">
       <div class="image-container">
-        <img class="image" :src="aboutImage" />
+        <img alt="professional image" class="image" :src="aboutImage" />
       </div>
       <div class="content">
         <p>

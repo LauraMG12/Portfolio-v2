@@ -48,7 +48,7 @@ function getImgPath(imageName: string) {
             color="white"
           />
         </div>
-        <img class="image" :src="projectImage" />
+        <img alt="project image" class="image" :src="projectImage" />
       </div>
       <div class="project-aside">
         <p class="project-description">

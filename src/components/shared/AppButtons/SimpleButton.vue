@@ -34,9 +34,15 @@ const mobileIconSize = computed(() =>
 .button {
   background-color: transparent;
   color: $black;
-  text-decoration: underline;
+  border: 2px solid $black;
+  padding: 10px 20px;
   width: fit-content;
   gap: 20px;
+  &:hover {
+    @media (hover: hover) {
+      background-color: $white;
+    }
+  }
   & .button-text {
     font-size: $font-size-p-mobile;
   }
