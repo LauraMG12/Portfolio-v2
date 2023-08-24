@@ -5,6 +5,30 @@ import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 
 import { contact } from "../content/Contact";
+import { ref } from "vue";
+
+const email = ref<string>("");
+const message = ref<string>("");
+
+function extractCorporativeName(): string {
+  if (email.value === "" || !email.value.includes("@")) {
+    return "";
+  }
+  const atPosition = email.value.indexOf("@");
+  const lastDotPosition = email.value.lastIndexOf(".");
+  const corporativeName = email.value.slice(atPosition + 1, lastDotPosition);
+  return capitalize(corporativeName);
+}
+
+function capitalize(text: string): string {
+  return text[0].toUpperCase() + text.slice(1);
+}
+
+function sendEmail(): void {
+  window.location.href = `mailto:laura.lmg12@gmail.com?subject=${extractCorporativeName()}&body=${capitalize(
+    message.value
+  )}`;
+}
 </script>
 
 <template>
@@ -37,6 +61,7 @@ import { contact } from "../content/Contact";
         id="email"
         name="email"
         placeholder="Write your email"
+        v-model="email"
       />
       <label for="message">{{ contact.message }}</label>
       <textarea
@@ -44,8 +69,13 @@ import { contact } from "../content/Contact";
         rows="10"
         cols="auto"
         placeholder="Write your message"
+        v-model="message"
       />
-      <DarkButton :text="contact.sendMessage" icon-name="plane" />
+      <DarkButton
+        @click="sendEmail()"
+        :text="contact.sendMessage"
+        icon-name="plane"
+      />
     </div>
   </div>
 </template>
