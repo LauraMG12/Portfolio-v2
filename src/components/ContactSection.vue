@@ -1,34 +1,10 @@
 <script setup lang="ts">
 import { isSmallDevice } from "@/state/AppState";
 
-import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
+import AppForm from "./shared/AppForm/AppForm.vue";
 
 import { contact } from "../content/Contact";
-import { ref } from "vue";
-
-const email = ref<string>("");
-const message = ref<string>("");
-
-function extractCorporativeName(): string {
-  if (email.value === "" || !email.value.includes("@")) {
-    return "";
-  }
-  const atPosition = email.value.indexOf("@");
-  const lastDotPosition = email.value.lastIndexOf(".");
-  const corporativeName = email.value.slice(atPosition + 1, lastDotPosition);
-  return capitalize(corporativeName);
-}
-
-function capitalize(text: string): string {
-  return text[0].toUpperCase() + text.slice(1);
-}
-
-function sendEmail(): void {
-  window.location.href = `mailto:laura.lmg12@gmail.com?subject=${extractCorporativeName()}&body=${capitalize(
-    message.value
-  )}`;
-}
 </script>
 
 <template>
@@ -54,29 +30,7 @@ function sendEmail(): void {
         </a>
       </div>
     </div>
-    <div class="contact-form">
-      <label for="email">{{ contact.email }}</label>
-      <input
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Write your email"
-        v-model="email"
-      />
-      <label for="message">{{ contact.message }}</label>
-      <textarea
-        name="message"
-        rows="10"
-        cols="auto"
-        placeholder="Write your message"
-        v-model="message"
-      />
-      <DarkButton
-        @click="sendEmail()"
-        :text="contact.sendMessage"
-        icon-name="plane"
-      />
-    </div>
+    <AppForm />
   </div>
 </template>
 
@@ -164,38 +118,6 @@ function sendEmail(): void {
             }
           }
         }
-      }
-    }
-  }
-  .contact-form {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    @media screen and (max-width: $breackpoint-medium) {
-      width: 100%;
-      margin-top: 25px;
-    }
-    &:deep(.button) {
-      align-self: end;
-      margin-top: 20px;
-    }
-    & label {
-      margin-top: 15px;
-      font-size: $font-size-p-mobile;
-      font-family: $font-primary;
-      color: $grey-dark;
-      margin-left: 10px;
-    }
-    & input,
-    & textarea {
-      resize: none;
-      border: 2px solid $grey-light;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-family: $font-primary;
-      &:focus {
-        border: 2px solid $grey-dark;
       }
     }
   }
