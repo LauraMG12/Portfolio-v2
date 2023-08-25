@@ -25,23 +25,21 @@ const mobileIconSize = computed(() =>
         >
       </p>
       <p class="footer-contact">
-        <a
-          unselectable="on"
-          :href="`mailto:${footer.professionalEmail}`"
-          class="footer-contact"
-          >{{ footer.professionalEmail }}</a
-        >
+        <a unselectable="on" :href="`mailto:${footer.professionalEmail}`">{{
+          footer.professionalEmail
+        }}</a>
       </p>
       <p class="footer-contact">
         <a
           unselectable="on"
           href="https://github.com/LauraMG12"
           target="_blank"
-          class="footer-contact"
           >{{ footer.gitHub }}</a
         >
       </p>
     </div>
+    <div class="blue-overlay" />
+    <p class="authory">@ <span>Laura Mañogil</span> Portfolio 2023</p>
   </div>
 </template>
 
@@ -53,8 +51,11 @@ const mobileIconSize = computed(() =>
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  padding-top: 20px;
+  gap: 10px;
+  @media screen and (max-width: $breackpoint-medium) {
+    height: 14rem;
+  }
   .name {
     font-size: 1.3rem;
     font-weight: 700;
@@ -69,9 +70,32 @@ const mobileIconSize = computed(() =>
       width: 100%;
       padding: 0 5px;
     }
-    & > p {
+    & > .footer-contact {
       cursor: pointer;
+      font-size: $font-size-small;
+      @media screen and (max-width: $breackpoint-medium) {
+        font-size: $font-size-smallest;
+      }
     }
+  }
+  & .authory {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: default;
+  }
+  & .blue-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-80%);
+    width: 115px;
+    height: 20px;
+    border-radius: 30px;
+    background: $blue-gradient-opacity-90;
   }
 }
 </style>
