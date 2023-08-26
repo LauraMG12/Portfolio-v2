@@ -91,8 +91,8 @@ const mobileIconSize = computed(() =>
     position: absolute;
     bottom: 10px;
     left: 50%;
-    transform: translateX(-80%);
-    width: 115px;
+    transform: translateX(-45%);
+    width: 210px;
     height: 20px;
     border-radius: 30px;
     background: $blue-gradient-opacity-90;

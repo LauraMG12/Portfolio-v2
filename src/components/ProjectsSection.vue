@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppProject from "./shared/AppProject/AppProject.vue";
+import ProjectsCarrousel from "./shared/AppProject/ProjectsCarrousel.vue";
 
 import { projects } from "../content/Projects";
 </script>
@@ -15,12 +16,15 @@ import { projects } from "../content/Projects";
         :information="project.info"
       />
     </div>
+    <ProjectsCarrousel />
   </section>
 </template>
 <style scoped lang="scss">
 #projectsSection {
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding-bottom: 100vh;
   & .projects-container {
     display: flex;
     flex-direction: column;
