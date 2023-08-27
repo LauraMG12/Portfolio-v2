@@ -5,7 +5,7 @@ interface TechnologiesSectionInfo {
   sectionTitle: string;
   technologies: GroupedTechnologies[];
 }
-interface GroupedTechnologies {
+export interface GroupedTechnologies {
   group: string;
   technologies: Technology[];
   color: GradientType;
@@ -45,7 +45,7 @@ export const technologies: TechnologiesSectionInfo = {
           iconName: "css",
         },
       ],
-      color: "pink",
+      color: "blue",
     },
     {
       group: "Others",
@@ -59,7 +59,7 @@ export const technologies: TechnologiesSectionInfo = {
           iconName: "css",
         },
       ],
-      color: "orange",
+      color: "blue",
     },
   ],
 };

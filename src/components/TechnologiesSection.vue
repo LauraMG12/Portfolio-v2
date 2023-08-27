@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { technologies } from "../content/Technologies";
-import technologyGroup from "./shared/AppTechnologyGroup/TechnologyGroup.vue";
+import TechnologyGroup from "./shared/AppTechnologyGroup/TechnologyGroup.vue";
 </script>
 
 <template>
   <section id="technologiesSection">
     <h2 class="section-title">{{ technologies.sectionTitle }}</h2>
     <div class="technologies-container">
-      <technologyGroup
+      <TechnologyGroup
         v-for="technologyGroup in technologies.technologies"
         :key="technologyGroup.group"
-        :color="technologyGroup.color"
-        :information="technologyGroup.technologies"
+        :information="technologyGroup"
       />
     </div>
   </section>
@@ -23,7 +22,6 @@ import technologyGroup from "./shared/AppTechnologyGroup/TechnologyGroup.vue";
   & .technologies-container {
     display: flex;
     flex-direction: column;
-    gap: 100px;
   }
 }
 </style>
