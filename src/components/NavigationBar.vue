@@ -152,11 +152,13 @@ watch(isSmallDevice, () => {
 .slide-down {
   &-enter-from,
   &-leave-to {
-    transform: translateY(-100%);
+    transform: translateX(100%);
+    opacity: 0;
   }
   &-enter-to,
   &-leave-from {
-    transform: translateY(0);
+    transform: translateX(0);
+    opacity: 1;
   }
   &-enter-active,
   &-leave-active {

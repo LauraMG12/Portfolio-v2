@@ -32,8 +32,7 @@ watch(isMobileNavigationOpened, () => {
   <header
     id="navigation"
     :class="{
-      'white-navigation':
-        !isScrollPositionOnTop && !(isMobileNavigationOpened && isSmallDevice),
+      'white-navigation': !isScrollPositionOnTop,
     }"
   >
     <NavigationBar />
