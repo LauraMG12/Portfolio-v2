@@ -11,7 +11,7 @@ const props = defineProps<TechnologyGroupProps>();
 <template>
   <div class="technologies-group">
     <div class="group-title">
-      <h4>{{ information.group }}</h4>
+      <p class="title">{{ information.group }}</p>
     </div>
     <div class="group-container">
       <div
@@ -23,6 +23,7 @@ const props = defineProps<TechnologyGroupProps>();
           class="technology-icon"
           :name="technology.iconName"
           :size="{ width: 50, height: 50 }"
+          :translate="{ x: 8, y: 0 }"
         />
         <p class="technology-name">{{ technology.name }}</p>
       </div>
@@ -33,13 +34,13 @@ const props = defineProps<TechnologyGroupProps>();
 <style scoped lang="scss">
 .technologies-group {
   & .group-title {
-    padding: 10px 20px;
+    padding: 15px 50px;
     background: $blue-gradient-opacity-90;
     border-radius: 20px;
   }
   & .group-container {
     display: flex;
-    padding: 50px 100px;
+    padding: 50px 25px 75px 25px;
     gap: 100px;
     flex-wrap: wrap;
     justify-content: center;
@@ -47,8 +48,14 @@ const props = defineProps<TechnologyGroupProps>();
       display: flex;
       flex-direction: column;
       align-items: center;
-      & svg.icon {
-        mix-blend-mode: luminosity;
+      gap: 20px;
+
+      & .technology-name {
+        color: $grey;
+        font-size: $font-size-small;
+        @media screen and (max-width: $breackpoint-small) {
+          font-size: $font-size-smallest;
+        }
       }
     }
   }

@@ -10,7 +10,7 @@ const props = defineProps<MobileProjectProps>();
 
 const projectImage = getImgPath(props.information.image) ?? null;
 function getImgPath(imageName: string) {
-  return require(`@/assets/${imageName}.jpg`);
+  return require(`@/assets/${imageName}`);
 }
 </script>
 
@@ -32,8 +32,8 @@ function getImgPath(imageName: string) {
 .project-image {
   position: relative;
   width: 60%;
-  height: 400px;
-  border-radius: 20px;
+  max-height: 400px;
+  border-radius: 10px;
   overflow: hidden;
   @media screen and (max-width: $breackpoint-medium) {
     width: 100%;

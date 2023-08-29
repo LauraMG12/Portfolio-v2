@@ -13,7 +13,7 @@ const mobileIconSize = computed(() =>
 
 <template>
   <div id="footer">
-    <SvgIcon name="logo" :size="mobileIconSize" />
+    <SvgIcon name="logo" :size="mobileIconSize" color="white" />
     <p class="name">{{ footer.name }}</p>
     <div class="contact">
       <p class="footer-contact">
@@ -38,7 +38,6 @@ const mobileIconSize = computed(() =>
         >
       </p>
     </div>
-    <div class="blue-overlay" />
     <p class="authory">@ <span>Laura Mañogil</span> Portfolio 2023</p>
   </div>
 </template>
@@ -47,12 +46,13 @@ const mobileIconSize = computed(() =>
 #footer {
   width: 100vw;
   height: 15rem;
-  background-color: $grey-light;
+  background-color: $black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
   gap: 10px;
+  color: $white;
   @media screen and (max-width: $breackpoint-medium) {
     height: 14rem;
   }
@@ -86,16 +86,9 @@ const mobileIconSize = computed(() =>
     font-size: 0.8rem;
     font-weight: 600;
     cursor: default;
-  }
-  & .blue-overlay {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-45%);
-    width: 210px;
-    height: 20px;
-    border-radius: 30px;
-    background: $blue-gradient-opacity-90;
+    & span {
+      color: $blue-dark;
+    }
   }
 }
 </style>

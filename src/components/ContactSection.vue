@@ -98,7 +98,7 @@ import { contact } from "../content/Contact";
         & .blue-overlay {
           position: absolute;
           top: -2.5px;
-          left: -2.5px;
+          left: -5px;
           width: 35px;
           height: 35px;
           border-radius: 30px;

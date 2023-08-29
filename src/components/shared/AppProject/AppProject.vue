@@ -23,14 +23,26 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
     <div class="project-header">
       <h3 class="project-title">{{ information.title }}</h3>
       <div class="project-technologies">
-        <AppPill
-          v-for="technology in information.technologies"
-          :key="technology.name"
-          :name="technology.name"
-          :should-hide-text="isMobileDevice"
-          :icon-name="technology.iconName"
-          :color="pillColor"
-        />
+        <div class="scroll-text-I">
+          <AppPill
+            v-for="technology in information.technologies"
+            :key="technology.name"
+            :name="technology.name"
+            :should-hide-text="isMobileDevice"
+            :icon-name="technology.iconName"
+            :color="pillColor"
+          />
+        </div>
+        <div class="scroll-text-II" aria-hidden="true">
+          <AppPill
+            v-for="technology in information.technologies"
+            :key="technology.name"
+            :name="technology.name"
+            :should-hide-text="isMobileDevice"
+            :icon-name="technology.iconName"
+            :color="pillColor"
+          />
+        </div>
       </div>
     </div>
     <div class="project-content">
@@ -44,8 +56,15 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
           {{ information.description }}
         </p>
         <div class="project-buttons-container">
-          <DarkButton text="Code" icon-name="github" />
-          <SimpleButton text="Run" />
+          <DarkButton
+            v-if="information.codeTo"
+            text="Code"
+            icon-name="github"
+          />
+          <SimpleButton
+            text="Run"
+            :class="{ 'to-right': !information.codeTo }"
+          />
         </div>
       </div>
     </div>
@@ -57,6 +76,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
   width: 100%;
   padding: 1.5rem;
   border-radius: 10px;
+  overflow: hidden;
   &.blue {
     background-image: $blue-gradient-opacity-145;
   }
@@ -85,9 +105,35 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
       align-items: flex-start;
       margin-bottom: 20px;
     }
+    & .project-title {
+      text-wrap: nowrap;
+    }
     & .project-technologies {
+      overflow: hidden;
       display: flex;
-      gap: 10px;
+      position: relative;
+      white-space: nowrap;
+      align-items: end;
+      height: 45px;
+      width: 100%;
+      mask: $white-mask;
+      -webkit-maskmask: $white-mask;
+
+      & .scroll-text-I {
+        display: flex;
+
+        gap: 10px;
+        width: fit-content;
+        animation: scrollText 8s infinite linear;
+        margin-right: 10px;
+      }
+      & .scroll-text-II {
+        display: flex;
+
+        gap: 10px;
+        width: fit-content;
+        animation: scrollText 8s infinite linear;
+      }
     }
   }
   & .project-content {
@@ -116,4 +162,24 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
     }
   }
 }
+.to-right {
+  left: 100%;
+  transform: translateX(-100%);
+}
+@keyframes scrollText {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+// @keyframes scrollText2 {
+//   from {
+//     transform: translateX(100%);
+//   }
+//   to {
+//     transform: translateX(0);
+//   }
+// }
 </style>

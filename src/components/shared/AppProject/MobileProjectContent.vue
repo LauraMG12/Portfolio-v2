@@ -15,7 +15,7 @@ const isOverlayExpanded = ref<boolean>(false);
 const projectImage = getImgPath(props.information.image) ?? null;
 
 function getImgPath(imageName: string) {
-  return require(`@/assets/${imageName}.jpg`);
+  return require(`@/assets/${imageName}`);
 }
 
 function toggleOverlayStatus(): void {
@@ -43,7 +43,7 @@ function toggleOverlayStatus(): void {
   width: 100%;
   aspect-ratio: auto;
   max-height: 450px;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
   & .image {

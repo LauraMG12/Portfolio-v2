@@ -20,19 +20,23 @@ function getImgPath(imageName: string) {
       <h3>{{ about.name }}</h3>
       <div class="about-subheader">
         <AppPill :name="about.position" color="light" class="frontend-pill" />
-        <a
-          unselectable="on"
-          href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
-          target="_blank"
-          ><SvgIcon name="linkedin"
-        /></a>
-        <a
-          unselectable="on"
-          href="https://github.com/LauraMG12"
-          target="_blank"
-        >
-          <SvgIcon name="github" />
-        </a>
+        <div class="icon-box">
+          <a
+            unselectable="on"
+            href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
+            target="_blank"
+            ><SvgIcon name="linkedin"
+          /></a>
+        </div>
+        <div class="icon-box">
+          <a
+            unselectable="on"
+            href="https://github.com/LauraMG12"
+            target="_blank"
+          >
+            <SvgIcon name="github" />
+          </a>
+        </div>
       </div>
     </div>
     <div class="about-content">
@@ -76,10 +80,28 @@ function getImgPath(imageName: string) {
           margin: 0 15px 0 0;
         }
       }
-      & :deep(.linkedin) {
-        margin-right: 30px;
+      & .icon-box {
+        border-radius: 10px;
+        // border: 2px solid $black;
+        // background-color: $white;
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        transition: all 0.2s ease;
         @media screen and (max-width: $breackpoint-small) {
-          margin: 0 10px 0 0;
+          margin-right: 10px;
+        }
+        &:hover {
+          @media (hover: hover) {
+            // background-color: black;
+            & a {
+              color: $blue-dark;
+              // transform: rotateY(360deg);
+            }
+          }
+        }
+        & a {
+          transition: all 0.2s ease;
         }
       }
     }

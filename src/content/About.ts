@@ -12,5 +12,5 @@ export const about: AboutInfo = {
   position: "Front end developer",
   imageName: "about",
   about:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "With a solid 2 years of hands-on Vue.js experience, I excel at crafting engaging web interfaces and optimizing user experiences. My commitment to growth ensures I stay at the forefront of industry trends, ready to push the boundaries of what's possible in front-end development. Let's collaborate to turn your visions into captivating digital realities and redefine the way users interact with the web.",
 };

@@ -1,33 +1,47 @@
 const ICON_TYPE = [
   "arrow",
+  "bitbucket",
   "bubble",
   "css",
   "dashed",
   "download",
   "github",
   "html",
+  "jest",
+  "js",
   "linkedin",
   "logo",
   "mail",
   "plane",
   "redirect",
+  "rxjs",
+  "sass",
+  "ts",
+  "vue",
 ] as const;
 
 export type IconType = (typeof ICON_TYPE)[number];
 
 export const ICON_TYPE_MAP: Record<IconType, string> = {
   arrow: "Arrow",
+  bitbucket: "Bitbucket",
   bubble: "Bubble",
   css: "Css",
   dashed: "DashedArrow",
   download: "Download",
   github: "Github",
   html: "Html",
+  jest: "Jest",
+  js: "JavaScript",
   linkedin: "Linkedin",
   logo: "Logo",
   mail: "Mail",
   plane: "PaperPlane",
   redirect: "Redirect",
+  rxjs: "RxJs",
+  sass: "Sass",
+  ts: "TypeScript",
+  vue: "Vue",
 };
 
 const ICON_COLOR = ["currentColor", "white", "black"] as const;
@@ -81,6 +95,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     width: 15,
     height: 10,
   },
+  bitbucket: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
   bubble: {
     color: "currentColor",
     colorProperty: "fill",
@@ -113,9 +133,21 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   },
   github: {
     color: "currentColor",
-    colorProperty: "fill",
+    colorProperty: "stroke",
     width: 25,
     height: 25,
+  },
+  jest: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
+  js: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
   },
   linkedin: {
     color: "currentColor",
@@ -131,13 +163,13 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   },
   mail: {
     color: "currentColor",
-    colorProperty: "fill",
-    width: 30,
-    height: 30,
+    colorProperty: "stroke",
+    width: 24,
+    height: 24,
   },
   plane: {
     color: "currentColor",
-    colorProperty: "fill",
+    colorProperty: "stroke",
     width: 25,
     height: 25,
   },
@@ -146,6 +178,30 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     colorProperty: "stroke",
     width: 25,
     height: 25,
+  },
+  rxjs: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
+  sass: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
+  ts: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
+  vue: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
   },
 };
 
