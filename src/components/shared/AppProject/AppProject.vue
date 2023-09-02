@@ -2,18 +2,27 @@
 import AppPill from "../AppPill.vue";
 import DarkButton from "../AppButtons/DarkButton.vue";
 import SimpleButton from "../AppButtons/SimpleButton.vue";
+import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
 import { ProjectInfo } from "../../../content/Projects";
 import { GradientType, isMobileDevice } from "../../../state/AppState";
-import MobileProjectContent from "./MobileProjectContent.vue";
-import DesktopProjectContent from "./DesktopProjectContent.vue";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 interface DesktopProjectProps {
   color: GradientType;
   information: ProjectInfo;
 }
 const props = defineProps<DesktopProjectProps>();
+
+const projectImage = getImgPath(props.information.image) ?? null;
+function getImgPath(imageName: string) {
+  return require(`@/assets/${imageName}`);
+}
+
+const isOverlayExpanded = ref<boolean>(false);
+function toggleOverlayStatus(): void {
+  isOverlayExpanded.value = !isOverlayExpanded.value;
+}
 
 const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
 </script>
@@ -23,34 +32,32 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
     <div class="project-header">
       <h3 class="project-title">{{ information.title }}</h3>
       <div class="project-technologies">
-        <div class="scroll-text-I">
-          <AppPill
-            v-for="technology in information.technologies"
-            :key="technology.name"
-            :name="technology.name"
-            :should-hide-text="isMobileDevice"
-            :icon-name="technology.iconName"
-            :color="pillColor"
-          />
-        </div>
-        <div class="scroll-text-II" aria-hidden="true">
-          <AppPill
-            v-for="technology in information.technologies"
-            :key="technology.name"
-            :name="technology.name"
-            :should-hide-text="isMobileDevice"
-            :icon-name="technology.iconName"
-            :color="pillColor"
-          />
-        </div>
+        <AppPill
+          v-for="technology in information.technologies"
+          :key="technology.name"
+          :name="technology.name"
+          :should-hide-text="isMobileDevice"
+          :icon-name="technology.iconName"
+          :color="pillColor"
+        />
       </div>
     </div>
     <div class="project-content">
-      <MobileProjectContent
-        v-if="isMobileDevice"
-        :information="props.information"
-      />
-      <DesktopProjectContent v-else :information="props.information" />
+      <div class="project-image" @click="toggleOverlayStatus">
+        <div
+          v-if="isMobileDevice"
+          class="overlay"
+          :class="{ 'full-overlay': isOverlayExpanded }"
+        >
+          <p class="project-description">
+            {{ information.description }}
+          </p>
+        </div>
+        <div v-if="isMobileDevice" class="icon-container">
+          <SvgIcon name="arrow" color="white" />
+        </div>
+        <img alt="project image" class="image" :src="projectImage" />
+      </div>
       <div class="project-aside">
         <p v-if="!isMobileDevice" class="project-description">
           {{ information.description }}
@@ -63,6 +70,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
           />
           <SimpleButton
             text="Run"
+            :color="props.color"
             :class="{ 'to-right': !information.codeTo }"
           />
         </div>
@@ -116,20 +124,10 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
       align-items: end;
       height: 45px;
       width: 100%;
+      gap: 10px;
       mask: $white-mask;
       -webkit-maskmask: $white-mask;
-
-      & .scroll-text-I,
-      & .scroll-text-II {
-        display: flex;
-
-        gap: 10px;
-        width: fit-content;
-        animation: scrollText 12s infinite linear;
-      }
-      & .scroll-text-I {
-        margin-right: 10px;
-      }
+      cursor: grab;
     }
   }
   & .project-content {
@@ -138,6 +136,88 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
       flex-direction: column;
       align-items: center;
       gap: 20px;
+    }
+    .project-image {
+      position: relative;
+      width: 60%;
+      max-height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: auto;
+      @media screen and (max-width: $breackpoint-medium) {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+      @media screen and (max-width: $breackpoint-small) {
+        max-height: 450px;
+        cursor: pointer;
+      }
+
+      &:hover {
+        @media (hover: hover) {
+          .overlay {
+            opacity: 1;
+          }
+        }
+      }
+
+      & .image {
+        width: 100%;
+        height: 100%;
+      }
+      & .icon-container {
+        margin: 5px 0;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        bottom: 8px;
+        left: 0;
+        justify-content: center;
+        transition: $transform-transition-05;
+        --webkit-transition: $transform-transition-05;
+        @media screen and (max-width: $breackpoint-small) {
+          bottom: 5px;
+        }
+      }
+      & .overlay {
+        position: absolute;
+        background: $dark-gradient;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        display: flex;
+        height: 135%;
+        transition: $transform-transition-05;
+        --webkit-transition: $transform-transition-05;
+        &.full-overlay {
+          transform: translateY(-60%);
+          & .project-description {
+            top: calc(62.5% - 10px);
+            display: inline;
+          }
+          & ~ .icon-container {
+            transform: rotate(540deg);
+          }
+        }
+        & .project-description {
+          transition: $basic-transition-05;
+          --webkit-transition: $basic-transition-05;
+          width: calc(100% - 50px);
+          position: absolute;
+          top: 25%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: $white;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          @media screen and (max-width: $breackpoint-small) {
+            top: 20%;
+          }
+        }
+      }
     }
     & .project-aside {
       width: 40%;

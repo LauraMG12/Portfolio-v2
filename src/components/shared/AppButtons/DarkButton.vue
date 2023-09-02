@@ -53,7 +53,7 @@ const mobileIconSize = computed(() =>
 
   &:hover {
     @media (hover: hover) {
-      background-color: $grey-dark;
+      background-color: $grey;
     }
   }
 }
