@@ -35,13 +35,18 @@ const props = defineProps<TechnologyGroupProps>();
 .technologies-group {
   & .group-title {
     padding: 15px 50px;
-    background: $blue-gradient-opacity-90;
-    border-radius: 20px;
+    background: $grey-light;
+    border-radius: 15px;
+    box-shadow: 0px 3px 0px 0px #3f3f3f;
+    & .title {
+      font-weight: $font-weight-bold;
+    }
   }
   & .group-container {
     display: flex;
     padding: 50px 25px 75px 25px;
-    gap: 100px;
+    column-gap: 100px;
+    row-gap: 50px;
     flex-wrap: wrap;
     justify-content: center;
     & .technology-wraper {

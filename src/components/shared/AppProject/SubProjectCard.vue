@@ -49,14 +49,19 @@ function getImgPath(imageName: string) {
   transition: $basic-transition-025;
   background-color: $white;
 
-  &:hover {
-    @media (hover: hover) {
+  @media (hover: hover) {
+    &:hover {
       cursor: pointer;
       transform: translate(-3px, -3px);
       box-shadow: 3px 3px 0px 0px $grey-dark;
-      & .image {
+      & .image,
+      & .card-content .project-technologies {
         mix-blend-mode: normal;
       }
+    }
+    &:active {
+      transform: translate(0, 0);
+      box-shadow: 0px 0px 0px 0px $grey-dark;
     }
   }
   & .image {
@@ -82,9 +87,8 @@ function getImgPath(imageName: string) {
       margin-top: 10px;
       display: flex;
       justify-content: space-between;
-      & svg.icon {
-        mix-blend-mode: luminosity;
-      }
+      background-color: $white;
+      mix-blend-mode: luminosity;
     }
   }
 }
