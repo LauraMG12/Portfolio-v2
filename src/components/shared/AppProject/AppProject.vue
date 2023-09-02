@@ -119,20 +119,16 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
       mask: $white-mask;
       -webkit-maskmask: $white-mask;
 
-      & .scroll-text-I {
-        display: flex;
-
-        gap: 10px;
-        width: fit-content;
-        animation: scrollText 8s infinite linear;
-        margin-right: 10px;
-      }
+      & .scroll-text-I,
       & .scroll-text-II {
         display: flex;
 
         gap: 10px;
         width: fit-content;
-        animation: scrollText 8s infinite linear;
+        animation: scrollText 12s infinite linear;
+      }
+      & .scroll-text-I {
+        margin-right: 10px;
       }
     }
   }
@@ -174,12 +170,4 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
     transform: translateX(-100%);
   }
 }
-// @keyframes scrollText2 {
-//   from {
-//     transform: translateX(100%);
-//   }
-//   to {
-//     transform: translateX(0);
-//   }
-// }
 </style>

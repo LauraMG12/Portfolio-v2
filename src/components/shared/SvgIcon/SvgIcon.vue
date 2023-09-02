@@ -40,9 +40,3 @@ const iconPath = computed(() => {
     />
   </Suspense>
 </template>
-
-<style scoped lang="scss">
-.icon {
-  cursor: pointer;
-}
-</style>

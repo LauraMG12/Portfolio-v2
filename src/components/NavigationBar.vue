@@ -82,6 +82,7 @@ watch(isSmallDevice, () => {
   }
   & .header {
     z-index: 12;
+    cursor: pointer;
   }
   & .navigation-items {
     width: 450px;

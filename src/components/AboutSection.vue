@@ -20,23 +20,20 @@ function getImgPath(imageName: string) {
       <h3>{{ about.name }}</h3>
       <div class="about-subheader">
         <AppPill :name="about.position" color="light" class="frontend-pill" />
-        <div class="icon-box">
-          <a
-            unselectable="on"
-            href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
-            target="_blank"
-            ><SvgIcon name="linkedin"
-          /></a>
-        </div>
-        <div class="icon-box">
-          <a
-            unselectable="on"
-            href="https://github.com/LauraMG12"
-            target="_blank"
-          >
-            <SvgIcon name="github" />
-          </a>
-        </div>
+
+        <a
+          unselectable="on"
+          href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
+          target="_blank"
+          ><SvgIcon name="linkedin"
+        /></a>
+        <a
+          unselectable="on"
+          href="https://github.com/LauraMG12"
+          target="_blank"
+        >
+          <SvgIcon name="github" />
+        </a>
       </div>
     </div>
     <div class="about-content">
@@ -68,6 +65,7 @@ function getImgPath(imageName: string) {
     }
     & .about-subheader {
       display: flex;
+      align-items: center;
 
       & .frontend-pill {
         height: 25px;
@@ -80,28 +78,15 @@ function getImgPath(imageName: string) {
           margin: 0 15px 0 0;
         }
       }
-      & .icon-box {
-        border-radius: 10px;
-        // border: 2px solid $black;
-        // background-color: $white;
-        width: 30px;
-        height: 30px;
-        margin-right: 20px;
+
+      & a {
         transition: all 0.2s ease;
-        @media screen and (max-width: $breackpoint-small) {
-          margin-right: 10px;
-        }
+        margin-right: 20px;
+
         &:hover {
           @media (hover: hover) {
-            // background-color: black;
-            & a {
-              color: $blue-dark;
-              // transform: rotateY(360deg);
-            }
+            color: $blue-dark;
           }
-        }
-        & a {
-          transition: all 0.2s ease;
         }
       }
     }

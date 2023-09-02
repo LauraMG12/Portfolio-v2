@@ -107,6 +107,7 @@ import { contact } from "../content/Contact";
           --webkit-transition: $basic-transition-025;
           @media screen and (max-width: $breackpoint-medium) {
             width: 105%;
+            height: 30px;
           }
         }
         & .email {

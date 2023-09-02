@@ -151,7 +151,7 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   },
   linkedin: {
     color: "currentColor",
-    colorProperty: "fill",
+    colorProperty: "stroke",
     width: 25,
     height: 25,
   },

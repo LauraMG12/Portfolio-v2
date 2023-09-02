@@ -17,7 +17,12 @@ function getImgPath(imageName: string) {
 <template>
   <div class="project-image">
     <div class="overlay">
-      <SvgIcon name="github" :size="{ height: 45, width: 45 }" color="white" />
+      <SvgIcon
+        v-if="information.codeTo"
+        name="github"
+        :size="{ height: 45, width: 45 }"
+        color="white"
+      />
       <SvgIcon
         name="redirect"
         :size="{ height: 50, width: 50 }"
@@ -67,6 +72,9 @@ function getImgPath(imageName: string) {
     color: white;
     transition: $opacity-transition-02;
     --webkit-transition: $opacity-transition-02;
+    & :deep(.icon) {
+      cursor: pointer;
+    }
   }
 }
 </style>
