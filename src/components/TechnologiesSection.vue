@@ -4,7 +4,7 @@ import TechnologyGroup from "./shared/AppTechnologyGroup/TechnologyGroup.vue";
 </script>
 
 <template>
-  <section id="technologiesSection">
+  <section id="technologiesSection" class="content">
     <h2 class="section-title">{{ technologies.sectionTitle }}</h2>
     <div class="technologies-container">
       <TechnologyGroup
@@ -19,6 +19,7 @@ import TechnologyGroup from "./shared/AppTechnologyGroup/TechnologyGroup.vue";
 #technologiesSection {
   display: flex;
   flex-direction: column;
+  width: 100%;
   & .technologies-container {
     display: flex;
     flex-direction: column;

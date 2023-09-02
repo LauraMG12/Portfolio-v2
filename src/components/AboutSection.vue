@@ -14,7 +14,7 @@ function getImgPath(imageName: string) {
 </script>
 
 <template>
-  <section id="aboutSection">
+  <section id="aboutSection" class="content">
     <h2 class="section-title">{{ about.sectionTitle }}</h2>
     <div class="about-header">
       <h3>{{ about.name }}</h3>

@@ -4,6 +4,7 @@ import { IconType } from "../components/shared/SvgIcon/SvgIconHelper";
 interface ProjectsSectionInfo {
   sectionTitle: string;
   projects: ProjectOverview[];
+  subProjects: ProjectInfo[];
 }
 interface ProjectOverview {
   id: number;
@@ -94,5 +95,49 @@ export const projects: ProjectsSectionInfo = {
     //     aliquip ex ea commodo consequat.`,
     //   },
     // },
+  ],
+  subProjects: [
+    {
+      title: "Project name",
+      technologies: [
+        { name: "HTML", iconName: "html" },
+        { name: "CSS3", iconName: "css" },
+        { name: "Sass", iconName: "sass" },
+        { name: "JavaScript", iconName: "js" },
+        { name: "Vue3", iconName: "vue" },
+      ],
+      image: "home-background.jpg",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
+      runTo:
+        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+    },
+    {
+      title: "Project name",
+      technologies: [
+        { name: "TypeScript", iconName: "ts" },
+        { name: "Vue3", iconName: "vue" },
+        { name: "Jest", iconName: "jest" },
+        { name: "Bitbucket", iconName: "bitbucket" },
+        { name: "RxJs", iconName: "rxjs" },
+      ],
+      image: "home-background.jpg",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
+      runTo:
+        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+    },
+    {
+      title: "Project name",
+      technologies: [
+        { name: "Sass", iconName: "sass" },
+        { name: "JavaScript", iconName: "js" },
+        { name: "TypeScript", iconName: "ts" },
+        { name: "Vue3", iconName: "vue" },
+        { name: "RxJs", iconName: "rxjs" },
+      ],
+      image: "home-background.jpg",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
+      runTo:
+        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+    },
   ],
 };

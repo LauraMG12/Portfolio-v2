@@ -20,7 +20,7 @@ setInterval(() => {
 </script>
 
 <template>
-  <section id="homePage">
+  <section id="homePage" class="content">
     <div class="background" />
     <div class="home-content" ref="homeContent">
       <h1>{{ home.name }}</h1>
@@ -97,7 +97,7 @@ setInterval(() => {
       }
 
       & .subtitle-highlight {
-        width: 20%;
+        width: 26%;
         margin-right: 0.95rem;
         position: relative;
         overflow: hidden;

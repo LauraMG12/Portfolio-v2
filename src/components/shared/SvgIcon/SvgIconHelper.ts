@@ -188,7 +188,7 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
   sass: {
     color: "currentColor",
     colorProperty: "fill",
-    width: 20,
+    width: 24,
     height: 20,
   },
   ts: {

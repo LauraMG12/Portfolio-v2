@@ -8,7 +8,7 @@ import { contact } from "../content/Contact";
 </script>
 
 <template>
-  <div id="contactSection">
+  <div id="contactSection" class="content">
     <div class="contact-header">
       <SvgIcon v-if="!isSmallDevice" name="bubble" />
       <div class="info">
@@ -39,6 +39,7 @@ import { contact } from "../content/Contact";
   display: flex;
   width: 100%;
   justify-content: space-between;
+  padding-bottom: 8rem;
   @media screen and (max-width: $breackpoint-medium) {
     padding: 0;
     flex-direction: column;
