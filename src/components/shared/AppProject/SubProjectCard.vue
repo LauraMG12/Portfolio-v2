@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ProjectInfo } from "../../../content/Projects";
-import SvgIcon from "../SvgIcon/SvgIcon.vue";
+import { SubProjectInfo } from "../../../content/Projects";
 
 interface SubProjectCardProps {
-  information: ProjectInfo;
+  information: SubProjectInfo;
 }
 const props = defineProps<SubProjectCardProps>();
 
@@ -22,19 +21,6 @@ function getImgPath(imageName: string) {
       <p class="project-description">
         {{ information.description }}
       </p>
-      <div class="project-technologies">
-        <div
-          class="project-technology"
-          v-for="technology in information.technologies"
-          :key="technology.iconName"
-        >
-          <SvgIcon
-            :name="technology.iconName"
-            :size="{ height: 40, width: 40 }"
-            color="currentColor"
-          />
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -44,11 +30,10 @@ function getImgPath(imageName: string) {
   border-radius: 10px;
   overflow: hidden;
   border: 2px solid $grey-dark;
-  display: flex;
-  flex-direction: column;
   transition: $basic-transition-025;
   background-color: $white;
-
+  display: flex;
+  flex-direction: column;
   @media (hover: hover) {
     &:hover {
       cursor: pointer;
@@ -69,26 +54,28 @@ function getImgPath(imageName: string) {
     mix-blend-mode: luminosity;
   }
   & .card-content {
+    background-color: $white;
+    border-radius: 10px 10px 0 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    transform: translatey(-20px);
     & .project-title {
-      font-size: 1.5rem;
+      font-size: $font-size-p-desktop;
       color: $grey-dark;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
+      @media screen and (max-width: $breackpoint-medium) {
+        font-size: $font-size-button;
+      }
     }
     & .project-description {
-      font-size: 1rem;
+      font-size: $font-size-small;
       color: $grey-dark;
-      font-weight: 400;
-    }
-    & .project-technologies {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      background-color: $white;
-      mix-blend-mode: luminosity;
+      font-weight: $font-weight-normal;
+      @media screen and (max-width: $breackpoint-medium) {
+        font-size: $font-size-smallest;
+      }
     }
   }
 }

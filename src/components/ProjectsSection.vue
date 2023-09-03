@@ -20,7 +20,7 @@ import { projects } from "../content/Projects";
   <div class="sub-projects">
     <SubProjectCard
       v-for="subProject in projects.subProjects"
-      :key="subProject.title"
+      :key="subProject.id"
       :information="subProject"
     />
   </div>
@@ -37,10 +37,16 @@ import { projects } from "../content/Projects";
   }
 }
 .sub-projects {
-  width: 100vw;
   display: grid;
-  gap: 40px;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 0 50px;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 40px;
+  @media screen and (max-width: $breackpoint-large) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: $breackpoint-small) {
+    gap: 20px;
+    padding: 0 20px;
+  }
 }
 </style>

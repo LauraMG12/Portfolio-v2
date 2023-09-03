@@ -4,12 +4,20 @@ import { IconType } from "../components/shared/SvgIcon/SvgIconHelper";
 interface ProjectsSectionInfo {
   sectionTitle: string;
   projects: ProjectOverview[];
-  subProjects: ProjectInfo[];
+  subProjects: SubProjectInfo[];
 }
 interface ProjectOverview {
   id: number;
   color: GradientType;
   info: ProjectInfo;
+}
+export interface SubProjectInfo {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  runTo: string;
+  codeTo?: string;
 }
 
 export interface ProjectInfo {
@@ -116,43 +124,32 @@ export const projects: ProjectsSectionInfo = {
   ],
   subProjects: [
     {
+      id: 1,
       title: "Project name",
-      technologies: [
-        { name: "HTML", iconName: "html" },
-        { name: "CSS3", iconName: "css" },
-        { name: "Sass", iconName: "sass" },
-        { name: "JavaScript", iconName: "js" },
-
-        { name: "Vue3", iconName: "vue" },
-      ],
       image: "home-background.jpg",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
       runTo:
         "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
     },
     {
+      id: 2,
       title: "Project name",
-      technologies: [
-        { name: "TypeScript", iconName: "ts" },
-        { name: "Vue3", iconName: "vue" },
-        { name: "Jest", iconName: "jest" },
-        { name: "Bitbucket", iconName: "bitbucket" },
-        { name: "RxJs", iconName: "rxjs" },
-      ],
       image: "home-background.jpg",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
       runTo:
         "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
     },
     {
+      id: 3,
       title: "Project name",
-      technologies: [
-        { name: "Sass", iconName: "sass" },
-        { name: "JavaScript", iconName: "js" },
-        { name: "TypeScript", iconName: "ts" },
-        { name: "Vue3", iconName: "vue" },
-        { name: "RxJs", iconName: "rxjs" },
-      ],
+      image: "home-background.jpg",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
+      runTo:
+        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+    },
+    {
+      id: 4,
+      title: "Project name",
       image: "home-background.jpg",
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
       runTo:
