@@ -31,7 +31,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
   <div class="project-container" :class="[props.color]">
     <div class="project-header">
       <h3 class="project-title">{{ information.title }}</h3>
-      <div class="project-technologies">
+      <div class="project-technologies" v-dragscroll>
         <AppPill
           v-for="technology in information.technologies"
           :key="technology.name"
@@ -125,6 +125,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
       height: 45px;
       width: 100%;
       gap: 10px;
+      padding: 0 15px;
       mask: $white-mask;
       -webkit-maskmask: $white-mask;
       cursor: grab;
