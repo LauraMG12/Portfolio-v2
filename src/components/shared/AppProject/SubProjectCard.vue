@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { SubProjectInfo } from "../../../content/Projects";
+import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
 interface SubProjectCardProps {
   information: SubProjectInfo;
@@ -22,6 +23,9 @@ function getImgPath(imageName: string) {
         {{ information.description }}
       </p>
     </div>
+    <div class="githubIcon">
+      <SvgIcon name="github" :size="{ width: 30, height: 30 }" />
+    </div>
   </div>
 </template>
 
@@ -40,8 +44,11 @@ function getImgPath(imageName: string) {
       transform: translate(-3px, -3px);
       box-shadow: 3px 3px 0px 0px $grey-dark;
       & .image,
-      & .card-content .project-technologies {
+      & .card-content {
         mix-blend-mode: normal;
+      }
+      & .githubIcon {
+        color: $blue-dark;
       }
     }
     &:active {
@@ -56,11 +63,12 @@ function getImgPath(imageName: string) {
   & .card-content {
     background-color: $white;
     border-radius: 10px 10px 0 0;
-    padding: 20px;
+    padding: 20px 20px 5px 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     transform: translatey(-20px);
+
     & .project-title {
       font-size: $font-size-p-desktop;
       color: $grey-dark;
@@ -76,6 +84,16 @@ function getImgPath(imageName: string) {
       @media screen and (max-width: $breackpoint-medium) {
         font-size: $font-size-smallest;
       }
+    }
+  }
+  & .githubIcon {
+    align-self: end;
+    transform: translate(-10px, -10px);
+    background-color: $grey-light;
+    padding: 5px;
+    border-radius: 20px;
+    & :deep(svg.icon.github) {
+      transform: translate(1px, 1px);
     }
   }
 }

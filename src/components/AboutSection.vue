@@ -40,7 +40,7 @@ function getImgPath(imageName: string) {
       <div class="image-container">
         <img alt="professional image" class="image" :src="aboutImage" />
       </div>
-      <div class="content">
+      <div class="about">
         <p>
           {{ about.about }}
         </p>
@@ -119,7 +119,7 @@ function getImgPath(imageName: string) {
         object-fit: cover;
       }
     }
-    & .content {
+    & .about {
       width: 60%;
       display: flex;
       flex-direction: column;

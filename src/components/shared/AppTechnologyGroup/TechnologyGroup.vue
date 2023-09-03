@@ -1,11 +1,16 @@
 <script setup lang="ts">
+import { isSmallDevice } from "@/state/AppState";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
 import type { GroupedTechnologies } from "@/content/Technologies";
+import { computed } from "vue";
 
 interface TechnologyGroupProps {
   information: GroupedTechnologies;
 }
 const props = defineProps<TechnologyGroupProps>();
+const iconsSize = computed(() =>
+  isSmallDevice.value ? { width: 40, height: 40 } : { width: 50, height: 50 }
+);
 </script>
 
 <template>
@@ -22,7 +27,7 @@ const props = defineProps<TechnologyGroupProps>();
         <SvgIcon
           class="technology-icon"
           :name="technology.iconName"
-          :size="{ width: 50, height: 50 }"
+          :size="iconsSize"
           :translate="{ x: 8, y: 0 }"
         />
         <p class="technology-name">{{ technology.name }}</p>
@@ -34,7 +39,7 @@ const props = defineProps<TechnologyGroupProps>();
 <style scoped lang="scss">
 .technologies-group {
   & .group-title {
-    padding: 15px 50px;
+    padding: 15px 30px;
     background: $grey-light;
     border-radius: 15px;
     box-shadow: 0px 3px 0px 0px #3f3f3f;

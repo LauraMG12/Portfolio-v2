@@ -53,6 +53,7 @@ const mobileIconSize = computed(() =>
   padding-top: 20px;
   gap: 10px;
   color: $white;
+  margin-top: 8rem;
   @media screen and (max-width: $breackpoint-medium) {
     height: 14rem;
   }

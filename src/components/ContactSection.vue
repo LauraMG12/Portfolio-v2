@@ -37,9 +37,10 @@ import { contact } from "../content/Contact";
 <style scoped lang="scss">
 #contactSection {
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  padding-bottom: 8rem;
+  @media screen and (min-width: $breackpoint-large) {
+    width: 100%;
+  }
   @media screen and (max-width: $breackpoint-medium) {
     padding: 0;
     flex-direction: column;

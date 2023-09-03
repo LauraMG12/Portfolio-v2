@@ -50,6 +50,7 @@ const iconSize = computed(() =>
   }
   & .pill-text {
     font-size: $font-size-p-mobile;
+    white-space: nowrap;
   }
 }
 </style>
