@@ -1,10 +1,12 @@
 import { IconType } from "@/components/shared/SvgIcon/SvgIconHelper";
+import { GradientType } from "../state/AppState";
 
 interface TechnologiesSectionInfo {
   sectionTitle: string;
   technologies: GroupedTechnologies[];
 }
 export interface GroupedTechnologies {
+  color: GradientType;
   group: string;
   technologies: Technology[];
 }
@@ -18,6 +20,7 @@ export const technologies: TechnologiesSectionInfo = {
   sectionTitle: "Technologies",
   technologies: [
     {
+      color: "blue",
       group: "Front end - Discovery",
       technologies: [
         {
@@ -38,6 +41,7 @@ export const technologies: TechnologiesSectionInfo = {
       ],
     },
     {
+      color: "pink",
       group: "Front end - Delivery",
       technologies: [
         {
@@ -51,6 +55,7 @@ export const technologies: TechnologiesSectionInfo = {
       ],
     },
     {
+      color: "orange",
       group: "Others",
       technologies: [
         {

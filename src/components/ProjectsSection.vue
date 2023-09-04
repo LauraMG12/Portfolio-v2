@@ -14,6 +14,7 @@ import { projects } from "../content/Projects";
         :key="project.id"
         :color="project.color"
         :information="project.info"
+        :id="project.id"
       />
     </div>
   </section>
@@ -30,6 +31,7 @@ import { projects } from "../content/Projects";
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: -3rem;
   & .projects-container {
     display: flex;
     flex-direction: column;
@@ -47,6 +49,10 @@ import { projects } from "../content/Projects";
   @media screen and (max-width: $breackpoint-small) {
     gap: 20px;
     padding: 0 20px;
+  }
+  @media screen and (max-width: $breackpoint-small) {
+    gap: 10px;
+    padding: 0 10px;
   }
 }
 </style>

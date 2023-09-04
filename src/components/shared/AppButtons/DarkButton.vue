@@ -43,12 +43,12 @@ const mobileIconSize = computed(() =>
   color: $white;
   padding: 10px 20px;
   width: fit-content;
-  gap: 20px;
+  gap: 15px;
   transition: $basic-transition-025;
   --webkit-transition: $basic-transition-025;
   @media screen and (max-width: $breackpoint-medium) {
     padding: 5px 15px;
-    gap: 15px;
+    gap: 10px;
   }
 
   &:hover {

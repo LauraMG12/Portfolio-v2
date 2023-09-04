@@ -7,7 +7,7 @@ interface AboutInfo {
 }
 
 export const about: AboutInfo = {
-  sectionTitle: "About",
+  sectionTitle: "About me",
   name: "Laura Mañogil González",
   position: "Front end developer",
   imageName: "about",

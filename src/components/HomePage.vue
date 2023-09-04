@@ -81,9 +81,6 @@ setInterval(() => {
     margin-top: calc(50vh - (v-bind(homeContentHeight) / 2));
     gap: 50px;
     white-space: nowrap;
-    @media screen and (max-width: $breackpoint-small) {
-      gap: 35px;
-    }
     & .subtitle {
       display: flex;
       flex-direction: row;
@@ -146,7 +143,6 @@ setInterval(() => {
         width: 100%;
         flex-direction: column;
         gap: 20px;
-        margin-top: 65px;
         align-items: center;
       }
     }

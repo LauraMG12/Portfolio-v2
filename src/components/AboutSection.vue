@@ -5,7 +5,6 @@ import DarkButton from "./shared/AppButtons/DarkButton.vue";
 
 import { about } from "../content/About";
 
-// TODO: extract (duplicated)
 const aboutImage = getImgPath(about.imageName);
 
 function getImgPath(imageName: string) {
@@ -25,8 +24,9 @@ function getImgPath(imageName: string) {
           unselectable="on"
           href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
           target="_blank"
-          ><SvgIcon name="linkedin"
-        /></a>
+        >
+          <SvgIcon name="linkedin" />
+        </a>
         <a
           unselectable="on"
           href="https://github.com/LauraMG12"
@@ -127,7 +127,7 @@ function getImgPath(imageName: string) {
       gap: 50px;
       @media screen and (max-width: $breackpoint-medium) {
         align-items: center;
-        text-align: center;
+        text-align: left;
         gap: 25px;
         width: 100%;
       }

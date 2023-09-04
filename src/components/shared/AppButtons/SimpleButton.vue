@@ -35,27 +35,48 @@ const mobileIconSize = computed(() =>
 <style scoped lang="scss">
 .button {
   background-color: transparent;
+  position: relative;
   color: $black;
   border: 2px solid $black;
   padding: 10px 20px;
   width: fit-content;
-  gap: 20px;
+  gap: 15px;
   background-color: $white;
+  overflow: hidden;
+  @media screen and (max-width: $breackpoint-medium) {
+    padding: 5px 15px;
+    gap: 10px;
+  }
+  &::before {
+    content: "";
+    transition: $basic-transition-025;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  &.blue::before {
+    background-image: $blue-gradient-90-opacity-50;
+  }
+  &.pink::before {
+    background-image: $pink-gradient-90-opacity-50;
+  }
+  &.orange::before {
+    background-image: $orange-gradient-90-opacity-50;
+  }
   &:hover {
     @media (hover: hover) {
-      &.blue {
-        background-image: $blue-gradient-90;
-      }
-      &.pink {
-        background-image: $pink-gradient-90;
-      }
-      &.orange {
-        background-image: $orange-gradient-90;
+      &::before {
+        opacity: 1;
       }
     }
   }
   & .button-text {
     font-size: $font-size-p-mobile;
+    z-index: 1;
+  }
+  &:deep(.icon) {
+    z-index: 1;
   }
 }
 </style>

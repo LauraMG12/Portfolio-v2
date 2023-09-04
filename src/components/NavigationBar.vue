@@ -85,7 +85,7 @@ watch(isSmallDevice, () => {
     cursor: pointer;
   }
   & .navigation-items {
-    width: 450px;
+    width: 600px;
     display: flex;
     justify-content: space-between;
     & .item-container {

@@ -84,6 +84,10 @@ const props = defineProps<AppButtonProps>();
       color: $black;
       z-index: 2;
       width: 185px;
+      height: 43px;
+      @media screen and (max-width: $breackpoint-medium) {
+        height: 38px;
+      }
 
       & .button-text {
         color: $black;
@@ -94,7 +98,7 @@ const props = defineProps<AppButtonProps>();
       position: absolute;
       top: -1px;
       left: -1px;
-      height: 47px;
+      height: 45px;
       width: 187px;
       border-radius: 10px;
       display: flex;
@@ -102,7 +106,7 @@ const props = defineProps<AppButtonProps>();
       align-items: center;
       z-index: 1;
       @media screen and (max-width: $breackpoint-medium) {
-        height: 42px;
+        height: 40px;
       }
       @media screen and (max-width: $breackpoint-small) {
         width: calc(100% + 2px);

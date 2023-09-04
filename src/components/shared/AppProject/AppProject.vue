@@ -11,6 +11,7 @@ import { computed, ref } from "vue";
 interface DesktopProjectProps {
   color: GradientType;
   information: ProjectInfo;
+  id: number;
 }
 const props = defineProps<DesktopProjectProps>();
 
@@ -57,6 +58,13 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
           <SvgIcon name="arrow" color="white" />
         </div>
         <img alt="project image" class="image" :src="projectImage" />
+        <div v-if="props.id === 1" class="sembo-logo-container">
+          <img
+            alt="Sembo logo"
+            class="sembo-logo"
+            :src="getImgPath('descarga.png')"
+          />
+        </div>
       </div>
       <div class="project-aside">
         <p v-if="!isMobileDevice" class="project-description">
@@ -72,6 +80,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
             text="Run"
             :color="props.color"
             :class="{ 'to-right': !information.codeTo }"
+            icon-name="redirect"
           />
         </div>
       </div>
@@ -141,17 +150,15 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
     .project-image {
       position: relative;
       width: 60%;
-      max-height: 400px;
       border-radius: 10px;
       overflow: hidden;
       aspect-ratio: auto;
       @media screen and (max-width: $breackpoint-medium) {
         width: 100%;
-        max-width: 500px;
+        max-height: 450px;
         height: auto;
       }
       @media screen and (max-width: $breackpoint-small) {
-        max-height: 450px;
         cursor: pointer;
       }
 
@@ -167,6 +174,19 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
         width: 100%;
         height: 100%;
       }
+      & .sembo-logo-container {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0 20px 20px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 20%;
+        & .sembo-logo {
+          width: 100%;
+          height: 100%;
+        }
+      }
       & .icon-container {
         margin: 5px 0;
         width: 100%;
@@ -177,6 +197,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
         justify-content: center;
         transition: $transform-transition-05;
         --webkit-transition: $transform-transition-05;
+        z-index: 1;
         @media screen and (max-width: $breackpoint-small) {
           bottom: 5px;
         }
@@ -191,6 +212,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
         height: 135%;
         transition: $transform-transition-05;
         --webkit-transition: $transform-transition-05;
+        z-index: 1;
         &.full-overlay {
           transform: translateY(-60%);
           & .project-description {

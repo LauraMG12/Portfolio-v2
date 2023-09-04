@@ -22,7 +22,7 @@ interface contactInfo {
 
 export const highlights: AppHighlights[] = [
   { text: "Passionate", color: "blue" },
-  { text: "Adaptable", color: "pink" }, //Persistent, Resourceful
+  { text: "Adaptable", color: "pink" },
   { text: "Methodical", color: "orange" },
 ];
 

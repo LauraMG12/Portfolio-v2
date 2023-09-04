@@ -38,6 +38,8 @@ function getImgPath(imageName: string) {
   background-color: $white;
   display: flex;
   flex-direction: column;
+  position: relative;
+  //TODO: or if is touchable device
   @media (hover: hover) {
     &:hover {
       cursor: pointer;
@@ -68,6 +70,11 @@ function getImgPath(imageName: string) {
     flex-direction: column;
     gap: 20px;
     transform: translatey(-20px);
+    @media screen and (max-width: $breackpoint-small) {
+      gap: 10px;
+      padding: 10px 10px 10px 10px;
+      transform: none;
+    }
 
     & .project-title {
       font-size: $font-size-p-desktop;
@@ -94,6 +101,13 @@ function getImgPath(imageName: string) {
     border-radius: 20px;
     & :deep(svg.icon.github) {
       transform: translate(1px, 1px);
+    }
+    @media screen and (max-width: $breackpoint-small) {
+      position: absolute;
+      transform: none;
+      margin: 5px 5px 0 0;
+      top: 0;
+      right: 0;
     }
   }
 }

@@ -42,6 +42,11 @@ $blue-gradient-opacity-90: linear-gradient(
   rgba(1, 125, 239, 0.2) 0%,
   rgba(144, 238, 238, 0.2) 100%
 );
+$blue-gradient-90-opacity-50: linear-gradient(
+  90deg,
+  rgba(1, 125, 239, 0.5) 0%,
+  rgba(144, 238, 238, 0.5) 100%
+);
 
 $purple: #7927c9;
 $pink: #fd1c8e;
@@ -54,6 +59,16 @@ $pink-gradient-opacity-145: linear-gradient(
   rgba(121, 40, 202, 0.1) 0%,
   rgba(255, 0, 128, 0.1) 100%
 );
+$pink-gradient-opacity-90: linear-gradient(
+  90deg,
+  rgba(121, 40, 202, 0.2) 0%,
+  rgba(255, 0, 128, 0.2) 100%
+);
+$pink-gradient-90-opacity-50: linear-gradient(
+  90deg,
+  rgba(121, 40, 202, 0.5) 0%,
+  rgba(255, 0, 128, 0.5) 100%
+);
 
 $orange: #fd4f4b;
 $orange-01: rgba(255, 77, 77, 0.1);
@@ -65,6 +80,16 @@ $orange-gradient-opacity-145: linear-gradient(
   145deg,
   rgba(255, 77, 77, 0.1) 0%,
   rgba(249, 203, 40, 0.1) 100%
+);
+$orange-gradient-opacity-90: linear-gradient(
+  90deg,
+  rgba(255, 77, 77, 0.2) 0%,
+  rgba(249, 203, 40, 0.2) 100%
+);
+$orange-gradient-90-opacity-50: linear-gradient(
+  90deg,
+  rgba(255, 77, 77, 0.5) 0%,
+  rgba(249, 203, 40, 0.5) 100%
 );
 
 /* FONT */
@@ -86,8 +111,8 @@ $font-size-h2-section-title-medium: 2.5rem;
 $font-size-h2-section-title-mobile: 2rem;
 
 $font-size-h3-desktop: 2.5rem;
-$font-size-h3-medium: 2rem;
-$font-size-h3-mobile: 1.5rem;
+$font-size-h3-medium: 1.75rem;
+$font-size-h3-mobile: 1.25rem;
 
 $font-size-h4-desktop: 2rem;
 $font-size-h4-mobile: 1.5rem;

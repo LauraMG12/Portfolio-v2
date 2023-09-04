@@ -4,6 +4,7 @@ import { onMounted, ref, watch } from "vue";
 import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
+import ExperienceSection from "./components/ExperienceSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import ContactSection from "./components/ContactSection.vue";
 import FooterSection from "./components/Footer.vue";
@@ -42,6 +43,7 @@ watch(isMobileNavigationOpened, () => {
     <HomePage />
     <ProjectsSection />
     <TechnologiesSection />
+    <ExperienceSection />
     <AboutSection />
     <ContactSection />
   </main>

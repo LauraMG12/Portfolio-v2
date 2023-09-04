@@ -13,6 +13,7 @@ export const sections: SectionsInfo[] = [
     goTo: "technologiesSection",
     isSelected: false,
   },
-  { id: 2, title: "About", goTo: "aboutSection", isSelected: false },
-  { id: 3, title: "Contact", goTo: "contactSection", isSelected: false },
+  { id: 2, title: "Experience", goTo: "experienceSection", isSelected: false },
+  { id: 3, title: "About me", goTo: "aboutSection", isSelected: false },
+  { id: 4, title: "Contact", goTo: "contactSection", isSelected: false },
 ];
