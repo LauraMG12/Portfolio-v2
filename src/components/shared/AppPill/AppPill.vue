@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { IconType } from "./SvgIcon/SvgIconHelper";
-import SvgIcon from "./SvgIcon/SvgIcon.vue";
+import { IconType } from "../SvgIcon/SvgIconHelper";
+import SvgIcon from "../SvgIcon/SvgIcon.vue";
 import { isSmallDevice } from "@/state/AppState";
 import { computed } from "vue";
 

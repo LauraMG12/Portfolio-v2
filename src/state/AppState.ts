@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 export type GradientType = "blue" | "pink" | "orange";
 
@@ -13,6 +13,10 @@ window.addEventListener("resize", () => {
   isSmallDevice.value = window.innerWidth < mediumBreackpoint;
   isMobileDevice.value = window.innerWidth < smallBreackpoint;
 });
+
+export function isTouchDevice() {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+}
 
 /* NAVIGATION */
 export const isMobileNavigationOpened = ref<boolean>(false);

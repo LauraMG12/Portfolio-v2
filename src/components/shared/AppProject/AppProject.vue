@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppPill from "../AppPill.vue";
+import AppPill from "../AppPill/AppPill.vue";
 import DarkButton from "../AppButtons/DarkButton.vue";
 import SimpleButton from "../AppButtons/SimpleButton.vue";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";

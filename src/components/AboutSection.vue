@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
-import AppPill from "./shared/AppPill.vue";
+import AppPill from "./shared/AppPill/AppPill.vue";
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 
 import { about } from "../content/About";

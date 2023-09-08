@@ -6,8 +6,15 @@ interface ExperienceSectionInfo {
 }
 export interface GroupedExperiences {
   color: GradientType;
-  group: string;
-  info: [];
+  info: ExperienceInfo;
+}
+
+interface ExperienceInfo {
+  companyName: string;
+  companyLogo: string;
+  period: string;
+  description: string;
+  details: string[];
 }
 
 export const experience: ExperienceSectionInfo = {
@@ -15,18 +22,34 @@ export const experience: ExperienceSectionInfo = {
   experiences: [
     {
       color: "blue",
-      group: "Sembo",
-      info: [],
+      info: {
+        companyName: "Sembo",
+        companyLogo: "sembo.png",
+        period: "August 2022 - currently",
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua`,
+        details: ["example", "example", "example"],
+      },
     },
     {
       color: "pink",
-      group: "Jan Choueiri - Management & consulting",
-      info: [],
+      info: {
+        companyName: "Courses and projects",
+        companyLogo: "udemy.png",
+        period: "August 2021 - currently",
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua`,
+        details: ["example", "example", "example"],
+      },
     },
     {
       color: "orange",
-      group: "Self learning",
-      info: [],
+
+      info: {
+        companyName: "Jan Choueiri - Management & consulting",
+        companyLogo: "jc-mc.png",
+        period: "April 2022 - August 2022",
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua`,
+        details: ["example", "example", "example"],
+      },
     },
   ],
 };
