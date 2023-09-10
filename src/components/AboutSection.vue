@@ -2,6 +2,7 @@
 import SvgIcon from "./shared/SvgIcon/SvgIcon.vue";
 import AppPill from "./shared/AppPill/AppPill.vue";
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
+import { isTouchDevice } from "@/state/AppState";
 
 import { about } from "../content/About";
 
@@ -24,6 +25,7 @@ function getImgPath(imageName: string) {
           unselectable="on"
           href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
           target="_blank"
+          :class="{ colored: isTouchDevice() }"
         >
           <SvgIcon name="linkedin" />
         </a>
@@ -31,6 +33,7 @@ function getImgPath(imageName: string) {
           unselectable="on"
           href="https://github.com/LauraMG12"
           target="_blank"
+          :class="{ colored: isTouchDevice() }"
         >
           <SvgIcon name="github" />
         </a>
@@ -82,6 +85,9 @@ function getImgPath(imageName: string) {
       & a {
         transition: all 0.2s ease;
         margin-right: 20px;
+        &.colored {
+          color: $blue-dark;
+        }
 
         &:hover {
           @media (hover: hover) {

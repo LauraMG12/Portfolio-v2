@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { SubProjectInfo } from "../../../content/Projects";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
+import { isTouchDevice } from "@/state/AppState";
 
 interface SubProjectCardProps {
   information: SubProjectInfo;
@@ -15,7 +16,7 @@ function getImgPath(imageName: string) {
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" :class="{ colored: isTouchDevice() }">
     <img alt="project image" class="image" :src="projectImage" />
     <div class="card-content">
       <h3 class="project-title">{{ information.title }}</h3>
@@ -39,7 +40,17 @@ function getImgPath(imageName: string) {
   display: flex;
   flex-direction: column;
   position: relative;
-  //TODO: or if is touchable device
+  &.colored {
+    cursor: pointer;
+    transform: translate(-3px, -3px);
+    & .image,
+    & .card-content {
+      mix-blend-mode: normal;
+    }
+    & .githubIcon {
+      color: $blue-dark;
+    }
+  }
   @media (hover: hover) {
     &:hover {
       cursor: pointer;

@@ -29,7 +29,7 @@ const iconsSize = computed(() =>
           class="technology-icon"
           :name="technology.iconName"
           :size="iconsSize"
-          :translate="{ x: 8, y: 0 }"
+          :translate="{ x: 5, y: 0 }"
         />
         <p class="technology-name">{{ technology.name }}</p>
       </div>
