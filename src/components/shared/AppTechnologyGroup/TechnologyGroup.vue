@@ -2,36 +2,63 @@
 import { isSmallDevice } from "@/state/AppState";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
 import type { GroupedTechnologies } from "@/content/Technologies";
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
 
 interface TechnologyGroupProps {
   information: GroupedTechnologies;
 }
 const props = defineProps<TechnologyGroupProps>();
+const techGroup = ref<HTMLDivElement | null>(null);
+const groupHeight = ref<string>("");
+onMounted(() => {
+  const resizeObserver = new ResizeObserver(setGroupHeight);
+  if (!techGroup.value) {
+    return;
+  }
+  resizeObserver.observe(techGroup.value);
+  setGroupHeight();
+});
+async function setGroupHeight() {
+  groupHeight.value = `${techGroup.value?.clientHeight}px`;
+  console.log(groupHeight.value);
+}
+
 const iconsSize = computed(() =>
   isSmallDevice.value ? { width: 40, height: 40 } : { width: 50, height: 50 }
 );
+
+const isGroupOpened = ref<boolean>(true);
+function toggleGroupInfoVisibility(): void {
+  isGroupOpened.value = !isGroupOpened.value;
+}
 </script>
 
 <template>
   <div class="technologies-group">
-    <div class="group-title">
-      <h3 class="title">{{ information.group }}</h3>
+    <div class="group-title" @click="toggleGroupInfoVisibility()">
+      <div class="header">
+        <div class="icon-container" :class="{ down: isGroupOpened }">
+          <SvgIcon name="arrow" />
+        </div>
+        <h3 class="title">{{ information.group }}</h3>
+      </div>
       <div class="underline" :class="[props.information.color]"></div>
     </div>
-    <div class="group-container">
-      <div
-        class="technology-wraper"
-        v-for="technology in props.information.technologies"
-        :key="technology.name"
-      >
-        <SvgIcon
-          class="technology-icon"
-          :name="technology.iconName"
-          :size="iconsSize"
-          :translate="{ x: 5, y: 0 }"
-        />
-        <p class="technology-name">{{ technology.name }}</p>
+    <div class="group-container" :class="{ opened: isGroupOpened }">
+      <div ref="techGroup" class="techGroup">
+        <div
+          class="technology-wraper"
+          v-for="technology in props.information.technologies"
+          :key="technology.name"
+        >
+          <SvgIcon
+            class="technology-icon"
+            :name="technology.iconName"
+            :size="iconsSize"
+            :translate="{ x: 5, y: 0 }"
+          />
+          <p class="technology-name">{{ technology.name }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -39,9 +66,24 @@ const iconsSize = computed(() =>
 
 <style scoped lang="scss">
 .technologies-group {
+  @media screen and (min-width: $breackpoint-large) {
+    width: 1065px;
+  }
   & .group-title {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    & .header {
+      display: flex;
+      align-items: center;
+      & .icon-container {
+        transition: $transform-transition-05;
+        --webkit-transition: $transform-transition-05;
+        &.down {
+          transform: rotate(540deg);
+        }
+      }
+    }
     & .underline {
       width: 100%;
       height: 10px;
@@ -71,24 +113,37 @@ const iconsSize = computed(() =>
     }
   }
   & .group-container {
-    display: flex;
-    padding: 30px 30px 75px 30px;
-    column-gap: 50px;
-    row-gap: 50px;
-    flex-wrap: wrap;
-    justify-content: center;
-    & .technology-wraper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      width: 60px;
+    margin: 30px;
+    height: 0;
+    overflow: hidden;
 
-      & .technology-name {
-        color: $grey;
-        font-size: $font-size-small;
-        @media screen and (max-width: $breackpoint-small) {
-          font-size: $font-size-smallest;
+    transition: $basic-transition-05;
+    --webkit-transition: $basic-transition-05;
+    &.opened {
+      height: v-bind(groupHeight);
+
+      margin-bottom: 40px;
+    }
+    & .techGroup {
+      height: fit-content;
+      display: flex;
+      column-gap: 50px;
+      row-gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      & .technology-wraper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 60px;
+
+        & .technology-name {
+          color: $grey;
+          font-size: $font-size-small;
+          @media screen and (max-width: $breackpoint-small) {
+            font-size: $font-size-smallest;
+          }
         }
       }
     }

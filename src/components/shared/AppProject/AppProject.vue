@@ -6,7 +6,7 @@ import SvgIcon from "../SvgIcon/SvgIcon.vue";
 
 import { ProjectInfo } from "../../../content/Projects";
 import { GradientType, isMobileDevice } from "../../../state/AppState";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 interface DesktopProjectProps {
   color: GradientType;
@@ -22,10 +22,19 @@ function getImgPath(imageName: string) {
 
 const isOverlayExpanded = ref<boolean>(false);
 function toggleOverlayStatus(): void {
+  if (!isMobileDevice.value) {
+    return;
+  }
   isOverlayExpanded.value = !isOverlayExpanded.value;
 }
 
 const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
+
+watch(isMobileDevice, () => {
+  if (!isMobileDevice.value) {
+    isOverlayExpanded.value = false;
+  }
+});
 </script>
 
 <template>
@@ -152,6 +161,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
       width: 60%;
       border-radius: 10px;
       overflow: hidden;
+      color: $white;
       aspect-ratio: auto;
       @media screen and (max-width: $breackpoint-medium) {
         width: 100%;
@@ -213,6 +223,7 @@ const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
         transition: $transform-transition-05;
         --webkit-transition: $transform-transition-05;
         z-index: 1;
+
         &.full-overlay {
           transform: translateY(-60%);
           & .project-description {
