@@ -66,6 +66,7 @@ const mobileIconSize = computed(() =>
     display: flex;
     width: 70%;
     justify-content: space-around;
+    color: #bbb;
 
     @media screen and (max-width: $breackpoint-small) {
       width: 100%;
@@ -74,6 +75,11 @@ const mobileIconSize = computed(() =>
     & > .footer-contact {
       cursor: pointer;
       font-size: $font-size-small;
+      &:hover {
+        @media (hover: hover) {
+          color: $white;
+        }
+      }
       @media screen and (max-width: $breackpoint-medium) {
         font-size: $font-size-smallest;
       }

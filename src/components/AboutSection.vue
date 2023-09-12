@@ -34,29 +34,35 @@ function getImgPath(imageName: string) {
         <div class="links-container">
           <DarkButton text="Download CV" icon-name="download" />
           <div class="circle-links">
-            <a
-              unselectable="on"
-              href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
-              target="_blank"
-              :class="{ colored: isTouchDevice() }"
-            >
-              <SvgIcon name="linkedin" :size="iconSize" />
-            </a>
-            <a
-              unselectable="on"
-              href="https://github.com/LauraMG12"
-              target="_blank"
-              :class="{ colored: isTouchDevice() }"
-            >
-              <SvgIcon name="github" :size="iconSize" />
-            </a>
-            <a
-              unselectable="on"
-              href="mailto:laura.lmg12@gmail.com"
-              :class="{ colored: isTouchDevice() }"
-            >
-              <SvgIcon name="mail" :size="iconSize" />
-            </a>
+            <div class="link">
+              <a
+                unselectable="on"
+                href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
+                target="_blank"
+                :class="{ colored: isTouchDevice() }"
+              >
+                <SvgIcon name="linkedin" :size="iconSize" />
+              </a>
+            </div>
+            <div class="link">
+              <a
+                unselectable="on"
+                href="https://github.com/LauraMG12"
+                target="_blank"
+                :class="{ colored: isTouchDevice() }"
+              >
+                <SvgIcon name="github" :size="iconSize" />
+              </a>
+            </div>
+            <div class="link">
+              <a
+                unselectable="on"
+                href="mailto:laura.lmg12@gmail.com"
+                :class="{ colored: isTouchDevice() }"
+              >
+                <SvgIcon name="mail" :size="iconSize" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -139,24 +145,28 @@ function getImgPath(imageName: string) {
         & .circle-links {
           display: flex;
           gap: 30px;
-          & a {
-            transition: $basic-transition-05;
+          & .link {
             cursor: pointer;
-            width: 50px;
-            height: 50px;
             border-radius: 30px;
-            background-color: $grey-light;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &.colored {
-              color: $blue-dark;
-            }
-
             &:hover {
               @media (hover: hover) {
+                & a {
+                  color: $blue-dark;
+                  transform: rotateY(360deg);
+                }
+              }
+            }
+            & a {
+              transition: $basic-transition-05;
+              width: 50px;
+              height: 50px;
+              border-radius: 30px;
+              background-color: $grey-light;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              &.colored {
                 color: $blue-dark;
-                transform: rotateY(360deg);
               }
             }
           }
