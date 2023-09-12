@@ -52,6 +52,7 @@ export const projects: ProjectsSectionInfo = {
           { name: "Jest", iconName: "jest" },
           { name: "Bitbucket", iconName: "bitbucket" },
           { name: "RxJs", iconName: "rxjs" },
+          //TODO: complete technologies
           //rxjs
           //graphQL
           //git

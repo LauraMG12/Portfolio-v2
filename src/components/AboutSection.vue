@@ -7,6 +7,7 @@ import { isTouchDevice } from "@/state/AppState";
 import { about } from "../content/About";
 
 const aboutImage = getImgPath(about.imageName);
+const iconSize = { width: 30, height: 30 };
 
 function getImgPath(imageName: string) {
   return require(`@/assets/${imageName}.jpeg`);
@@ -20,23 +21,6 @@ function getImgPath(imageName: string) {
       <h3>{{ about.name }}</h3>
       <div class="about-subheader">
         <AppPill :name="about.position" color="light" class="frontend-pill" />
-
-        <a
-          unselectable="on"
-          href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
-          target="_blank"
-          :class="{ colored: isTouchDevice() }"
-        >
-          <SvgIcon name="linkedin" />
-        </a>
-        <a
-          unselectable="on"
-          href="https://github.com/LauraMG12"
-          target="_blank"
-          :class="{ colored: isTouchDevice() }"
-        >
-          <SvgIcon name="github" />
-        </a>
       </div>
     </div>
     <div class="about-content">
@@ -47,7 +31,34 @@ function getImgPath(imageName: string) {
         <p>
           {{ about.about }}
         </p>
-        <DarkButton text="Download CV" icon-name="download" />
+        <div class="links-container">
+          <DarkButton text="Download CV" icon-name="download" />
+          <div class="circle-links">
+            <a
+              unselectable="on"
+              href="https://www.linkedin.com/in/laura-ma%C3%B1ogil-gonz%C3%A1lez-30489b14a/"
+              target="_blank"
+              :class="{ colored: isTouchDevice() }"
+            >
+              <SvgIcon name="linkedin" :size="iconSize" />
+            </a>
+            <a
+              unselectable="on"
+              href="https://github.com/LauraMG12"
+              target="_blank"
+              :class="{ colored: isTouchDevice() }"
+            >
+              <SvgIcon name="github" :size="iconSize" />
+            </a>
+            <a
+              unselectable="on"
+              href="mailto:laura.lmg12@gmail.com"
+              :class="{ colored: isTouchDevice() }"
+            >
+              <SvgIcon name="mail" :size="iconSize" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -66,34 +77,15 @@ function getImgPath(imageName: string) {
       margin-bottom: 15px;
       align-items: center;
     }
-    & .about-subheader {
-      display: flex;
-      align-items: center;
+    & .frontend-pill {
+      height: 25px;
+      margin: 0 45px;
 
-      & .frontend-pill {
-        height: 25px;
-        margin: 0 45px;
-
-        @media screen and (max-width: $breackpoint-medium) {
-          margin: 0 45px 0 0;
-        }
-        @media screen and (max-width: $breackpoint-small) {
-          margin: 0 15px 0 0;
-        }
+      @media screen and (max-width: $breackpoint-medium) {
+        margin: 0 45px 0 0;
       }
-
-      & a {
-        transition: all 0.2s ease;
-        margin-right: 20px;
-        &.colored {
-          color: $blue-dark;
-        }
-
-        &:hover {
-          @media (hover: hover) {
-            color: $blue-dark;
-          }
-        }
+      @media screen and (max-width: $breackpoint-small) {
+        margin: 0 15px 0 0;
       }
     }
   }
@@ -136,6 +128,38 @@ function getImgPath(imageName: string) {
         text-align: left;
         gap: 25px;
         width: 100%;
+      }
+      & .links-container {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+        @media screen and (max-width: $breackpoint-medium) {
+          flex-direction: column;
+        }
+        & .circle-links {
+          display: flex;
+          gap: 30px;
+          & a {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: $grey-light;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.colored {
+              color: $blue-dark;
+            }
+
+            &:hover {
+              @media (hover: hover) {
+                color: $blue-dark;
+              }
+            }
+          }
+        }
       }
     }
   }

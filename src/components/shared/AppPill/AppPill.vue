@@ -38,9 +38,6 @@ const iconSize = computed(() =>
     padding: 5px 15px;
   }
   &.dark {
-    //FIXME: take into account light alternative
-    // background-color: $white;
-    // color: $grey-dark;
     background-color: $grey-dark;
     color: $white;
   }

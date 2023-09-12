@@ -18,9 +18,8 @@ onMounted(() => {
   resizeObserver.observe(techGroup.value);
   setGroupHeight();
 });
-async function setGroupHeight() {
+function setGroupHeight() {
   groupHeight.value = `${techGroup.value?.clientHeight}px`;
-  console.log(groupHeight.value);
 }
 
 const iconsSize = computed(() =>
@@ -119,6 +118,7 @@ function toggleGroupInfoVisibility(): void {
 
     transition: $basic-transition-05;
     --webkit-transition: $basic-transition-05;
+
     &.opened {
       height: v-bind(groupHeight);
 
