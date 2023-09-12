@@ -60,13 +60,13 @@ setInterval(() => {
 
 <style scoped lang="scss">
 #homePage {
-  height: 100vh;
+  height: 100dvh;
   .background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     background: url("../assets/home-background.jpg"), $grey-light 50%;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
@@ -78,7 +78,7 @@ setInterval(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: calc(50vh - (v-bind(homeContentHeight) / 2));
+    margin-top: calc(50dvh - (v-bind(homeContentHeight) / 2));
     gap: 50px;
     white-space: nowrap;
     & .subtitle {
@@ -149,7 +149,7 @@ setInterval(() => {
   }
   .transition {
     position: absolute;
-    top: calc(100vh - 7rem + 1px);
+    top: calc(100dvh - 7rem + 1px);
     left: 0;
     height: 7rem;
     width: 100vw;

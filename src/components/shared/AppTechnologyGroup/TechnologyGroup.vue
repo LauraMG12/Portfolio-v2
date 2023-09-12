@@ -51,7 +51,6 @@ function toggleGroupInfoVisibility(): void {
           :key="technology.name"
         >
           <SvgIcon
-            class="technology-icon"
             :name="technology.iconName"
             :size="iconsSize"
             :translate="{ x: 5, y: 0 }"

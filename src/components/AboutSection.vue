@@ -140,7 +140,7 @@ function getImgPath(imageName: string) {
           display: flex;
           gap: 30px;
           & a {
-            transition: all 0.2s ease;
+            transition: $basic-transition-05;
             cursor: pointer;
             width: 50px;
             height: 50px;
@@ -156,6 +156,7 @@ function getImgPath(imageName: string) {
             &:hover {
               @media (hover: hover) {
                 color: $blue-dark;
+                transform: rotateY(360deg);
               }
             }
           }

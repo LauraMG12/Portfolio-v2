@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
 
+import AppStatingView from "./components/AppStatingView.vue";
 import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
+import TechnologiesSection from "./components/TechnologiesSection.vue";
 import ExperienceSection from "./components/ExperienceSection.vue";
 import AboutSection from "./components/AboutSection.vue";
 import ContactSection from "./components/ContactSection.vue";
 import FooterSection from "./components/Footer.vue";
 
-import { isMobileNavigationOpened } from "@/state/AppState";
-import TechnologiesSection from "./components/TechnologiesSection.vue";
+import {
+  isMobileNavigationOpened,
+  isStartingAnimationFinished,
+} from "@/state/AppState";
 
 const isScrollPositionOnTop = ref<boolean>(true);
 const body = document.body;
+
 onMounted(() => {
   window.addEventListener("scroll", updateScroll);
 });
@@ -31,6 +36,7 @@ watch(isMobileNavigationOpened, () => {
 
 <template ref="app">
   <header
+    v-if="isStartingAnimationFinished"
     id="navigation"
     :class="{
       'white-navigation': !isScrollPositionOnTop,
@@ -38,8 +44,10 @@ watch(isMobileNavigationOpened, () => {
   >
     <NavigationBar />
   </header>
-
-  <main id="content">
+  <Transition name="fade">
+    <AppStatingView v-if="!isStartingAnimationFinished" />
+  </Transition>
+  <main id="content" :class="{ fixed: !isStartingAnimationFinished }">
     <HomePage />
     <ProjectsSection />
     <TechnologiesSection />
@@ -47,7 +55,7 @@ watch(isMobileNavigationOpened, () => {
     <AboutSection />
     <ContactSection />
   </main>
-  <footer>
+  <footer v-if="isStartingAnimationFinished">
     <FooterSection />
   </footer>
 </template>
@@ -71,6 +79,21 @@ watch(isMobileNavigationOpened, () => {
     display: flex;
     flex-direction: column;
     gap: $sections-gap;
+    position: relative;
+    &.fixed {
+      position: fixed;
+    }
+  }
+}
+.fade {
+  &-leave-from {
+    opacity: 1;
+  }
+  &-leave-to {
+    opacity: 0;
+  }
+  &-leave-active {
+    transition: opacity 0.5s;
   }
 }
 </style>

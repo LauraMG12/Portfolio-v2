@@ -159,7 +159,7 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     color: "currentColor",
     colorProperty: "stroke",
     width: 70,
-    height: 45,
+    height: 43.75,
   },
   mail: {
     color: "currentColor",
