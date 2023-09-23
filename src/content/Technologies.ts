@@ -37,8 +37,9 @@ export const technologies: TechnologiesSectionInfo = {
         { name: "TypeScript", iconName: "ts" },
         { name: "Vue3", iconName: "vue" },
         { name: "Jest", iconName: "jest" },
+        { name: "Vitest", iconName: "vitest" },
         { name: "Cypress", iconName: "cypress" },
-        { name: "GraphQl", iconName: "graphql" },
+        { name: "GraphQL", iconName: "graphql" },
         { name: "RxJs", iconName: "rxjs" },
         { name: "StoryBook", iconName: "storybook" },
       ],
@@ -48,19 +49,38 @@ export const technologies: TechnologiesSectionInfo = {
       group: "Front end - Discovery",
       technologies: [
         {
-          name: "HTML5",
-          iconName: "html",
+          name: "Figma",
+          iconName: "figma",
         },
         {
-          name: "CSS3",
-          iconName: "css",
+          name: "Google Analytics",
+          iconName: "googleAnalytics",
+        },
+        {
+          name: "Google Tag Manager",
+          iconName: "googleTagManager",
+        },
+        {
+          name: "Hotjar",
+          iconName: "hotjar",
+        },
+        {
+          name: "Statsig",
+          iconName: "statsig",
         },
       ],
     },
     {
       color: "orange",
       group: "Others",
-      technologies: [{ name: "Bitbucket", iconName: "bitbucket" }],
+      technologies: [
+        { name: "Bitbucket", iconName: "bitbucket" },
+        { name: "Github", iconName: "githubTech" },
+        { name: "Git", iconName: "git" },
+        { name: "NodeJs", iconName: "nodejs" },
+        { name: "Express", iconName: "express" },
+        { name: "MySQL", iconName: "mysql" },
+      ],
     },
   ],
 };

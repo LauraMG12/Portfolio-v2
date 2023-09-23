@@ -135,10 +135,11 @@ function toggleGroupInfoVisibility(): void {
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        width: 60px;
+        width: 90px;
 
         & .technology-name {
           color: $grey;
+          text-align: center;
           font-size: $font-size-small;
           @media screen and (max-width: $breackpoint-small) {
             font-size: $font-size-smallest;

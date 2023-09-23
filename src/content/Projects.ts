@@ -112,7 +112,6 @@ export const projects: ProjectsSectionInfo = {
     // },
   ],
   subProjects: [
-    //TODO: add optional property in progress to add an "in progress" pill at the right of the sub-project title
     {
       id: 1,
       title: "To do list",
