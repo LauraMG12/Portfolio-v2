@@ -136,6 +136,9 @@ function toggleGroupInfoVisibility(): void {
         align-items: center;
         gap: 10px;
         width: 90px;
+        @media screen and (max-width: $breackpoint-small) {
+          width: 70px;
+        }
 
         & .technology-name {
           color: $grey;

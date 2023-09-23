@@ -18,7 +18,6 @@ interface Technology {
 
 export const technologies: TechnologiesSectionInfo = {
   sectionTitle: "Technologies",
-  //TODO: complete technologies and add needed icons
   technologies: [
     {
       color: "blue",

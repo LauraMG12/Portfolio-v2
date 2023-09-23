@@ -59,7 +59,6 @@ export const projects: ProjectsSectionInfo = {
           "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
       },
     },
-    //TODO: add second project with the library technical interview
     // {
     //   id: 2,
     //   color: "pink",
@@ -111,6 +110,7 @@ export const projects: ProjectsSectionInfo = {
     //   },
     // },
   ],
+  //TODO: complete subprojects
   subProjects: [
     {
       id: 1,
@@ -129,16 +129,13 @@ export const projects: ProjectsSectionInfo = {
     {
       id: 3,
       title: "Online store",
-      //TODO: add project image
       image: "home-background.jpg",
       description: `Project part of the Udemy course
       NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)`,
-      //TODO: add project to github
       runTo: "",
       inProgress: true,
     },
     {
-      //TODO: add project info
       id: 4,
       title: "Recipes app",
       image: "home-background.jpg",

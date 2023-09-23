@@ -38,7 +38,9 @@ function getImgPath(imageName: string) {
     </h3>
     <p class="period">
       {{ props.info.info.period }}
-      <span class="description"> [{{ props.info.info.description }}]</span>
+    </p>
+    <p class="description">
+      {{ props.info.info.description }}
     </p>
     <div class="details">
       <p
@@ -122,14 +124,10 @@ function getImgPath(imageName: string) {
       }
     }
   }
-  .description {
-    color: $grey;
-    margin-left: 1rem;
-    font-style: normal;
-  }
 
   & .period {
     font-style: italic;
+    color: $grey-dark;
   }
   & .details {
     & .detail {
