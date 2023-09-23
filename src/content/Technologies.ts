@@ -18,17 +18,18 @@ interface Technology {
 
 export const technologies: TechnologiesSectionInfo = {
   sectionTitle: "Technologies",
+  //TODO: complete technologies and add needed icons
   technologies: [
     {
       color: "blue",
-      group: "Front end - Discovery",
+      group: "Front end - Delivery",
       technologies: [
         {
-          name: "HTML5",
+          name: "HTML",
           iconName: "html",
         },
         {
-          name: "CSS3",
+          name: "CSS",
           iconName: "css",
         },
         { name: "Sass", iconName: "sass" },
@@ -36,13 +37,15 @@ export const technologies: TechnologiesSectionInfo = {
         { name: "TypeScript", iconName: "ts" },
         { name: "Vue3", iconName: "vue" },
         { name: "Jest", iconName: "jest" },
-        { name: "Bitbucket", iconName: "bitbucket" },
+        { name: "Cypress", iconName: "cypress" },
+        { name: "GraphQl", iconName: "graphql" },
         { name: "RxJs", iconName: "rxjs" },
+        { name: "StoryBook", iconName: "storybook" },
       ],
     },
     {
       color: "pink",
-      group: "Front end - Delivery",
+      group: "Front end - Discovery",
       technologies: [
         {
           name: "HTML5",
@@ -57,16 +60,7 @@ export const technologies: TechnologiesSectionInfo = {
     {
       color: "orange",
       group: "Others",
-      technologies: [
-        {
-          name: "HTML",
-          iconName: "html",
-        },
-        {
-          name: "CSS3",
-          iconName: "css",
-        },
-      ],
+      technologies: [{ name: "Bitbucket", iconName: "bitbucket" }],
     },
   ],
 };

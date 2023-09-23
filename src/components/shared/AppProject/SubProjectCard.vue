@@ -31,6 +31,7 @@ function getImgPath(imageName: string) {
 </template>
 
 <style scoped lang="scss">
+//TODO: add fixed height to image
 .card {
   border-radius: 10px;
   overflow: hidden;
@@ -40,6 +41,7 @@ function getImgPath(imageName: string) {
   display: flex;
   flex-direction: column;
   position: relative;
+
   &.colored {
     cursor: pointer;
     transform: translate(-3px, -3px);

@@ -43,118 +43,106 @@ export const projects: ProjectsSectionInfo = {
       info: {
         title: "Sembo - Trip planner",
         technologies: [
-          { name: "HTML", iconName: "html" },
-          { name: "CSS3", iconName: "css" },
           { name: "Sass", iconName: "sass" },
-          { name: "JavaScript", iconName: "js" },
           { name: "TypeScript", iconName: "ts" },
           { name: "Vue3", iconName: "vue" },
           { name: "Jest", iconName: "jest" },
-          { name: "Bitbucket", iconName: "bitbucket" },
+          { name: "Cypress", iconName: "cypress" },
           { name: "RxJs", iconName: "rxjs" },
-          //TODO: complete technologies
-          //rxjs
-          //graphQL
-          //git
-          //npm
-          //yarn
-          //storybook
-          //trello
-          //vscode
-          //vitest
+          { name: "GraphQL", iconName: "graphql" },
+          { name: "StoryBook", iconName: "storybook" },
         ],
         image: "trip-planner.jpg",
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat.`,
+        description: `As a key member of Sembo Trip Planner team, I contributed to develop a groundbreaking travel tool that allows users to effortlessly curate complete travel experiences integrating accommodation, transportation, and activities. It has also elevated the travel experience itself, making it more enjoyable and accessible to everyone.`,
         runTo:
           "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
       },
     },
-    {
-      id: 2,
-      color: "pink",
-      info: {
-        title: "Project title",
-        technologies: [
-          { name: "HTML", iconName: "html" },
-          { name: "CSS3", iconName: "css" },
-          { name: "Sass", iconName: "sass" },
-          { name: "JavaScript", iconName: "js" },
-          { name: "TypeScript", iconName: "ts" },
-          { name: "Vue3", iconName: "vue" },
-          { name: "Jest", iconName: "jest" },
-          { name: "Bitbucket", iconName: "bitbucket" },
-          { name: "RxJs", iconName: "rxjs" },
-        ],
-        image: "home-background.jpg",
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-         minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-         aliquip ex ea commodo consequat.`,
-        runTo: ".",
-        codeTo: ".",
-      },
-    },
-    {
-      id: 3,
-      color: "orange",
-      info: {
-        title: "Project title",
-        technologies: [
-          { name: "HTML", iconName: "html" },
-          { name: "CSS3", iconName: "css" },
-          { name: "Sass", iconName: "sass" },
-          { name: "JavaScript", iconName: "js" },
-          { name: "TypeScript", iconName: "ts" },
-          { name: "Vue3", iconName: "vue" },
-          { name: "Jest", iconName: "jest" },
-          { name: "Bitbucket", iconName: "bitbucket" },
-          { name: "RxJs", iconName: "rxjs" },
-        ],
-        image: "home-background.jpg",
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-         minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-         aliquip ex ea commodo consequat.`,
-        runTo: ".",
-        codeTo: ".",
-      },
-    },
+    //TODO: add second project with the library technical interview
+    // {
+    //   id: 2,
+    //   color: "pink",
+    //   info: {
+    //     title: "Project title",
+    //     technologies: [
+    //       { name: "HTML", iconName: "html" },
+    //       { name: "CSS3", iconName: "css" },
+    //       { name: "Sass", iconName: "sass" },
+    //       { name: "JavaScript", iconName: "js" },
+    //       { name: "TypeScript", iconName: "ts" },
+    //       { name: "Vue3", iconName: "vue" },
+    //       { name: "Jest", iconName: "jest" },
+    //       { name: "Bitbucket", iconName: "bitbucket" },
+    //       { name: "RxJs", iconName: "rxjs" },
+    //     ],
+    //     image: "home-background.jpg",
+    //     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    //      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    //      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    //      aliquip ex ea commodo consequat.`,
+    //     runTo: ".",
+    //     codeTo: ".",
+    //   },
+    // },
+    // {
+    //   id: 3,
+    //   color: "orange",
+    //   info: {
+    //     title: "Project title",
+    //     technologies: [
+    //       { name: "HTML", iconName: "html" },
+    //       { name: "CSS3", iconName: "css" },
+    //       { name: "Sass", iconName: "sass" },
+    //       { name: "JavaScript", iconName: "js" },
+    //       { name: "TypeScript", iconName: "ts" },
+    //       { name: "Vue3", iconName: "vue" },
+    //       { name: "Jest", iconName: "jest" },
+    //       { name: "Bitbucket", iconName: "bitbucket" },
+    //       { name: "RxJs", iconName: "rxjs" },
+    //     ],
+    //     image: "home-background.jpg",
+    //     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    //      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    //      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    //      aliquip ex ea commodo consequat.`,
+    //     runTo: ".",
+    //     codeTo: ".",
+    //   },
+    // },
   ],
   subProjects: [
+    //TODO: add optional property in progress to add an "in progress" pill at the right of the sub-project title
     {
       id: 1,
-      title: "Project name",
-      image: "home-background.jpg",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
-      runTo:
-        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+      title: "To do list",
+      image: "todo.png",
+      description: `Responsive Todo List application, developed using Vue.js and TypeScript`,
+      runTo: "https://github.com/LauraMG12/Todo",
     },
     {
       id: 2,
-      title: "Project name",
-      image: "home-background.jpg",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
-      runTo:
-        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+      title: "Users table",
+      image: "users-list.png",
+      description: `Project where data has been fetched from API to improve how to handle the data`,
+      runTo: "https://github.com/LauraMG12/users-table",
     },
     {
       id: 3,
-      title: "Project name",
+      title: "Online store - building",
+      //TODO: add project image
       image: "home-background.jpg",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
-      runTo:
-        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+      description: `Project part of the Udemy course
+      NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)`,
+      //TODO: add project to github
+      runTo: "",
     },
     {
+      //TODO: add project info
       id: 4,
-      title: "Project name",
+      title: "Recipes app - building",
       image: "home-background.jpg",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. `,
-      runTo:
-        "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
+      description: `Recipes app`,
+      runTo: "https://github.com/LauraMG12/AutoShopping",
     },
   ],
 };

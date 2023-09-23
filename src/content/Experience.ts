@@ -18,6 +18,7 @@ interface ExperienceInfo {
 }
 
 export const experience: ExperienceSectionInfo = {
+  //TODO: complete with CV information
   sectionTitle: "Experience",
   experiences: [
     {

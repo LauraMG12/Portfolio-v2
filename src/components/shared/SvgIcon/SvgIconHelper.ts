@@ -3,9 +3,11 @@ const ICON_TYPE = [
   "bitbucket",
   "bubble",
   "css",
+  "cypress",
   "dashed",
   "download",
   "github",
+  "graphql",
   "html",
   "jest",
   "js",
@@ -16,6 +18,7 @@ const ICON_TYPE = [
   "redirect",
   "rxjs",
   "sass",
+  "storybook",
   "ts",
   "vue",
 ] as const;
@@ -27,9 +30,11 @@ export const ICON_TYPE_MAP: Record<IconType, string> = {
   bitbucket: "Bitbucket",
   bubble: "Bubble",
   css: "Css",
+  cypress: "Cypress",
   dashed: "DashedArrow",
   download: "Download",
   github: "Github",
+  graphql: "GraphQl",
   html: "Html",
   jest: "Jest",
   js: "JavaScript",
@@ -40,6 +45,7 @@ export const ICON_TYPE_MAP: Record<IconType, string> = {
   redirect: "Redirect",
   rxjs: "RxJs",
   sass: "Sass",
+  storybook: "StoryBook",
   ts: "TypeScript",
   vue: "Vue",
 };
@@ -113,6 +119,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     width: 20,
     height: 20,
   },
+  cypress: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
   dashed: {
     color: "currentColor",
     colorProperty: "stroke",
@@ -136,6 +148,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     colorProperty: "stroke",
     width: 25,
     height: 25,
+  },
+  graphql: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
   },
   jest: {
     color: "currentColor",
@@ -186,6 +204,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     height: 20,
   },
   sass: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 24,
+    height: 20,
+  },
+  storybook: {
     color: "currentColor",
     colorProperty: "fill",
     width: 24,
