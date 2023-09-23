@@ -19,6 +19,7 @@ const ICON_TYPE = [
   "rxjs",
   "sass",
   "storybook",
+  "tools",
   "ts",
   "vue",
 ] as const;
@@ -46,6 +47,7 @@ export const ICON_TYPE_MAP: Record<IconType, string> = {
   rxjs: "RxJs",
   sass: "Sass",
   storybook: "StoryBook",
+  tools: "Tools",
   ts: "TypeScript",
   vue: "Vue",
 };
@@ -213,6 +215,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     color: "currentColor",
     colorProperty: "fill",
     width: 24,
+    height: 20,
+  },
+  tools: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
     height: 20,
   },
   ts: {

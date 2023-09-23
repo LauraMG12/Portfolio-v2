@@ -8,7 +8,6 @@ interface AppExperienceProps {
 
 const props = defineProps<AppExperienceProps>();
 
-const logoImage = getImgPath(props.info.info.companyLogo);
 const altText = `${props.info.info.companyName} logo`;
 
 function getImgPath(imageName: string) {
@@ -25,11 +24,22 @@ function getImgPath(imageName: string) {
     }"
   >
     <div class="bullet" :class="[props.info.color]"></div>
-    <div class="logo-container">
-      <img :src="logoImage" class="logo" :alt="altText" />
+    <div class="logos-wrapper">
+      <div
+        class="logo-container"
+        v-for="logo in props.info.info.companyLogo"
+        :key="logo"
+      >
+        <img :src="getImgPath(logo)" class="logo" :alt="altText" />
+      </div>
     </div>
-    <h3 class="company-name">{{ props.info.info.companyName }}</h3>
-    <p class="period">{{ props.info.info.period }}</p>
+    <h3 class="company-name">
+      {{ props.info.info.companyName }}
+    </h3>
+    <p class="period">
+      {{ props.info.info.period }}
+      <span class="description"> [{{ props.info.info.description }}]</span>
+    </p>
     <div class="details">
       <p
         v-for="(detail, index) in props.info.info.details"
@@ -93,21 +103,31 @@ function getImgPath(imageName: string) {
       background-image: $orange-gradient-90;
     }
   }
-  & .logo-container {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #f8f8f8;
-    border: 1px solid $grey-light;
+  & .logos-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px;
+    gap: 15px;
+    & .logo-container {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #f8f8f8;
+      border: 1px solid $grey-light;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
 
-    & .logo {
-      height: 100%;
+      & .logo {
+        height: 100%;
+      }
     }
   }
+  .description {
+    color: $grey;
+    margin-left: 1rem;
+    font-style: normal;
+  }
+
   & .period {
     font-style: italic;
   }

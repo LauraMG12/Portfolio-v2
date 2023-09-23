@@ -5,7 +5,7 @@ import { contact } from "../../../content/Contact";
 
 import DarkButton from "../../shared/AppButtons/DarkButton.vue";
 
-//TODO: complete emailDomails[]
+//TODO: complete emailDomails[] or search free API to handle email directly
 const emailDomains = [
   "gmail",
   "hotmail",
@@ -13,7 +13,6 @@ const emailDomains = [
   "yahoo",
   "proton",
   "mailbox",
-  "zohomail",
 ];
 const email = ref<string>("");
 const message = ref<string>("");

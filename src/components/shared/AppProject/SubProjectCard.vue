@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SubProjectInfo } from "../../../content/Projects";
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
-import { isTouchDevice } from "@/state/AppState";
+import { isMobileDevice, isTouchDevice } from "@/state/AppState";
 
 interface SubProjectCardProps {
   information: SubProjectInfo;
@@ -19,19 +19,28 @@ function getImgPath(imageName: string) {
   <div class="card" :class="{ colored: isTouchDevice() }">
     <img alt="project image" class="image" :src="projectImage" />
     <div class="card-content">
-      <h3 class="project-title">{{ information.title }}</h3>
-      <p class="project-description">
-        {{ information.description }}
-      </p>
-    </div>
-    <div class="githubIcon">
-      <SvgIcon name="github" :size="{ width: 30, height: 30 }" />
+      <div class="card-header">
+        <div class="title-wrapper">
+          <h3 class="project-title">{{ information.title }}</h3>
+          <p
+            class="project-description"
+            v-if="props.information.inProgress && !isMobileDevice"
+          >
+            [In progress]
+          </p>
+        </div>
+        <p class="project-description">
+          {{ information.description }}
+        </p>
+      </div>
+      <div class="githubIcon">
+        <SvgIcon name="github" :size="{ width: 30, height: 30 }" />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-//TODO: add fixed height to image
 .card {
   border-radius: 10px;
   overflow: hidden;
@@ -41,6 +50,10 @@ function getImgPath(imageName: string) {
   display: flex;
   flex-direction: column;
   position: relative;
+  .image {
+    aspect-ratio: 4/3;
+    width: 100%;
+  }
 
   &.colored {
     cursor: pointer;
@@ -74,19 +87,30 @@ function getImgPath(imageName: string) {
   & .image {
     width: 100%;
     mix-blend-mode: luminosity;
+    object-fit: cover;
   }
   & .card-content {
-    background-color: $white;
-    border-radius: 10px 10px 0 0;
-    padding: 20px 20px 5px 20px;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    gap: 20px;
-    transform: translatey(-20px);
-    @media screen and (max-width: $breackpoint-small) {
-      gap: 10px;
-      padding: 10px 10px 10px 10px;
-      transform: none;
+    height: 100%;
+    .card-header {
+      background-color: $white;
+      border-radius: 10px 10px 0 0;
+      padding: 20px 20px 5px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transform: translatey(-20px);
+      @media screen and (max-width: $breackpoint-small) {
+        gap: 10px;
+        padding: 10px 10px 10px 10px;
+        transform: none;
+      }
+      .title-wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
     }
 
     & .project-title {

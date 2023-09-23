@@ -18,6 +18,7 @@ export interface SubProjectInfo {
   description: string;
   runTo: string;
   codeTo?: string;
+  inProgress?: boolean;
 }
 
 export interface ProjectInfo {
@@ -128,21 +129,23 @@ export const projects: ProjectsSectionInfo = {
     },
     {
       id: 3,
-      title: "Online store - building",
+      title: "Online store",
       //TODO: add project image
       image: "home-background.jpg",
       description: `Project part of the Udemy course
       NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)`,
       //TODO: add project to github
       runTo: "",
+      inProgress: true,
     },
     {
       //TODO: add project info
       id: 4,
-      title: "Recipes app - building",
+      title: "Recipes app",
       image: "home-background.jpg",
       description: `Recipes app`,
       runTo: "https://github.com/LauraMG12/AutoShopping",
+      inProgress: true,
     },
   ],
 };
