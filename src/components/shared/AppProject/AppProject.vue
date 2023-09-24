@@ -71,7 +71,7 @@ watch(isMobileDevice, () => {
           <img
             alt="Sembo logo"
             class="sembo-logo"
-            :src="getImgPath('descarga.png')"
+            :src="getImgPath('descarga.webp')"
           />
         </div>
       </div>

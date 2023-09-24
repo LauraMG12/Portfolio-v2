@@ -53,7 +53,7 @@ export const projects: ProjectsSectionInfo = {
           { name: "GraphQL", iconName: "graphql" },
           { name: "StoryBook", iconName: "storybook" },
         ],
-        image: "trip-planner.jpg",
+        image: "trip-planner.webp",
         description: `As a key member of Sembo Trip Planner team, I contributed to develop a groundbreaking travel tool that allows users to effortlessly curate complete travel experiences integrating accommodation, transportation, and activities. It has also elevated the travel experience itself, making it more enjoyable and accessible to everyone.`,
         runTo:
           "https://www.sembo.co.uk/travel/plan?pax=rpp&day=2023-10-28&suggest=Cheapest&rt=1",
@@ -75,7 +75,7 @@ export const projects: ProjectsSectionInfo = {
     //       { name: "Bitbucket", iconName: "bitbucket" },
     //       { name: "RxJs", iconName: "rxjs" },
     //     ],
-    //     image: "home-background.jpg",
+    //     image: "home-background.webp",
     //     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     //      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
     //      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -100,7 +100,7 @@ export const projects: ProjectsSectionInfo = {
     //       { name: "Bitbucket", iconName: "bitbucket" },
     //       { name: "RxJs", iconName: "rxjs" },
     //     ],
-    //     image: "home-background.jpg",
+    //     image: "home-background.webp",
     //     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
     //      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
     //      minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -110,26 +110,25 @@ export const projects: ProjectsSectionInfo = {
     //   },
     // },
   ],
-  //TODO: complete subprojects
   subProjects: [
     {
       id: 1,
       title: "To do list",
-      image: "todo.png",
+      image: "todo.webp",
       description: `Responsive Todo List application, developed using Vue.js and TypeScript`,
       runTo: "https://github.com/LauraMG12/Todo",
     },
     {
       id: 2,
       title: "Users table",
-      image: "users-list.png",
+      image: "users-list.webp",
       description: `Project where data has been fetched from API to improve how to handle the data`,
       runTo: "https://github.com/LauraMG12/users-table",
     },
     {
       id: 3,
       title: "Online store",
-      image: "home-background.jpg",
+      image: "home-background.webp",
       description: `Project part of the Udemy course
       NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno)`,
       runTo: "",
@@ -138,7 +137,7 @@ export const projects: ProjectsSectionInfo = {
     {
       id: 4,
       title: "Recipes app",
-      image: "home-background.jpg",
+      image: "home-background.webp",
       description: `Recipes app`,
       runTo: "https://github.com/LauraMG12/AutoShopping",
       inProgress: true,

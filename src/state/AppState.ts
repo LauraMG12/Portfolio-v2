@@ -1,7 +1,7 @@
 import { ref } from "vue";
 
 export type GradientType = "blue" | "pink" | "orange";
-export const isStartingAnimationFinished = ref<boolean>(false);
+
 /* RESPONSIVE */
 const mediumBreackpoint = 992;
 const smallBreackpoint = 576;

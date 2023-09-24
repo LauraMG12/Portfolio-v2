@@ -18,14 +18,13 @@ interface ExperienceInfo {
 }
 
 export const experience: ExperienceSectionInfo = {
-  //TODO: complete with CV information
   sectionTitle: "Experience",
   experiences: [
     {
       color: "blue",
       info: {
         companyName: "Sembo",
-        companyLogo: ["sembo.png"],
+        companyLogo: ["sembo.webp"],
         period: "August 2022 - currently",
         description: `Travel industry`,
         details: ["example", "example", "example"],
@@ -35,7 +34,7 @@ export const experience: ExperienceSectionInfo = {
       color: "pink",
       info: {
         companyName: "Courses and projects",
-        companyLogo: ["udemy.png", "frontend-masters.png"],
+        companyLogo: ["udemy.webp", "frontend-masters.webp"],
         period: "August 2021 - currently",
         description: `Autodidact`,
         details: ["example", "example", "example"],
@@ -46,7 +45,7 @@ export const experience: ExperienceSectionInfo = {
 
       info: {
         companyName: "Jan Choueiri - Management & consulting",
-        companyLogo: ["jc-mc.png"],
+        companyLogo: ["jc-mc.webp"],
         period: "April 2022 - August 2022",
         description: `Consultancy`,
         details: ["example", "example", "example"],

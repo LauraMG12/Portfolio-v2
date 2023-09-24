@@ -4,7 +4,6 @@ import { contact } from "../../../content/Contact";
 
 import DarkButton from "../../shared/AppButtons/DarkButton.vue";
 
-//TODO: complete emailDomails[] or search free API to handle email directly
 const emailDomains = [
   "gmail",
   "hotmail",

@@ -4,21 +4,18 @@ import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { scrollToSection, isStartingAnimationFinished } from "@/state/AppState";
-import { watchOnce } from "@vueuse/core";
+import { scrollToSection } from "@/state/AppState";
 
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
   () => `${homeContent.value?.clientHeight}px`
 );
 const highlightsIndex = ref<number>(0);
-watchOnce(isStartingAnimationFinished, () => {
-  setInterval(() => {
-    highlightsIndex.value < highlights.length - 1
-      ? highlightsIndex.value++
-      : (highlightsIndex.value = 0);
-  }, 2000);
-});
+setInterval(() => {
+  highlightsIndex.value < highlights.length - 1
+    ? highlightsIndex.value++
+    : (highlightsIndex.value = 0);
+}, 2000);
 </script>
 
 <template>
@@ -69,7 +66,7 @@ watchOnce(isStartingAnimationFinished, () => {
     left: 0;
     width: 100vw;
     height: 100dvh;
-    background: url("../assets/home-background.jpg"), $grey-light 50%;
+    background: url("../assets/home-background.webp"), $grey-light 50%;
     background-blend-mode: overlay;
     background-repeat: no-repeat;
     background-position: top;

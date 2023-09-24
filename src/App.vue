@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
 
-import AppStatingView from "./components/AppStatingView.vue";
 import NavigationBar from "./components/NavigationBar.vue";
 import HomePage from "./components/HomePage.vue";
 import ProjectsSection from "./components/ProjectsSection.vue";
@@ -11,10 +10,7 @@ import AboutSection from "./components/AboutSection.vue";
 import ContactSection from "./components/ContactSection.vue";
 import FooterSection from "./components/Footer.vue";
 
-import {
-  isMobileNavigationOpened,
-  isStartingAnimationFinished,
-} from "@/state/AppState";
+import { isMobileNavigationOpened } from "@/state/AppState";
 
 const isScrollPositionOnTop = ref<boolean>(true);
 const body = document.body;
@@ -36,7 +32,6 @@ watch(isMobileNavigationOpened, () => {
 
 <template ref="app">
   <header
-    v-if="isStartingAnimationFinished"
     id="navigation"
     :class="{
       'white-navigation': !isScrollPositionOnTop,
@@ -44,10 +39,7 @@ watch(isMobileNavigationOpened, () => {
   >
     <NavigationBar />
   </header>
-  <Transition name="fade">
-    <AppStatingView v-if="!isStartingAnimationFinished" />
-  </Transition>
-  <main id="content" :class="{ fixed: !isStartingAnimationFinished }">
+  <main id="content">
     <HomePage />
     <ProjectsSection />
     <TechnologiesSection />
@@ -55,7 +47,7 @@ watch(isMobileNavigationOpened, () => {
     <AboutSection />
     <ContactSection />
   </main>
-  <footer v-if="isStartingAnimationFinished">
+  <footer>
     <FooterSection />
   </footer>
 </template>
@@ -80,9 +72,6 @@ watch(isMobileNavigationOpened, () => {
     flex-direction: column;
     gap: $sections-gap;
     position: relative;
-    &.fixed {
-      position: fixed;
-    }
   }
 }
 .fade {
