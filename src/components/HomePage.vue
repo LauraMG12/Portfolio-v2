@@ -4,19 +4,21 @@ import { highlights, home } from "../content/Home";
 
 import DarkButton from "./shared/AppButtons/DarkButton.vue";
 import LightButton from "./shared/AppButtons/LightButton.vue";
-import { scrollToSection } from "@/state/AppState";
+import { scrollToSection, isStartingAnimationFinished } from "@/state/AppState";
+import { watchOnce } from "@vueuse/core";
 
 const homeContent = ref<HTMLDivElement | null>(null);
 const homeContentHeight = computed(
   () => `${homeContent.value?.clientHeight}px`
 );
 const highlightsIndex = ref<number>(0);
-
-setInterval(() => {
-  highlightsIndex.value < highlights.length - 1
-    ? highlightsIndex.value++
-    : (highlightsIndex.value = 0);
-}, 2500);
+watchOnce(isStartingAnimationFinished, () => {
+  setInterval(() => {
+    highlightsIndex.value < highlights.length - 1
+      ? highlightsIndex.value++
+      : (highlightsIndex.value = 0);
+  }, 2000);
+});
 </script>
 
 <template>
