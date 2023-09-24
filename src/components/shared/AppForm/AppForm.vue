@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
 import { contact } from "../../../content/Contact";
 
 import DarkButton from "../../shared/AppButtons/DarkButton.vue";
@@ -16,46 +15,64 @@ const emailDomains = [
 ];
 const email = ref<string>("");
 const message = ref<string>("");
-
 function extractCorporativeName(): string {
   if (email.value === "" || !email.value.includes("@")) {
     return "";
   }
+  const message = "New portfolio message from ";
   const atPosition = email.value.indexOf("@");
   const lastDotPosition = email.value.lastIndexOf(".");
   const corporativeName = email.value.slice(atPosition + 1, lastDotPosition);
   if (emailDomains.includes(corporativeName)) {
-    return "";
+    return message.concat("a company");
   }
-  return capitalize(corporativeName);
-}
-
-function extractFormatedMessage(): string {
-  if (message.value !== "") {
-    return capitalize(message.value);
-  }
-  return "";
-}
-
-function sendEmail(): void {
-  window.location.href = `mailto:laura.lmg12@gmail.com?subject=${extractCorporativeName()}&body=${extractFormatedMessage()}`;
+  return message.concat(capitalize(corporativeName));
 }
 
 function capitalize(text: string): string {
   return text[0].toUpperCase() + text.slice(1);
 }
+
+const WEB3FORMS_ACCESS_KEY = "93c5dc5e-42e0-47b5-9436-b71bff45b79a";
+
+async function submitForm() {
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      email: email.value,
+      message: message.value,
+    }),
+  });
+  const result = await response.json();
+  if (result.success) {
+    console.log(result);
+  }
+}
 </script>
 
 <template>
-  <div class="contact-form">
+  <form @submit.prevent="submitForm" class="contact-form">
+    <input type="hidden" name="subject" :value="extractCorporativeName()" />
+    <input
+      type="hidden"
+      name="from_name"
+      value="IMPORTANT: portfolio message"
+    />
+
     <label for="email">{{ contact.email }}</label>
     <input
-      type="text"
-      id="email"
+      type="email"
       name="email"
       placeholder="Write your email"
       v-model="email"
+      required
     />
+
     <label for="message">{{ contact.message }}</label>
     <textarea
       name="message"
@@ -63,13 +80,12 @@ function capitalize(text: string): string {
       cols="auto"
       placeholder="Write your message"
       v-model="message"
+      required
     />
-    <DarkButton
-      @click="sendEmail()"
-      :text="contact.sendMessage"
-      icon-name="plane"
-    />
-  </div>
+    <button type="submit">
+      <DarkButton :text="contact.sendMessage" icon-name="plane" />
+    </button>
+  </form>
 </template>
 
 <style scoped lang="scss">
@@ -84,7 +100,6 @@ function capitalize(text: string): string {
   }
   &:deep(.button) {
     align-self: end;
-    margin-top: 20px;
   }
   & label {
     margin-top: 15px;
@@ -103,6 +118,13 @@ function capitalize(text: string): string {
     &:focus {
       border: 2px solid $grey-dark;
     }
+  }
+  textarea {
+    margin-bottom: 20px;
+  }
+  button {
+    width: fit-content;
+    height: fit-content;
   }
 }
 </style>
