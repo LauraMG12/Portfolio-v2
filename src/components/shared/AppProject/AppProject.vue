@@ -28,7 +28,7 @@ function toggleOverlayStatus(): void {
   isOverlayExpanded.value = !isOverlayExpanded.value;
 }
 
-const pillColor = computed(() => (isMobileDevice.value ? "light" : "dark"));
+const pillColor = computed(() => (isMobileDevice.value ? "light" : "white"));
 
 watch(isMobileDevice, () => {
   if (!isMobileDevice.value) {
@@ -140,13 +140,16 @@ watch(isMobileDevice, () => {
       position: relative;
       white-space: nowrap;
       align-items: end;
+      padding: 0 15px;
       height: 45px;
       width: 100%;
       gap: 10px;
-      padding: 0 15px;
       mask: $white-mask;
       -webkit-maskmask: $white-mask;
       cursor: grab;
+      @media screen and (max-width: $breackpoint-small) {
+        justify-content: center;
+      }
     }
   }
   & .project-content {

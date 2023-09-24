@@ -8,7 +8,7 @@ interface AppPillProps {
   name?: string;
   iconName?: IconType;
   shouldHideText?: boolean;
-  color: "dark" | "light";
+  color: "dark" | "light" | "white";
 }
 const props = defineProps<AppPillProps>();
 const iconSize = computed(() =>
@@ -44,6 +44,10 @@ const iconSize = computed(() =>
   &.light {
     background-color: $grey-light;
     color: $black;
+  }
+  &.white {
+    background-color: $white;
+    color: $grey-dark;
   }
   & .pill-text {
     font-size: $font-size-p-mobile;
