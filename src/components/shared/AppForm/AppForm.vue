@@ -34,8 +34,12 @@ function capitalize(text: string): string {
 }
 
 const WEB3FORMS_ACCESS_KEY = "93c5dc5e-42e0-47b5-9436-b71bff45b79a";
+const loading = ref<boolean>(false);
+const success = ref<boolean>(false);
+const error = ref<boolean>(false);
 
 async function submitForm() {
+  loading.value = true;
   const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {
@@ -49,9 +53,8 @@ async function submitForm() {
     }),
   });
   const result = await response.json();
-  if (result.success) {
-    console.log(result);
-  }
+  loading.value = false;
+  result.success ? (success.value = true) : (error.value = true);
 }
 </script>
 
@@ -82,8 +85,17 @@ async function submitForm() {
       v-model="message"
       required
     />
-    <button type="submit">
-      <DarkButton :text="contact.sendMessage" icon-name="plane" />
+    <button
+      type="submit"
+      class="submit-button"
+      :disabled="loading || error || success"
+    >
+      <DarkButton
+        :text="success ? 'Success' : error ? 'Error' : contact.sendMessage"
+        :icon-name="success ? 'success' : error ? 'error' : 'plane'"
+        :is-loading="loading"
+        :background-color="success ? 'blue-dark' : error ? 'orange' : undefined"
+      />
     </button>
   </form>
 </template>
@@ -122,9 +134,14 @@ async function submitForm() {
   textarea {
     margin-bottom: 20px;
   }
-  button {
+
+  .submit-button {
     width: fit-content;
     height: fit-content;
+    &:disabled,
+    :deep(.button) {
+      cursor: default;
+    }
   }
 }
 </style>

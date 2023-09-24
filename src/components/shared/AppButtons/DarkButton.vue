@@ -2,6 +2,7 @@
 import { computed } from "vue";
 
 import SvgIcon from "../SvgIcon/SvgIcon.vue";
+import AppLoadingDots from "../AppLoading/AppLoadingDots.vue";
 import { IconType } from "../SvgIcon/SvgIconHelper";
 
 import { isSmallDevice } from "../../../state/AppState";
@@ -10,6 +11,8 @@ interface AppButtonProps {
   text: string;
   iconName?: IconType;
   href?: string;
+  isLoading?: boolean;
+  backgroundColor?: "blue-dark" | "orange";
 }
 const props = defineProps<AppButtonProps>();
 
@@ -25,13 +28,15 @@ const mobileIconSize = computed(() =>
     role="button"
     class="button"
     :href="props.href"
+    :class="[props.backgroundColor]"
   >
+    <AppLoadingDots v-if="props.isLoading" type="white" />
     <SvgIcon
-      v-if="props.iconName"
+      v-if="props.iconName && !props.isLoading"
       :name="props.iconName"
       :size="mobileIconSize"
     />
-    <p class="button-text">
+    <p v-if="props.text && !props.isLoading" class="button-text">
       {{ props.text }}
     </p>
   </a>
@@ -55,6 +60,12 @@ const mobileIconSize = computed(() =>
     @media (hover: hover) {
       background-color: $grey;
     }
+  }
+  &.blue-dark {
+    background-color: $blue-dark;
+  }
+  &.orange {
+    background-color: $orange;
   }
 }
 </style>
