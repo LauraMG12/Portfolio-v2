@@ -139,7 +139,7 @@ watch(isMobileDevice, () => {
       display: flex;
       position: relative;
       white-space: nowrap;
-      align-items: end;
+      align-items: flex-end;
       padding: 0 15px;
       height: 45px;
       width: 100%;
