@@ -23,6 +23,7 @@ const ICON_TYPE = [
   "logo",
   "mail",
   "mysql",
+  "netlify",
   "nodejs",
   "plane",
   "redirect",
@@ -64,6 +65,7 @@ export const ICON_TYPE_MAP: Record<IconType, string> = {
   logo: "Logo",
   mail: "Mail",
   mysql: "MySQL",
+  netlify: "Netlify",
   nodejs: "NodeJS",
   plane: "PaperPlane",
   redirect: "Redirect",
@@ -262,6 +264,12 @@ export const SVG_ICON_DEFAULT_SETTINGS: Record<
     height: 24,
   },
   mysql: {
+    color: "currentColor",
+    colorProperty: "fill",
+    width: 20,
+    height: 20,
+  },
+  netlify: {
     color: "currentColor",
     colorProperty: "fill",
     width: 20,

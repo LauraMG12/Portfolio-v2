@@ -75,6 +75,7 @@ export const technologies: TechnologiesSectionInfo = {
       technologies: [
         { name: "Bitbucket", iconName: "bitbucket" },
         { name: "Github", iconName: "githubTech" },
+        { name: "Netlify", iconName: "netlify" },
         { name: "Git", iconName: "git" },
         { name: "NodeJs", iconName: "nodejs" },
         { name: "Express", iconName: "express" },
