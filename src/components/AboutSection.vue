@@ -14,7 +14,7 @@ function getImgPath(imageName: string) {
 }
 
 function openCV(): void {
-  window.open("CV.pdf");
+  // window.open("CV.pdf");
 }
 </script>
 
