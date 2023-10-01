@@ -27,7 +27,11 @@ export const experience: ExperienceSectionInfo = {
         companyLogo: ["sembo.webp"],
         period: "August 2022 - currently",
         description: `Travel industry`,
-        details: ["example", "example", "example"],
+        details: [
+          "Good practices and SOLID Principles",
+          "CI/CD and SCRUM",
+          "Multidisciplinary and international environment",
+        ],
       },
     },
     {
@@ -37,7 +41,7 @@ export const experience: ExperienceSectionInfo = {
         companyLogo: ["udemy.webp", "frontend-masters.webp"],
         period: "August 2021 - currently",
         description: `Autodidact`,
-        details: ["example", "example", "example"],
+        details: ["Organisation", "Quick learning", "Problem solving"],
       },
     },
     {
@@ -48,7 +52,7 @@ export const experience: ExperienceSectionInfo = {
         companyLogo: ["jc-mc.webp"],
         period: "April 2022 - August 2022",
         description: `Consultancy`,
-        details: ["example", "example", "example"],
+        details: ["TDD", "UI/UX", "Teamwork"],
       },
     },
   ],

@@ -19,7 +19,7 @@ interface SvgIconProps {
 const props = defineProps<SvgIconProps>();
 
 const settings = computed(() =>
-  transformSvgPropsFormat(props.name, props.color, props.size)
+  transformSvgPropsFormat(props.name, props.color, props.size, props.translate)
 );
 const iconPath = computed(() => {
   const name = ICON_TYPE_MAP[props.name];

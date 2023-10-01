@@ -30,6 +30,8 @@ const isGroupOpened = ref<boolean>(true);
 function toggleGroupInfoVisibility(): void {
   isGroupOpened.value = !isGroupOpened.value;
 }
+const translatePiniaIcon = { x: 10, y: 0 };
+const translateIcon = { x: 2, y: 0 };
 </script>
 
 <template>
@@ -53,7 +55,14 @@ function toggleGroupInfoVisibility(): void {
           <SvgIcon
             :name="technology.iconName"
             :size="iconsSize"
-            :translate="{ x: 5, y: 0 }"
+            :translate="
+              technology.iconName === 'pinia'
+                ? translatePiniaIcon
+                : technology.iconName === 'html' ||
+                  technology.iconName === 'css'
+                ? translateIcon
+                : undefined
+            "
           />
           <p class="technology-name">{{ technology.name }}</p>
         </div>

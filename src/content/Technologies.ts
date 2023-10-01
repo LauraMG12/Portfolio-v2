@@ -35,6 +35,7 @@ export const technologies: TechnologiesSectionInfo = {
         { name: "JavaScript", iconName: "js" },
         { name: "TypeScript", iconName: "ts" },
         { name: "Vue3", iconName: "vue" },
+        { name: "Pinia", iconName: "pinia" },
         { name: "Jest", iconName: "jest" },
         { name: "Vitest", iconName: "vitest" },
         { name: "Cypress", iconName: "cypress" },
@@ -75,7 +76,6 @@ export const technologies: TechnologiesSectionInfo = {
       technologies: [
         { name: "Bitbucket", iconName: "bitbucket" },
         { name: "Github", iconName: "githubTech" },
-        { name: "Netlify", iconName: "netlify" },
         { name: "Git", iconName: "git" },
         { name: "NodeJs", iconName: "nodejs" },
         { name: "Express", iconName: "express" },

@@ -71,7 +71,7 @@ watch(isMobileDevice, () => {
           <img
             alt="Sembo logo"
             class="sembo-logo"
-            :src="getImgPath('descarga.webp')"
+            :src="getImgPath('sembo1.webp')"
           />
         </div>
       </div>
@@ -80,17 +80,30 @@ watch(isMobileDevice, () => {
           {{ information.description }}
         </p>
         <div class="project-buttons-container">
-          <DarkButton
-            v-if="information.codeTo"
-            text="Code"
-            icon-name="github"
-          />
-          <SimpleButton
-            text="Run"
-            :color="props.color"
-            :class="{ 'to-right': !information.codeTo }"
-            icon-name="redirect"
-          />
+          <a
+            aria-label="Open project code"
+            unselectable="on"
+            target="_blank"
+            :href="information.codeTo"
+          >
+            <DarkButton
+              v-if="information.codeTo"
+              text="Code"
+              icon-name="github"
+            />
+          </a>
+          <a
+            aria-label="Open project page"
+            unselectable="on"
+            target="_blank"
+            :href="information.runTo"
+          >
+            <SimpleButton
+              text="Run"
+              :color="props.color"
+              icon-name="redirect"
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -274,10 +287,6 @@ watch(isMobileDevice, () => {
       }
     }
   }
-}
-.to-right {
-  left: 100%;
-  transform: translateX(-100%);
 }
 @keyframes scrollText {
   from {

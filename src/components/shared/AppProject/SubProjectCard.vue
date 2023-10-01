@@ -16,7 +16,14 @@ function getImgPath(imageName: string) {
 </script>
 
 <template>
-  <div class="card" :class="{ colored: isTouchDevice() }">
+  <a
+    class="card"
+    :class="{ colored: isTouchDevice() }"
+    aria-label="Open subproject code"
+    unselectable="on"
+    target="_blank"
+    :href="information.runTo"
+  >
     <img alt="project image" class="image" :src="projectImage" />
     <div class="card-content">
       <div class="card-header">
@@ -37,7 +44,7 @@ function getImgPath(imageName: string) {
         <SvgIcon name="github" :size="{ width: 30, height: 30 }" />
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <style scoped lang="scss">
