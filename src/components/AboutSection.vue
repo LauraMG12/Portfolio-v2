@@ -12,6 +12,10 @@ const iconSize = { width: 30, height: 30 };
 function getImgPath(imageName: string) {
   return require(`@/assets/${imageName}.webp`);
 }
+
+function openCV(): void {
+  window.open("CV.pdf");
+}
 </script>
 
 <template>
@@ -32,7 +36,7 @@ function getImgPath(imageName: string) {
           {{ about.about }}
         </p>
         <div class="links-container">
-          <DarkButton text="Open CV" icon-name="download" />
+          <DarkButton text="Open CV" icon-name="download" @click="openCV()" />
           <div class="circle-links">
             <div class="link">
               <a
