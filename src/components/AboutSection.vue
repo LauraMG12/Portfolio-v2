@@ -13,9 +13,9 @@ function getImgPath(imageName: string) {
   return require(`@/assets/${imageName}.webp`);
 }
 
-function openCV(): void {
-  window.open("CV.pdf");
-}
+// function openCV(): void {
+//   window.open("CV.pdf");
+// }
 </script>
 
 <template>
